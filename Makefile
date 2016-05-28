@@ -6,34 +6,22 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/05/27 18:21:56 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/05/29 01:53:42 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -g
 CC		= gcc $(FLAGS)
 INCS 	= -I./incs -I./libft/includes
 LIBS 	= ./libft
 LANGAGE	= c
 
-NAME	= lem-in
+NAME	= fdf
 
 SRC_DIR = srcs
 OBJ_DIR = objs
 
-LIST 	= ft_lemin \
-ft_lemin_error \
-ft_lemin_prun \
-ft_lemin_free \
-ft_lemin_addlink \
-ft_lemin_roads \
-ft_lemin_ascii \
-ft_lemin_output \
-ft_lemin_rcouples \
-ft_lemin_icouples \
-ft_lemin_size \
-ft_lemin_print \
-ft_lemin_addbox
+LIST 	= ft_fdf
 
 SRC := $(addprefix $(SRC_DIR)/, $(addsuffix .$(LANGAGE), $(LIST)))
 OBJ := $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(LIST)))
@@ -57,7 +45,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.$(LANGAGE)
 
 test: $(NAME)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] start"
-	@./$(NAME) < ./maps/basic.map
+	@./$(NAME) < ./maps/fdf
 
 clean:
 	@make clean -C $(LIBS)
@@ -74,11 +62,11 @@ fclean: clean2
 	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] bin deleted"
 
 leaks: $(NAME) -leaks
-#leaks: test
+#leaks: $(NAME) test
 
 -leaks:
-	@-valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(NAME) < maps/basic.map
+	@-valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(NAME) < maps/fdf
 
 re: fclean libft $(NAME)
 
-.PHONY: all clean clean2 fclean re libft test
+.PHONY: all clean clean2 fclean re libft test leaks
