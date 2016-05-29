@@ -6,11 +6,12 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/05/29 01:58:00 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/05/29 22:04:31 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LEMIN_H
-# define FT_LEMIN_H
+#ifndef FT_FDF_H
+# define FT_FDF_H
+# include "mlx.h"
 
 #endif

@@ -6,16 +6,18 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/05/29 01:53:42 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/05/29 22:24:54 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS	= -Wall -Wextra -Werror -g
 CC		= gcc $(FLAGS)
-INCS 	= -I./incs -I./libft/includes
-LIBS 	= ./libft
+INCS 	= -I./incs -I./libft/includes -I/usr/X11/include
+LIBS	= ./libft
+LIBFT 	= -L$(FLIBFT) -lft
+LIBMLX	= -L/usr/X11/lib -lX11 -lmlx -lXext -framework OpenGL -framework AppKit
 LANGAGE	= c
-
+#gcc -I /usr/X11/include -g -L/usr/X11/lib -lX11 -lmlx -lXext -framework OpenGL -framework AppKit <fichier(s) .c>
 NAME	= fdf
 
 SRC_DIR = srcs
@@ -36,7 +38,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBS)
-	$(CC) $(OBJ) -o $@ -L$(LIBS) -lft
+	$(CC) $(OBJ) -o $@ $(INCS) $(LIBFT) $(LIBMLX) $(FLAGS)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] created"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.$(LANGAGE)
