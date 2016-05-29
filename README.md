@@ -1,5 +1,5 @@
 # [ FDF ]
-## Path finding algo
+## MiniLibX wireframe project
 - Langage: C
 - see docs/fdf.pdf for more
 - Date: June 2016
@@ -7,7 +7,7 @@
 ![alt tag](https://github.com/nesthub/c_lemin/raw/master/docs/lemin.png)
 
 ## About
-Drawing wireframe with map input
+Using the school lib "MiniLibXDrawing" to draw wireframe with map input
 
 ## repo map
 | repo path | description |
