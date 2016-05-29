@@ -6,12 +6,13 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/05/29 22:04:31 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/05/29 23:44:39 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FDF_H
 # define FT_FDF_H
+# include "libft.h"
 # include "mlx.h"
 
 #endif
