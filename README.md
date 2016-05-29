@@ -7,7 +7,7 @@
 ![alt tag](https://github.com/nesthub/c_lemin/raw/master/docs/lemin.png)
 
 ## About
-Drawing fdf(a passer en anglais ^^') with map input
+Drawing wireframe with map input
 
 ## repo map
 | repo path | description |
@@ -16,4 +16,5 @@ Drawing fdf(a passer en anglais ^^') with map input
 | incs/				 | headers location				 |
 | libft/			 | libft.a project <a href="https://github.com/nesthub/c_libft" target="_blank">here</a> |
 | srcs/				 | sources						 |
+| maps/				 | ressources map						 |
 | auteur			 | 42 login file				 |
