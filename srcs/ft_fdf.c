@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/05/31 04:54:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/05/31 15:39:28 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,15 @@ int		main(void)
 {
 	t_data	d;
 
-	d.x = 221;
-	d.y = 303;
+	d.x = 100;
+	d.y = 100;
 	mlx_run(&d, 0);
 
 	ft_printf("BEFORE DRAW: X: %d\tY: %d\n", d.x, d.y);
-	line(&d, 43, 108);
+	line(&d, 200, 100);
+	line(&d, 200, 200);
+	line(&d, 100, 200);
+	line(&d, 100, 100);
 	ft_printf("AFTER DRAW: X: %d\tY: %d\n", d.x, d.y);
 	mlx_run(&d, 1);
 	return (0);
