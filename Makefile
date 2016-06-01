@@ -6,16 +6,16 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/01 11:11:54 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/01 19:24:53 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS	=
 CC		= gcc $(FLAGS)
-INCS 	= -I./incs -I./libft/includes -I/usr/X11/include
+INCS 	= -I./incs -I./libft/includes
 LIBS	= ./libft
 LIBFT 	= -L$(LIBS) -lft
-LIBMLX	= -L/usr/X11/lib -lX11 -lmlx -lXext -framework OpenGL -framework AppKit
+LIBMLX	= -L./minilibx -lmlx -L/usr/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit
 LANGAGE	= c
 NAME	= fdf
 
@@ -23,10 +23,11 @@ SRC_DIR = srcs
 OBJ_DIR = objs
 
 LIST 	= ft_fdf \
-		ft_mlx_input \
+		ft_fdf_background \
+		ft_mlx_loop \
+		ft_mlx_hook \
 		ft_mlx_draw \
 		ft_mlx_handler \
-		ft_mlx_img \
 
 SRC := $(addprefix $(SRC_DIR)/, $(addsuffix .$(LANGAGE), $(LIST)))
 OBJ := $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(LIST)))
@@ -41,7 +42,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBS)
-	$(CC) $(OBJ) -o $@ $(INCS) $(LIBFT) $(LIBMLX) $(FLAGS)
+	$(CC) $(OBJ) -o $@ $(FLAGS) $(INCS) $(LIBFT) $(LIBMLX)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] created"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.$(LANGAGE)
@@ -62,6 +63,7 @@ clean2:
 	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] $(OBJ_DIR) folder deleted"
 
 fclean: clean2
+	@/bin/rm -rf *.dSYM
 	@make fclean -C $(LIBS)
 	@/bin/rm -f $(NAME)
 	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] bin deleted"

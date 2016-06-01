@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf_struct.h                                    :+:      :+:    :+:   */
+/*   ft_fdf_background.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/05/31 04:17:14 by mlinhard         ###   ########.fr       */
+/*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
+/*   Updated: 2016/06/01 17:36:57 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FDF_STRUCT_H
-# define FT_FDF_STRUCT_H
+#include "ft_fdf.h"
 
-typedef struct		s_data
+void	sBackground(t_data *d, t_img *b)
 {
-	void			*mlx;
-	void			*win;
-	int				x;
-	int				y;
-}					t_data;
-
-typedef struct		s_line
-{
-	int				dx;
-	int				sx;
-	int				dy;
-	int				sy;
-	int				err;
-	int				e2;
-}					t_line;
-
-#endif
+	b->img = mlx_new_image(d->mlx, WIN_X, WIN_Y);
+	b->str = mlx_get_data_addr(b->img, &b->bpp, &b->sl
+								, &b->end);
+	b->i = -4;
+	while ((b->i += 4) < (b->sl * WIN_Y))
+	{
+		b->str[b->i] = 0;
+		b->str[b->i + 1] = 0;
+		b->str[b->i + 2] = 255;
+		b->str[b->i + 3] = 0;
+	}
+	mlx_put_image_to_window(d->mlx, d->win, b->img, 0, 0);
+}

@@ -6,11 +6,16 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:14:09 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 11:11:08 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/01 18:03:34 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
+
+int		abs(int i)
+{
+	return ((i < 0) ? i * -1 : i);
+}
 
 void line(t_data *d, int x2, int y2)
 {

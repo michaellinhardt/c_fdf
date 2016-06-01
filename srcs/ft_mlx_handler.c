@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:09:39 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 11:09:40 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/01 19:26:27 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ void	mlx_handler(t_data *d, int step)
 	if (step == 0)
 	{
 		d->mlx = mlx_init();
-		d->win = mlx_new_window(d->mlx, 400, 400, "MLX BITCH");
+		d->win = mlx_new_window(d->mlx, WIN_X, WIN_Y, WIN_TITLE);
 	}
 	if (step == 1)
 	{
-		mlx_key_hook(d->win, input_key, (void *)d);
-		mlx_mouse_hook(d->win, input_mouse, (void *)d);
+		mlx_hook(d->win, 2, (1L<<0), &keyp_hook, d);
+		mlx_hook(d->win, 3, (1L<<1), &keyr_hook, d);
+		mlx_hook(d->win, 4, (1L<<2), &mousep_hook, d);
+		mlx_hook(d->win, 5, (1L<<3), &mouser_hook, d);
+		mlx_loop_hook(d->mlx, loop_hook, d);
 		mlx_loop(d->mlx);
 	}
 }

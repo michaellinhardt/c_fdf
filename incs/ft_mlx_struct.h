@@ -1,21 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.h                                           :+:      :+:    :+:   */
+/*   ft_mlx_struct.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 16:56:30 by mlinhard         ###   ########.fr       */
+/*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
+/*   Updated: 2016/06/01 16:57:30 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FDF_H
-# define FT_FDF_H
-# include "mlx.h"
-# include "libft.h"
-# include "ft_mlx.h"
+#ifndef FT_FDF_STRUCT_H
+# define FT_FDF_STRUCT_H
 
-void	sBackground(t_data *d, t_img *b);
+typedef struct		s_img
+{
+	void			*img;
+	char			*str;
+	int				bpp;
+	int				sl;
+	int				end;
+	int				i;
+}					t_img;
+
+typedef struct		s_data
+{
+	void			*mlx;
+	void			*win;
+	t_img			bkg;
+	int				x;
+	int				y;
+}					t_data;
+
+typedef struct		s_line
+{
+	int				dx;
+	int				sx;
+	int				dy;
+	int				sy;
+	int				err;
+	int				e2;
+}					t_line;
 
 #endif
