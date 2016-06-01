@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:14:09 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 18:03:34 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/01 19:58:38 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ int		abs(int i)
 	return ((i < 0) ? i * -1 : i);
 }
 
-void line(t_data *d, int x2, int y2)
+void	img_pixel(char *img, int i, int alpha, int color)
+{
+	return ;
+}
+
+void	line(t_data *d, int x2, int y2)
 {
 	t_line	l;
 

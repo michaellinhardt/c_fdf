@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 19:24:43 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/01 19:58:01 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		keyp_hook(int key, t_data *d);
 int		mousep_hook(int btn, int x, int y, t_data *d);
 int		mouser_hook(int btn, int x, int y, t_data *d);
 
+void	img_pixel(char *img, int i, int alpha, int color);
 void 	line(t_data *d, int x2, int y2);
 
 #endif

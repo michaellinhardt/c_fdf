@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 16:57:30 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/01 19:36:54 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_data
 	void			*mlx;
 	void			*win;
 	t_img			bkg;
+	t_img			deg;
 	int				x;
 	int				y;
 }					t_data;
