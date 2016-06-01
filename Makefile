@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/05/31 19:30:56 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/01 11:11:54 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,10 @@ SRC_DIR = srcs
 OBJ_DIR = objs
 
 LIST 	= ft_fdf \
-		ft_fdf_draw \
-		ft_fdf_input \
+		ft_mlx_input \
+		ft_mlx_draw \
+		ft_mlx_handler \
+		ft_mlx_img \
 
 SRC := $(addprefix $(SRC_DIR)/, $(addsuffix .$(LANGAGE), $(LIST)))
 OBJ := $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(LIST)))
