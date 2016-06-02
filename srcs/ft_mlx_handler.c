@@ -6,11 +6,17 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:09:39 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 19:26:27 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/02 21:51:26 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
+
+int		red_cross(void)
+{
+	exit (0);
+	return (0);
+}
 
 void	mlx_handler(t_data *d, int step)
 {
@@ -21,10 +27,11 @@ void	mlx_handler(t_data *d, int step)
 	}
 	if (step == 1)
 	{
-		mlx_hook(d->win, 2, (1L<<0), &keyp_hook, d);
-		mlx_hook(d->win, 3, (1L<<1), &keyr_hook, d);
-		mlx_hook(d->win, 4, (1L<<2), &mousep_hook, d);
-		mlx_hook(d->win, 5, (1L<<3), &mouser_hook, d);
+		mlx_hook(d->win, 2, (1L<<0), keyp_hook, d);
+		mlx_hook(d->win, 3, (1L<<1), keyr_hook, d);
+		mlx_hook(d->win, 4, (1L<<2), mousep_hook, d);
+		mlx_hook(d->win, 5, (1L<<3), mouser_hook, d);
+		mlx_hook(d->win, 17, (1L<<0), &red_cross, d);
 		mlx_loop_hook(d->mlx, loop_hook, d);
 		mlx_loop(d->mlx);
 	}
