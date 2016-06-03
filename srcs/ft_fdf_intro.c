@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 04:42:02 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 04:46:43 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	intro_load_fade(t_data *d, t_img *i, int step)
 	i->i = -4;
 	while ((i->i += 4) < (i->sl * WIN_Y))
 	{
-		i->str[i->i] = 0;
-		i->str[i->i + 1] = 0;
-		i->str[i->i + 2] = 0;
+		i->str[i->i] = 255;
+		i->str[i->i + 1] = 255;
+		i->str[i->i + 2] = 255;
 		i->str[i->i + 3] = 0xFF;
 	}
 	ft_printf("ici\n");
@@ -39,11 +39,11 @@ void	intro_load(t_data *d, t_img *l, t_img *i)
 	if (!(i->str))
 		i->str = mlx_get_data_addr(i->img, &i->bpp, &i->sl, &i->end);
 	// mlx_clear_window(d->mlx, d->win);
-	mlx_put_image_to_window(d->mlx, d->win, l->img, 100, 178); // 228 = moitié
+mlx_put_image_to_window(d->mlx, d->win, l->img, 100, 178); // 228 = moitié
 	intro_load_fade(d, i, step);
 	// step += (step > -1) ?  : 0;
 	d->scene = (step == 0) ? INTRO_WAIT : INTRO_LOAD;
-	mlx_put_image_to_window(d->mlx, d->win, i->img, 0, 0);
+mlx_put_image_to_window(d->mlx, d->win, i->img, 0, 0);
 }
 
 // void	background(t_data *d, t_img *b)

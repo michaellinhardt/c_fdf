@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 03:47:56 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 04:45:10 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	scene_hook(t_data *d)
 {
 	if (d->scene == INTRO_LOAD)
-		intro_load(d, &d->img, &d->intro);
+		intro_load(d, &d->img, &d->logo);
 }
 
 int		loop_hook(t_data *d)
