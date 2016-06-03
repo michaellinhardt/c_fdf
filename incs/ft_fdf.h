@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 03:48:39 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 06:28:34 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include "ft_mlx.h"
 # define XPM_LOGO "./xpm/logo.xpm"
+# define INTRO_FADE_SPEED 2
 
 void	fdatabox(t_data *d);
 

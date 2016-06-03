@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/03 03:46:22 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/03 05:46:01 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CC		= gcc $(FLAGS)
 INCS 	= -I./incs -I./libft/includes
 LIBS	= ./libft
 LIBFT 	= -L$(LIBS) -lft
-LIBMLX	= -L./minilibx -lmlx -L/usr/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit
+LIBMLX	= -L./minilibx -lmlx -framework OpenGL -framework AppKit
+LIBMLX2	= -L./minilibx -lmlx -L/usr/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit
 LANGAGE	= c
 NAME	= fdf
 

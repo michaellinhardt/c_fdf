@@ -6,16 +6,22 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 19:24:05 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 05:51:30 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
+int		red_cross(void)
+{
+	exit (0);
+	return (0);
+}
+
 int		keyr_hook(int key, t_data *d)
 {
 	ft_printf("key_release: %d\n", key);
-	if (key == 65307 || key == 17)
+	if (key == 53)
 		mlx_destroy_window(d->mlx, d->win), exit(0);
 	return (0);
 }
