@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/01 19:24:53 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/03 01:07:33 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ SRC_DIR = srcs
 OBJ_DIR = objs
 
 LIST 	= ft_fdf \
-		ft_fdf_background \
+		ft_fdf_error \
+		ft_fdf_free \
+		ft_fdf_parse \
+		ft_fdf_interface \
 		ft_mlx_loop \
 		ft_mlx_hook \
 		ft_mlx_draw \

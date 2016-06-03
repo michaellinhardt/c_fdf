@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf_background.c                                :+:      :+:    :+:   */
+/*   ft_fdf_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 20:05:33 by mlinhard         ###   ########.fr       */
+/*   Created: 2016/06/02 22:11:26 by mlinhard          #+#    #+#             */
+/*   Updated: 2016/06/03 01:06:24 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void	sBackground(t_data *d, t_img *b)
+int		exit1(t_data *d, char *msg)
 {
-	b->img = mlx_new_image(d->mlx, WIN_X, WIN_Y);
-	b->str = mlx_get_data_addr(b->img, &b->bpp, &b->sl
-								, &b->end);
-	b->i = -4;
-	while ((b->i += 4) < (b->sl * WIN_Y))
-	{
-		b->str[b->i] = 0;
-		b->str[b->i + 1] = 0;
-		b->str[b->i + 2] = 255;
-		b->str[b->i + 3] = 0;
-	}
-	mlx_put_image_to_window(d->mlx, d->win, b->img, 0, 0);
+	fdatabox(d);
+	get_next_line(-10, NULL);
+	exit(0);
+	return (1);
+}
+
+int		exit2(t_data *d, char *del, char *msg)
+{
+	ft_strdel(&del);
+	fdatabox(d);
+	get_next_line(-10, NULL);
+	exit(0);
+	return (1);
 }

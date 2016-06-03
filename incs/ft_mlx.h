@@ -6,15 +6,15 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 19:58:01 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 02:49:55 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MLX_H
 # define FT_MLX_H
 # include "ft_mlx_struct.h"
-# define WIN_X 400
-# define WIN_Y 400
+# define WIN_X 1200
+# define WIN_Y 675
 # define WIN_TITLE "MLX_BITCH!!"
 
 void	mlx_handler(t_data *d, int step);

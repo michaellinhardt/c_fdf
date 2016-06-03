@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/01 17:44:44 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 02:56:12 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int		main(void)
 	t_data	d;
 
 	mlx_handler(&d, 0);
-	sBackground(&d, &d.bkg);
+	intro(&d, &d.intro);
+	// background(&d, &d.bkg);
 	// ft_printf("BEFORE DRAW: X: %d\tY: %d\n", d.x, d.y);
 	// line(&d, 200, 100);
 	// line(&d, 200, 200);
