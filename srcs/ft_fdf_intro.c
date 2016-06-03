@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 04:46:43 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 04:47:24 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	intro_load_fade(t_data *d, t_img *i, int step)
 	i->i = -4;
 	while ((i->i += 4) < (i->sl * WIN_Y))
 	{
-		i->str[i->i] = 255;
-		i->str[i->i + 1] = 255;
-		i->str[i->i + 2] = 255;
-		i->str[i->i + 3] = 0xFF;
+		i->str[i->i] = 100;
+		i->str[i->i + 1] = 100;
+		i->str[i->i + 2] = 100;
+		i->str[i->i + 3] = 0;
 	}
 	ft_printf("ici\n");
 }
