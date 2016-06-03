@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/03 01:07:33 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/03 03:46:22 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIST 	= ft_fdf \
 		ft_fdf_error \
 		ft_fdf_free \
 		ft_fdf_parse \
-		ft_fdf_interface \
+		ft_fdf_intro \
 		ft_mlx_loop \
 		ft_mlx_hook \
 		ft_mlx_draw \

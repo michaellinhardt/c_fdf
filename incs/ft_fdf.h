@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 02:26:19 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 03:48:39 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	fdatabox(t_data *d);
 
-void	intro(t_data *d, t_img *i);
+void	intro_load(t_data *d, t_img *l, t_img *i);
 void	background(t_data *d, t_img *b);
 
 int		exit1(t_data *d, char *msg);

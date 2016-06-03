@@ -6,18 +6,27 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 02:56:12 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 03:54:08 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
+void	data_init(t_data *d)
+{
+	d->scene = INTRO_LOAD;
+	d->img.img = NULL;
+	d->img.str = NULL;
+	d->logo.img = NULL;
+	d->logo.str = NULL;
+}
+
 int		main(void)
 {
 	t_data	d;
 
+	data_init(&d);
 	mlx_handler(&d, 0);
-	intro(&d, &d.intro);
 	// background(&d, &d.bkg);
 	// ft_printf("BEFORE DRAW: X: %d\tY: %d\n", d.x, d.y);
 	// line(&d, 200, 100);

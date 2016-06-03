@@ -6,12 +6,18 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 02:23:36 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/03 03:52:58 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FDF_STRUCT_H
 # define FT_FDF_STRUCT_H
+
+enum scene {
+	INTRO_LOAD,
+	INTRO_WAIT,
+	MAIN
+};
 
 typedef struct		s_img
 {
@@ -27,10 +33,11 @@ typedef struct		s_data
 {
 	void			*mlx;
 	void			*win;
-	t_img			bkg;
-	t_img			intro;
+	t_img			img;
+	t_img			logo;
 	int				x;
 	int				y;
+	enum scene		scene;
 }					t_data;
 
 typedef struct		s_line
