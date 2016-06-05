@@ -31,3 +31,4 @@ test_fdf
 
 # Debug files
 *.dSYM/
+.DS_Store
