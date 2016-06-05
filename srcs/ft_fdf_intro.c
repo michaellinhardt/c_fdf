@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/05 19:26:19 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/05 21:21:05 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,28 @@
 
 void	intro_menu(t_data *d, t_img *i, t_img *l)
 {
-	static int	fade = 0;
+	static int	fade = 255;
+	static int	dir = 6;
 
-
-	return ;
-	(void)i;
-	(void)d->logo;
-	(void)l;
+	if ((fade += dir) && fade >= 255)
+		dir = -6;
+	else if (fade <= 1)
+		dir = 6;
+	fade = (fade < 0) ? 0 : fade;
+	fade = (fade > 255) ? 255 : fade;
+	i->i = -4;
+	while ((i->i += 4) < (i->sl * WIN_Y))
+	{
+		i->str[i->i] = 0;
+		i->str[i->i + 1] = 0;
+		i->str[i->i + 2] = 0;
+		i->str[i->i + 3] = (i->i >= (4 * 485) + (i->sl * 450) &&
+				i->i <= (4 * 710) + (i->sl * 485)) ? fade : 255;
+	}
+	d->img.sl += 0;
+	l->sl += 0;
+	mlx_put_image_to_window(d->mlx, d->win, l->img, 0, 0);
+	mlx_put_image_to_window(d->mlx, d->win, i->img, 0, 0);
 }
 
 void	intro_load(t_data *d, t_img *i, t_img *l)
@@ -46,8 +61,8 @@ void	intro_load(t_data *d, t_img *i, t_img *l)
 		i->str[i->i + 2] = 255;
 		i->str[i->i + 3] = fade;
 	}
-	fade += (fade <= 253) ? INTRO_FADE_SPEED : 0;
-	d->scene = (fade >= 255) ? INTRO_MENU : INTRO_LOAD;
+	fade += ((fade + INTRO_FADE_SPEED) < 255) ? INTRO_FADE_SPEED : (fade * -1);
+	d->scene = (fade == 0) ? INTRO_MENU : INTRO_LOAD;
 	mlx_put_image_to_window(d->mlx, d->win, i->img, 0, 0);
 }
 
