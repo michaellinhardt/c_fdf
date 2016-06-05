@@ -6,11 +6,12 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/03 05:46:01 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/06 00:01:56 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS	=
+#FLAGS	= -Wall -Wextra -Werror
+FLAGS	= 
 CC		= gcc $(FLAGS)
 INCS 	= -I./incs -I./libft/includes
 LIBS	= ./libft

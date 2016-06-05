@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 05:50:57 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/06 00:22:08 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 void	data_init(t_data *d)
 {
 	d->scene = INTRO_LOAD;
-	d->img.img = NULL;
-	d->img.str = NULL;
-	d->logo.img = NULL;
-	d->logo.str = NULL;
+	d->img.img = (void *)NULL;
+	d->img.str = (char *)NULL;
+	d->intro.img = (void *)NULL;
+	d->intro.str = (char *)NULL;
+	d->pressany.img = (void *)NULL;
+	d->pressany.str = (char *)NULL;
 }
 
 int		main(void)

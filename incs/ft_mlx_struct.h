@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/05 19:22:57 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/05 22:26:41 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 enum scene {
 	INTRO_LOAD,
 	INTRO_MENU,
+	INTRO_OUT,
 	MAIN
 };
 
@@ -34,7 +35,8 @@ typedef struct		s_data
 	void			*mlx;
 	void			*win;
 	t_img			img;
-	t_img			logo;
+	t_img			intro;
+	t_img			pressany;
 	int				x;
 	int				y;
 	enum scene		scene;
