@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/03 03:52:58 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/05 19:22:57 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 enum scene {
 	INTRO_LOAD,
-	INTRO_WAIT,
+	INTRO_MENU,
 	MAIN
 };
 
