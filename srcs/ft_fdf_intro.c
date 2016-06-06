@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 00:39:51 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/06 20:06:42 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	intro_out(t_data *d, t_img *i, t_img *l, t_img *p)
 								&& !(p->img = (void *)NULL))
 	{
 		p->str = (char *)NULL;
-		d->scene = MAIN;
+		d->scene = MAIN_LOAD;
 		fade = 255;
 		return ;
 	}

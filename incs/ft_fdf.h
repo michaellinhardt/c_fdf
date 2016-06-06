@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 00:11:37 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/06 19:58:43 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@
 # define XPM_INTRO "./xpm/intro.xpm"
 # define XPM_PRESSANY "./xpm/pressanykey.xpm"
 # define XPM_PRESSANY2 "./xpm/pressanykey2.xpm"
+# define XPM_BKG "./xpm/background.xpm"
+# define XPM_MENU "./xpm/menu.xpm"
 # define INTRO_FADE_SPEED 2
 
 void	fdatabox(t_data *d);
+
+void	menu_open(t_data *d, t_img *i, t_menu *m);
+
+void	background_load(t_data *d, t_img *b, t_img *i);
 
 void	intro_out(t_data *d, t_img *i, t_img *l, t_img *p);
 void	intro_menu(t_data *d, t_img *i, t_img *l);
