@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:27:48 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 20:07:50 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/06 23:32:17 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	background_load(t_data *d, t_img *b, t_img *i)
 	fade += ((fade + (INTRO_FADE_SPEED * 3)) < 255) ?
 						(INTRO_FADE_SPEED * 3) : (fade * -1);
 	(fade == 0) ? (d->scene = MAIN) : 1;
+	(fade == 0) ? (d->loop = 0) : 1;
 	mlx_put_image_to_window(d->mlx, d->win, i->img, 0, 0);
 }

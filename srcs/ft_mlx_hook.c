@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 20:23:43 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/06 23:41:16 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ int		keyr_hook(int key, t_data *d)
 		exit1(0, d, "Exit!\n");
 	else if (d->scene == INTRO_MENU)
 		d->scene = INTRO_OUT;
-	else if (d->scene == MAIN && key == 49)
+	else if (d->scene == MAIN && key == 49 && (d->loop = 1))
+	{
 		d->menu.open = (d->menu.open == 1 && (d->menu.fade = 255)) ? 0 : 1;
+		d->loopstop = (d->menu.open == 0) ? 1 : 0;
+	}
 	return (0);
 	d->x += 0;
 }

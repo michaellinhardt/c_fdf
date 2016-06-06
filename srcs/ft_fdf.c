@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 20:17:13 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 00:59:18 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	data_init(t_data *d)
 	d->menu.fade = 255;
 	d->menu.x = 471;
 	d->menu.y = 117;
+	d->loop = 1;
 }
 
 int		main(void)

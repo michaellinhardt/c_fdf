@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 20:21:44 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 01:14:51 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void	scene_hook(t_data *d)
 
 int		loop_hook(t_data *d)
 {
+	if (USLEEP_BOOL && d->loop == 0 && !usleep(USLEEP_TIME))
+		return (0);
+	if (d->loopstop > 0 && --d->loopstop == 0)
+		d->loop = 0;
 	scene_hook(d);
 	return (0);
 }

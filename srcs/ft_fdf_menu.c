@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 20:23:03 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/06 23:34:25 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 	}
 	(m->fade > 0) ? (m->fade -= 5) : 0;
 	mlx_put_image_to_window(d->mlx, d->win, i->img, m->x, m->y);
+	(m->fade == 0) ? (d->loop = 0) : 1;
 }
