@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 00:59:18 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 02:21:54 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	data_init(t_data *d)
 {
 	ft_bzero(d, sizeof(t_data));
-	d->scene = INTRO_LOAD;
+	d->scene = SCENE_START;
 	d->img.img = (void *)NULL;
 	d->img.str = (char *)NULL;
 	d->intro.img = (void *)NULL;
@@ -27,6 +27,7 @@ void	data_init(t_data *d)
 	d->menu.fade = 255;
 	d->menu.x = 471;
 	d->menu.y = 117;
+	d->menu.lst = (t_lmenu *)NULL;
 	d->loop = 1;
 }
 
@@ -36,13 +37,6 @@ int		main(void)
 
 	data_init(&d);
 	mlx_handler(&d, 0);
-	// background(&d, &d.bkg);
-	// ft_printf("BEFORE DRAW: X: %d\tY: %d\n", d.x, d.y);
-	// line(&d, 200, 100);
-	// line(&d, 200, 200);
-	// line(&d, 100, 200);
-	// line(&d, 100, 100);
-	// ft_printf("AFTER DRAW: X: %d\tY: %d\n", d.x, d.y);
 	mlx_handler(&d, 1);
 	return (0);
 }

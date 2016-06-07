@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:26 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/05 22:19:24 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 02:15:22 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		exit1(int err, t_data *d, char *msg)
 	if (err != 0)
 		ft_printf("Error: %s\n", msg);
 	else
-		ft_printf("%s\n", msg);
+		ft_putendl(msg);
 	exit(0);
 	return (1);
 }
@@ -32,7 +32,7 @@ int		exit2(int err, t_data *d, char *del, char *msg)
 	if (err != 0)
 		ft_printf("Error: %s\n", msg);
 	else
-		ft_printf("%s\n", msg);
+		ft_putendl(msg);
 	exit(0);
 	return (1);
 }
