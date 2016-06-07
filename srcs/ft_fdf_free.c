@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:30:09 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 08:38:48 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ int		flmenu(t_data *d)
 void	fdestroyimg(t_data *d)
 {
 	(d->img.img) ? mlx_destroy_image(d->mlx, d->img.img)
-	+ w("🆓(t_img *)img: destroy") : w("🆓(t_img *)img: already empty");
+	+ W("🆓(t_img *)img: destroy") : W("🆓(t_img *)img: already empty");
 	(d->intro.img) ? mlx_destroy_image(d->mlx, d->intro.img)
-	+ w("🆓(t_img *)intro: destroy") : w("🆓(t_img *)intro: already empty");
+	+ W("🆓(t_img *)intro: destroy") : W("🆓(t_img *)intro: already empty");
 	(d->pressany.img) ? mlx_destroy_image(d->mlx, d->pressany.img)
-	+ w("🆓(t_img *)presany: destroy") : w("🆓(t_img *)presany: already empty");
+	+ W("🆓(t_img *)presany: destroy") : W("🆓(t_img *)presany: already empty");
 	(d->bkg.img) ? mlx_destroy_image(d->mlx, d->bkg.img)
-	+ w("🆓(t_img *)bkg: destroy") : w("🆓(t_img *)bkg: already empty");
+	+ W("🆓(t_img *)bkg: destroy") : W("🆓(t_img *)bkg: already empty");
 	(d->imenu.img) ? mlx_destroy_image(d->mlx, d->imenu.img)
-	+ w("🆓(t_img *)imenu: destroy") : w("🆓(t_img *)imenu: already empty");
+	+ W("🆓(t_img *)imenu: destroy") : W("🆓(t_img *)imenu: already empty");
 	(d->btnact.img) ? mlx_destroy_image(d->mlx, d->btnact.img)
-	+ w("🆓(t_img *)btnact: destroy") : w("🆓(t_img *)btnact: already empty");
+	+ W("🆓(t_img *)btnact: destroy") : W("🆓(t_img *)btnact: already empty");
 	(d->btnoff.img) ? mlx_destroy_image(d->mlx, d->btnoff.img)
-	+ w("🆓(t_img *)btnoff: destroy") : w("🆓(t_img *)btnoff: already empty");
+	+ W("🆓(t_img *)btnoff: destroy") : W("🆓(t_img *)btnoff: already empty");
 	(d->btnover.img) ? mlx_destroy_image(d->mlx, d->btnover.img)
-	+ w("🆓(t_img *)btnover: destroy") : w("🆓(t_img *)btnover: already empty");
+	+ W("🆓(t_img *)btnover: destroy") : W("🆓(t_img *)btnover: already empty");
 }
 
 void	fdatabox(t_data *d)

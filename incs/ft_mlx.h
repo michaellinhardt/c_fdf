@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:34:34 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 08:38:51 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define XPM_BKG "./xpm/background.xpm"
 # define XPM_MENU "./xpm/menu.xpm"
 
-# define W ft_printf
+# define W ft_putendl
 
 void	mlx_handler(t_data *d, int step);
 

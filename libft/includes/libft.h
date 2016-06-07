@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 13:43:36 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:34:47 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 08:39:15 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putnbr(int n);
-void				ft_putendl(char const *s);
+int					ft_putendl(char const *s);
 
 size_t				ft_strlen(const char *s);
 int					ft_strcmp(const char *s1, const char *s2);
