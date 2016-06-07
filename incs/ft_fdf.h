@@ -6,17 +6,19 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:36:44 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 10:42:34 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FDF_H
 # define FT_FDF_H
+# include <fcntl.h>
 # include <dirent.h>
 # include "mlx.h"
 # include "libft.h"
 # include "ft_mlx.h"
 
+t_data	*data(void);
 
 int		flmenu(t_data *d);
 void	fdatabox(t_data *d);

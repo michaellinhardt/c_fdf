@@ -6,11 +6,22 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:38:48 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 11:02:49 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
+
+void	fascii(int ico, char *type, char *data)
+{
+	wchar_t		uni;
+	char		msg[4096];
+
+	uni = (ico == 1) ? L'✅' : L'❌';
+	(ico == 1) ?
+	ft_memcpy(msg, "free'ed\0", 8) : ft_memcpy(msg, "already empty\0", 14);
+	ft_printf("  %C║ %13s ║ %-24s ║ %-24s ║\n", uni, type, data, msg);
+}
 
 int		flmenu(t_data *d)
 {
@@ -32,27 +43,34 @@ int		flmenu(t_data *d)
 
 void	fdestroyimg(t_data *d)
 {
-	(d->img.img) ? mlx_destroy_image(d->mlx, d->img.img)
-	+ W("🆓(t_img *)img: destroy") : W("🆓(t_img *)img: already empty");
-	(d->intro.img) ? mlx_destroy_image(d->mlx, d->intro.img)
-	+ W("🆓(t_img *)intro: destroy") : W("🆓(t_img *)intro: already empty");
-	(d->pressany.img) ? mlx_destroy_image(d->mlx, d->pressany.img)
-	+ W("🆓(t_img *)presany: destroy") : W("🆓(t_img *)presany: already empty");
-	(d->bkg.img) ? mlx_destroy_image(d->mlx, d->bkg.img)
-	+ W("🆓(t_img *)bkg: destroy") : W("🆓(t_img *)bkg: already empty");
-	(d->imenu.img) ? mlx_destroy_image(d->mlx, d->imenu.img)
-	+ W("🆓(t_img *)imenu: destroy") : W("🆓(t_img *)imenu: already empty");
-	(d->btnact.img) ? mlx_destroy_image(d->mlx, d->btnact.img)
-	+ W("🆓(t_img *)btnact: destroy") : W("🆓(t_img *)btnact: already empty");
-	(d->btnoff.img) ? mlx_destroy_image(d->mlx, d->btnoff.img)
-	+ W("🆓(t_img *)btnoff: destroy") : W("🆓(t_img *)btnoff: already empty");
-	(d->btnover.img) ? mlx_destroy_image(d->mlx, d->btnover.img)
-	+ W("🆓(t_img *)btnover: destroy") : W("🆓(t_img *)btnover: already empty");
+	fascii(((d->img.img) ? 1 : 0), "t_img *", "d->img.img");
+	(d->img.img) ? mlx_destroy_image(d->mlx, d->img.img) : 0;
+	fascii(((d->intro.img) ? 1 : 0), "t_img *", "d->intro.img");
+	(d->intro.img) ? mlx_destroy_image(d->mlx, d->intro.img) : 0;
+	fascii(((d->pressany.img) ? 1 : 0), "t_img *", "d->pressany.img");
+	(d->pressany.img) ? mlx_destroy_image(d->mlx, d->pressany.img) : 0;
+	fascii(((d->bkg.img) ? 1 : 0), "t_img *", "d->bkg.img");
+	(d->bkg.img) ? mlx_destroy_image(d->mlx, d->bkg.img) : 0;
+	fascii(((d->imenu.img) ? 1 : 0), "t_img *", "d->imenu.img");
+	(d->imenu.img) ? mlx_destroy_image(d->mlx, d->imenu.img) : 0;
+	fascii(((d->btnact.img) ? 1 : 0), "t_img *", "d->btnact.img");
+	(d->btnact.img) ? mlx_destroy_image(d->mlx, d->btnact.img) : 0;
+	fascii(((d->btnoff.img) ? 1 : 0), "t_img *", "d->btnoff.img");
+	(d->btnoff.img) ? mlx_destroy_image(d->mlx, d->btnoff.img) : 0;
+	fascii(((d->btnover.img) ? 1 : 0), "t_img *", "d->btnover.img");
+	(d->btnover.img) ? mlx_destroy_image(d->mlx, d->btnover.img) : 0;
 }
 
 void	fdatabox(t_data *d)
 {
+	pascii(ASC_FREEDATA);
+	fascii(((d->map) ? 1 : 0), "char *", "d->map");
 	ft_strdel(&d->map);
+	fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
 	flmenu(d);
+	fascii(1, "t_gnl *", "gnl->fd");
+	get_next_line(-10, NULL);
 	fdestroyimg(d);
+	ft_printf("  🎼╚═══════════════╩══════════════════════");
+	ft_printf("════╩══════════════════════════╝\n");
 }

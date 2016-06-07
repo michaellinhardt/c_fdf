@@ -6,11 +6,18 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 02:54:17 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 10:42:43 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
+
+t_data	*data(void)
+{
+	static t_data d;
+
+	return (&d);
+}
 
 void	data_init(t_data *d, int argc, char **argv)
 {
@@ -37,10 +44,11 @@ void	data_init(t_data *d, int argc, char **argv)
 
 int		main(int argc, char **argv)
 {
-	t_data	d;
+	t_data	*d;
 
-	data_init(&d, argc, argv);
-	mlx_handler(&d, 0);
-	mlx_handler(&d, 1);
+	d = data();
+	data_init(d, argc, argv);
+	mlx_handler(d, 0);
+	mlx_handler(d, 1);
 	return (0);
 }

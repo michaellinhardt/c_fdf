@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:38:51 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 10:52:30 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@
 # define XPM_BKG "./xpm/background.xpm"
 # define XPM_MENU "./xpm/menu.xpm"
 
+# define ASC_FREEDATA "./ascii/freedata"
+# define ASC_EXIT_0 "./ascii/exit0"
+# define ASC_EXIT_1 "./ascii/exit1"
+
 # define W ft_putendl
 
 void	mlx_handler(t_data *d, int step);
@@ -43,5 +47,10 @@ int		mousep_hook(int btn, int x, int y, t_data *d);
 int		mouser_hook(int btn, int x, int y, t_data *d);
 
 void 	line(t_data *d, int x2, int y2);
+
+int		pascii(char *path);
+int		pasciimsg(char *msg, int color);
+void	pasciiclose(void);
+void	pasciiopen(int i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 02:48:15 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 10:58:28 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int		red_cross(void)
 {
-	exit (0);
+	t_data *d;
+
+	d = data();
+	exit1(0, d, "by clic on red cross");
 	return (0);
 }
 
@@ -22,7 +25,7 @@ int		keyr_hook(int key, t_data *d)
 {
 	ft_printf("key_release: %d\n", key);
 	if (key == 53)
-		exit1(0, d, "Exit!\n");
+		exit1(0, d, "by pressing echap");
 	else if (d->scene == INTRO_MENU)
 		d->scene = INTRO_OUT;
 	else if (d->scene == MAIN && key == 49 && (d->loop = 1))
