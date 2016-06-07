@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 10:52:30 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 11:15:07 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define ASC_FREEDATA "./ascii/freedata"
 # define ASC_EXIT_0 "./ascii/exit0"
 # define ASC_EXIT_1 "./ascii/exit1"
+# define ASC_FDFINIT "./ascii/fdfinit"
 
 # define W ft_putendl
 
