@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 03:07:49 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 08:18:52 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	fdestroyimg(t_data *d)
 	(d->pressany.img) ? mlx_destroy_image(d->mlx, d->pressany.img) : 1;
 	(d->bkg.img) ? mlx_destroy_image(d->mlx, d->bkg.img) : 1;
 	(d->imenu.img) ? mlx_destroy_image(d->mlx, d->imenu.img) : 1;
+	(d->btnact.img) ? mlx_destroy_image(d->mlx, d->btnact.img) : 1;
+	(d->btnoff.img) ? mlx_destroy_image(d->mlx, d->btnoff.img) : 1;
+	(d->btnover.img) ? mlx_destroy_image(d->mlx, d->btnover.img) : 1;
 }
 
 void	fdatabox(t_data *d)
