@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 13:43:36 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:21:34 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 08:26:33 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putchar(char c);
 int					ft_putstr(char const *s);
+int					w(char const *s);
 void				ft_putnbr(int n);
 void				ft_putendl(char const *s);
 
