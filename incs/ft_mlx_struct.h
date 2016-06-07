@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 02:40:53 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 02:50:47 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,18 @@ typedef struct		s_data
 {
 	void			*mlx;
 	void			*win;
+	char			*map;
 	char			loop;
 	char			loopstop;
-	int				frame;
 	t_img			img;
 	t_img			intro;
 	t_img			pressany;
 	t_img			bkg;
 	t_img			imenu;
+	t_menu			menu;
 	int				x;
 	int				y;
 	enum scene		scene;
-	t_menu			menu;
 }					t_data;
 
 typedef struct		s_line

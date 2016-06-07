@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 02:48:09 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/07 03:07:49 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int		flmenu(t_data *d)
 	lst = d->menu.lst;
 	while (lst)
 	{
-		ft_printf("free: %s\n", lst->path);
 		del = lst;
 		lst = lst->p;
 		ft_memdel((void **)&del);
@@ -31,8 +30,18 @@ int		flmenu(t_data *d)
 	return (1);
 }
 
+void	fdestroyimg(t_data *d)
+{
+	(d->img.img) ? mlx_destroy_image(d->mlx, d->img.img) : 1;
+	(d->intro.img) ? mlx_destroy_image(d->mlx, d->intro.img) : 1;
+	(d->pressany.img) ? mlx_destroy_image(d->mlx, d->pressany.img) : 1;
+	(d->bkg.img) ? mlx_destroy_image(d->mlx, d->bkg.img) : 1;
+	(d->imenu.img) ? mlx_destroy_image(d->mlx, d->imenu.img) : 1;
+}
+
 void	fdatabox(t_data *d)
 {
-	return ;
-	d->img.sl += 0;
+	ft_strdel(&d->map);
+	flmenu(d);
+	fdestroyimg(d);
 }
