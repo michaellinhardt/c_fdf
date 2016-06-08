@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 09:46:04 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 09:50:45 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define LINE_GREEN "\e[93m║\e[92m"
 # define LINE_BLUE "\e[93m║\e[36m"
 # define LINE_GREEN2 "\e[93m║\e[32m"
+# define LINE_MAG "\e[93m║\e[35m"
 # define LINE_YEL "\e[93m║"
 
 # define LOG_ITOW 0

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 08:33:27 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 09:51:06 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void	data_ascii2(t_data *d)
 {
 	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
 	ft_putendl("═══════════════════╣");
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG NEW IMG", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG NEW IMG", LINE_GREEN2
 	, ((LOG_NEWI) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG IMG TO WIN", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG IMG TO WIN", LINE_GREEN2
 	, ((LOG_ITOW) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG XPM TO IMG", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG XPM TO IMG", LINE_GREEN2
 	, ((LOG_XTOI) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG MOUSE INPUT", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG MOUSE INPUT", LINE_GREEN2
 	, ((LOG_MOUSE) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG KEY INPUT", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG KEY INPUT", LINE_GREEN2
 	, ((LOG_KEY) ? "true" : "false"), LINE_YEL);
 }
 
@@ -33,25 +33,25 @@ void	data_ascii(t_data *d, int argc, char **argv)
 	static char *strnum[] = { "INTRO_LOAD", "INTRO_MENU", "INTRO_OUT"
 	, "MAIN_LOAD", "MAIN" };
 
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "WIN_TITLE"
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "WIN_TITLE"
 	, LINE_GREEN2, WIN_TITLE, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "SCENE_START"
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "SCENE_START"
 	, LINE_GREEN2, strnum[SCENE_START], LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "INTRO_FADE_SPEED"
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "INTRO_FADE_SPEED"
 	, LINE_GREEN2, INTRO_FADE_SPEED, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "ARGV[1]", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "ARGV[1]", LINE_GREEN2
 	, ((argv[1]) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "MAP_DIR", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "MAP_DIR", LINE_GREEN2
 	, MAP_DIR, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "WIN_X", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "WIN_X", LINE_GREEN2
 	, WIN_X, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "WIN_Y", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "WIN_Y", LINE_GREEN2
 	, WIN_Y, LINE_YEL);
 	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
 	ft_putendl("═══════════════════╣");
-	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "USLEEP_BOOL"
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "USLEEP_BOOL"
 	, LINE_GREEN2, USLEEP_BOOL, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "USLEEP_TIME"
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "USLEEP_TIME"
 	, LINE_GREEN2, USLEEP_TIME, LINE_YEL);
 	data_ascii2(d);
 }
