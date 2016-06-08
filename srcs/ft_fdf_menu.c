@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 10:05:16 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:47:52 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,11 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 	}
 	closedir(dir);
 	new = d->menu.lst;
+	d->menu.size = d->i;
 	while (((new->id = d->i--) || 1) && new->n)
 		new = new->n;
 	d->menu.lst = new;
-
-
-	new = d->menu.lst;
-	while (new)
-		ft_printf("id: %d\n", new->id, new = new->p);
-
+	d->menu.lst->start = 1;
 	return (1);
 }
 
@@ -59,7 +55,7 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 	}
 	(m->fade > 0) ? (m->fade -= 15) : 0;
 	itow(i->img, m->xpos, m->ypos, "menu xpm");
-	(m->fade == 0 && l(1, "MENU", "OPEN")
+	(m->fade == 0 && l(1, "MENU", "OPEN") && l(1, "READDIR", MAP_DIR)
 	&& menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL))
 	 	? (d->loop = 0) : 1;
 }
