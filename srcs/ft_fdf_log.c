@@ -9,7 +9,7 @@ int		l(int ico, char *name, char *info)
 	(ico == 3) ? (uni = L'🖥') : (wchar_t)NULL;
 	(ico == 4) ? (uni = L'📗') : (wchar_t)NULL;
 	(ico == 5) ? (uni = L'🎦') : (wchar_t)NULL;
-	(ico == 6) ? (uni = L'📗') : (wchar_t)NULL;
+	(ico == 6) ? (uni = L'🖱') : (wchar_t)NULL;
 	(ico == 7) ? (uni = L'➿') : (wchar_t)NULL;
 	(ico == 8) ? (uni = L'❎') : (wchar_t)NULL;
 	(ico == 9) ? (uni = L'🆕') : (wchar_t)NULL;
@@ -27,12 +27,14 @@ int		l2(int ico, char *name, char *info, int val)
 {
 	wchar_t		uni;
 
+	if (ico == 2 && !LOG_KEY)
+		return (1);
 	(ico == 1) ? (uni = L'📗') : (wchar_t)NULL;
 	(ico == 2) ? (uni = L'🕹') : (wchar_t)NULL;
 	(ico == 3) ? (uni = L'🖥') : (wchar_t)NULL;
 	(ico == 4) ? (uni = L'📗') : (wchar_t)NULL;
 	(ico == 5) ? (uni = L'📗') : (wchar_t)NULL;
-	(ico == 6) ? (uni = L'📗') : (wchar_t)NULL;
+	(ico == 6) ? (uni = L'🖱') : (wchar_t)NULL;
 	(ico == 7) ? (uni = L'➿') : (wchar_t)NULL;
 	ft_printf(" %C %s %20s  %s  %-4d%-43s %s\n", uni, LINE_BLUE, name
 	, LINE_GREEN2, val, info, LINE_YEL);
@@ -60,5 +62,15 @@ int		l3(int ico)
 		ft_printf(" %C %s %20s  %s  %23s %-23s %s\n", uni, LINE_BLUE
 		, "SCENE CHANGE"
 	, LINE_GREEN2, strnum[d->scenelast], strnum[d->scene], LINE_YEL);
+	return (1);
+}
+
+int		l4(int btn, int x, int y, char *action)
+{
+	if (!LOG_MOUSE)
+		return (1);
+	ft_printf(" 🖱 %s %20s  %s  x %-5d y %-5d%-32s %s\n", LINE_BLUE
+	, ((btn == 1) ? "MOUSE LEFT" : "MOUSE RIGHT")
+	, LINE_GREEN2, x, y, action, LINE_YEL);
 	return (1);
 }

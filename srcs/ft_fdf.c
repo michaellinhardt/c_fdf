@@ -6,11 +6,27 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 07:01:47 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 08:33:27 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
+
+void	data_ascii2(t_data *d)
+{
+	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
+	ft_putendl("═══════════════════╣");
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG NEW IMG", LINE_GREEN2
+	, ((LOG_NEWI) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG IMG TO WIN", LINE_GREEN2
+	, ((LOG_ITOW) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG XPM TO IMG", LINE_GREEN2
+	, ((LOG_XTOI) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG MOUSE INPUT", LINE_GREEN2
+	, ((LOG_MOUSE) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "LOG KEY INPUT", LINE_GREEN2
+	, ((LOG_KEY) ? "true" : "false"), LINE_YEL);
+}
 
 void	data_ascii(t_data *d, int argc, char **argv)
 {
@@ -37,6 +53,7 @@ void	data_ascii(t_data *d, int argc, char **argv)
 	, LINE_GREEN2, USLEEP_BOOL, LINE_YEL);
 	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "USLEEP_TIME"
 	, LINE_GREEN2, USLEEP_TIME, LINE_YEL);
+	data_ascii2(d);
 }
 
 t_data	*data(void)

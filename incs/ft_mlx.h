@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 08:17:05 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 09:46:04 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@
 # define LOG_ITOW 0
 # define LOG_XTOI 1
 # define LOG_NEWI 1
+# define LOG_KEY 1
+# define LOG_MOUSE 1
 
 # define W ft_putendl
 
@@ -73,5 +75,6 @@ void	pasciiopen(int i);
 int		l(int ico, char *name, char *info);
 int		l2(int ico, char *name, char *info, int val);
 int		l3(int ico);
+int		l4(int btn, int x, int y, char *action);
 
 #endif

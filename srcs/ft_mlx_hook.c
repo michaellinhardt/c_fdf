@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 07:22:32 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 09:45:58 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ int		keyr_hook(int key, t_data *d)
 
 int		keyp_hook(int key, t_data *d)
 {
-	// l2(2, "UNKNOW", "(press) nothing to do", key);
+	l2(2, "PRESS", "-> (int) key", key);
 	return (0);
 	d->x += 0;
 }
 
 int		mousep_hook(int btn, int x, int y, t_data *d)
 {
-	// ft_printf("MOUSEPress: X.: %d\t\tY.: %d\n", x, y);
+	l4(btn, x, y, "PRESS");
 	return (0);
 	d->x += 0;
 	btn += 0;
@@ -53,7 +53,7 @@ int		mousep_hook(int btn, int x, int y, t_data *d)
 
 int		mouser_hook(int btn, int x, int y, t_data *d)
 {
-	// ft_printf("MOUSERelease: X.: %d\t\tY.: %d\n", x, y);
+	l4(btn, x, y, "RELEASE");
 	return (0);
 	d->x += 0;
 	btn += 0;

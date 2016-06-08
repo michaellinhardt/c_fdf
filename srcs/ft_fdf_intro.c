@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 08:16:28 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 09:00:15 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	intro_out(t_data *d, t_img *i, t_img *l, t_img *p)
 	}
 	else if (!(p->img))
 		p->img = xtoi(p, XPM_PRESSANY2);
-	if (!(p->str))
-		p->str = mlx_get_data_addr(p->img, &p->bpp, &p->sl, &p->end);
 	intro_out_fade(i, fade);
 	itow(l->img, 0, 0, "intro logo");
 	itow(p->img, 500, 455, "press any key red");
