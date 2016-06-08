@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 07:01:30 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:03:26 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_lmenu
 {
 	char			path[4096];
 	char			start;
+	int				id;
 	struct s_lmenu	*p;
 	struct s_lmenu	*n;
 }					t_lmenu;
@@ -34,8 +35,8 @@ typedef struct		s_menu
 	int				open;
 	int				fade;
 	t_lmenu			*lst;
-	int				x;
-	int				y;
+	int				xpos;
+	int				ypos;
 }					t_menu;
 
 typedef struct		s_img
@@ -61,6 +62,7 @@ typedef struct		s_data
 	t_img			bkg;
 	t_img			imenu;
 	t_menu			menu;
+	int				i;
 	int				x;
 	int				y;
 	t_img			btnact;

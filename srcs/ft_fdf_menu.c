@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 08:02:43 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:05:16 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 {
-	(d->menu.lst) ? flmenu(d) : 0;
+	(!(d->i = 0) && d->menu.lst) ? flmenu(d) : 0;
 	if (!(dir = opendir(MAP_DIR)))
 		exit1(1, d, "Cant open maps dir.");
 	while ((f = readdir(dir)))
@@ -22,7 +22,7 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 		if (f->d_namlen > 4095 || !ft_strcmp(".", f->d_name)
 		|| !ft_strcmp("..", f->d_name) || !ft_strcmp(".DS_Store", f->d_name))
 			continue ;
-		if (!(new = (t_lmenu *)ft_memalloc(sizeof(t_lmenu))))
+		if (++d->i && !(new = (t_lmenu *)ft_memalloc(sizeof(t_lmenu))))
 			exit1(1, d, "Cant malloc t_lmenu struct.");
 		ft_memcpy(new->path, f->d_name, f->d_namlen);
 		if (!d->menu.lst && (d->menu.lst = new))
@@ -33,9 +33,15 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 	}
 	closedir(dir);
 	new = d->menu.lst;
-	while (new->n)
+	while (((new->id = d->i--) || 1) && new->n)
 		new = new->n;
 	d->menu.lst = new;
+
+
+	new = d->menu.lst;
+	while (new)
+		ft_printf("id: %d\n", new->id, new = new->p);
+
 	return (1);
 }
 
@@ -52,7 +58,7 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 			i->str[i->i + 3] = m->fade;
 	}
 	(m->fade > 0) ? (m->fade -= 15) : 0;
-	itow(i->img, m->x, m->y, "menu xpm");
+	itow(i->img, m->xpos, m->ypos, "menu xpm");
 	(m->fade == 0 && l(1, "MENU", "OPEN")
 	&& menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL))
 	 	? (d->loop = 0) : 1;

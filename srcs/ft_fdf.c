@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 09:51:06 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 10:03:40 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	data_ascii2(t_data *d)
 {
 	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
 	ft_putendl("═══════════════════╣");
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG NEW IMG", LINE_GREEN2
-	, ((LOG_NEWI) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG IMG TO WIN", LINE_GREEN2
-	, ((LOG_ITOW) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG XPM TO IMG", LINE_GREEN2
-	, ((LOG_XTOI) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG MOUSE INPUT", LINE_GREEN2
-	, ((LOG_MOUSE) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG KEY INPUT", LINE_GREEN2
-	, ((LOG_KEY) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG NEW IMG"
+	,LINE_GREEN2 , ((LOG_NEWI) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG IMG TO WIN"
+	,LINE_GREEN2 , ((LOG_ITOW) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG XPM TO IMG"
+	,LINE_GREEN2 , ((LOG_XTOI) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG MOUSE INPUT"
+	,LINE_GREEN2 , ((LOG_MOUSE) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG KEY INPUT"
+	,LINE_GREEN2 , ((LOG_KEY) ? "true" : "false"), LINE_YEL);
 }
 
 void	data_ascii(t_data *d, int argc, char **argv)
@@ -77,8 +77,8 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->imenu.img = (void *)NULL;
 	d->imenu.str = (char *)NULL;
 	d->menu.fade = 255;
-	d->menu.x = 471;
-	d->menu.y = 117;
+	d->menu.xpos = 471;
+	d->menu.ypos = 117;
 	d->menu.lst = (t_lmenu *)NULL;
 	d->map = (argc == 2) ? ft_strdup(argv[1]) : (char *)NULL;
 	d->loop = 1;
