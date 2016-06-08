@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 11:13:45 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 04:58:23 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ void	fascii(int ico, char *type, char *data)
 {
 	wchar_t		uni;
 	char		msg[4096];
+	char		bar[100];
 
-	uni = (ico == 1) ? L'✅' : L'❌';
+	uni = (ico == 1) ? L'✅' : L'❕';
 	(ico == 1) ?
-	ft_memcpy(msg, "free'ed\0", 8) : ft_memcpy(msg, "already empty\0", 14);
-	ft_printf("  %C║ %13s ║ %-24s ║ %-24s ║\n", uni, type, data, msg);
+	ft_memcpy(msg, "free\0", 8) : ft_memcpy(msg, "-\0", 14);
+	ft_memcpy(bar, ((ico == 1) ? LINE_GREEN : LINE_GREY), 13);
+	ft_printf(" %C %s %12s %s %-23s %s %-28s %s\e[93m\n", uni, bar, type, bar, data
+																, bar, msg, bar);
 }
 
 int		flmenu(t_data *d)
@@ -71,6 +74,4 @@ void	fdatabox(t_data *d)
 	fascii(1, "t_gnl *", "gnl->fd");
 	get_next_line(-10, NULL);
 	fdestroyimg(d);
-	ft_putstr("  🎼╚═══════════════╩══════════════════════");
-	ft_putendl("════╩══════════════════════════╝");
 }

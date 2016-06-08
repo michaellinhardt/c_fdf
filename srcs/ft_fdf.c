@@ -6,16 +6,25 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 11:39:04 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 05:03:52 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void	data_ascii_break(void)
+void	l(int ico, char *name, char *info)
 {
-	ft_putstr("  🎼╠═══════════════════════╬════════════════════════════════");
-	ft_putendl("═══════════════════╣");
+	wchar_t		uni;
+
+	(ico == 1) ? (uni = L'📗') : (wchar_t)NULL;
+	(ico == 2) ? (uni = L'🕹') : (wchar_t)NULL;
+	(ico == 3) ? (uni = L'📗') : (wchar_t)NULL;
+	(ico == 4) ? (uni = L'📗') : (wchar_t)NULL;
+	(ico == 5) ? (uni = L'📗') : (wchar_t)NULL;
+	(ico == 6) ? (uni = L'📗') : (wchar_t)NULL;
+	(ico == 7) ? (uni = L'➿') : (wchar_t)NULL;
+	ft_printf(" %C %s %20s  %s  %-47s %s\n", uni, LINE_BLUE, name
+	, LINE_GREEN2, info, LINE_YEL);
 }
 
 void	data_ascii(t_data *d, int argc, char **argv)
@@ -23,30 +32,26 @@ void	data_ascii(t_data *d, int argc, char **argv)
 	static char *strnum[] = { "INTRO_LOAD", "INTRO_MENU", "INTRO_OUT"
 	, "MAIN_LOAD", "MAIN" };
 
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "WIN_TITLE", WIN_TITLE);
-	ft_printf("  🎼║ %20s  ║  %-48d ║\n", "ARGC", argc);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "ARGV[1]", ((argv[1]) ? "true" : "false"));
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "SCENE_START", strnum[SCENE_START]);
-	ft_printf("  🎼║ %20s  ║  %-48d ║\n", "INTRO_FADE_SPEED", INTRO_FADE_SPEED);
-	ft_printf("  🎼║ %20s  ║  %-48d ║\n", "WIN_X", WIN_X);
-	ft_printf("  🎼║ %20s  ║  %-48d ║\n", "WIN_Y", WIN_Y);
-	data_ascii_break();
-	ft_printf("  🎼║ %20s  ║  %-48d ║\n", "USLEEP_BOOL", USLEEP_BOOL);
-	ft_printf("  🎼║ %20s  ║  %-48d ║\n", "USLEEP_TIME", USLEEP_TIME);
-	data_ascii_break();
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "MAP_DIR", MAP_DIR);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "XPM_INTRO", XPM_INTRO);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "XPM_PRESSANY", XPM_PRESSANY);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "XPM_PRESSANY2", XPM_PRESSANY2);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "XPM_BKG", XPM_BKG);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "XPM_MENU", XPM_MENU);
-	data_ascii_break();
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "ASC_FREEDATA", ASC_FREEDATA);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "ASC_EXIT_0", ASC_EXIT_0);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "ASC_EXIT_1", ASC_EXIT_1);
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "ASC_FDFINIT", ASC_FDFINIT);
-	data_ascii_break();
-	ft_printf("  🎼║ %20s  ║  %-48s ║\n", "D->LOOP", ((d->loop == 1) ? "true" : "false"));
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "WIN_TITLE"
+	, LINE_GREEN2, WIN_TITLE, LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "SCENE_START"
+	, LINE_GREEN2, strnum[SCENE_START], LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "INTRO_FADE_SPEED"
+	, LINE_GREEN2, INTRO_FADE_SPEED, LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "ARGV[1]", LINE_GREEN2
+	, ((argv[1]) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_BLUE, "MAP_DIR", LINE_GREEN2
+	, MAP_DIR, LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "WIN_X", LINE_GREEN2
+	, WIN_X, LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "WIN_Y", LINE_GREEN2
+	, WIN_Y, LINE_YEL);
+	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
+	ft_putendl("═══════════════════╣");
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "USLEEP_BOOL"
+	, LINE_GREEN2, USLEEP_BOOL, LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_BLUE, "USLEEP_TIME"
+	, LINE_GREEN2, USLEEP_TIME, LINE_YEL);
 }
 
 t_data	*data(void)
@@ -59,7 +64,7 @@ t_data	*data(void)
 void	data_init(t_data *d, int argc, char **argv)
 {
 	ft_bzero(d, sizeof(t_data));
-	d->scene = SCENE_START;
+	d->scene = INTRO_LOAD;
 	d->img.img = (void *)NULL;
 	d->img.str = (char *)NULL;
 	d->intro.img = (void *)NULL;
@@ -72,10 +77,7 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->menu.x = 471;
 	d->menu.y = 117;
 	d->menu.lst = (t_lmenu *)NULL;
-	if (argc == 2)
-		d->map = ft_strdup(argv[1]);
-	else
-		d->map = (char *)NULL;
+	d->map = (argc == 2) ? ft_strdup(argv[1]) : (char *)NULL;
 	d->loop = 1;
 }
 
@@ -85,10 +87,11 @@ int		main(int argc, char **argv)
 
 	d = data();
 	data_init(d, argc, argv);
+	pascii(ASC_LOGO);
+	(!d->map) ? pascii(ASC_USAGE) : 1;
 	pascii(ASC_FDFINIT);
 	data_ascii(d, argc, argv);
-	ft_putstr("  🎼╚═══════════════════════╩══════════════════════════════");
-	ft_putendl("═════════════════════╝");
+	pascii(ASC_LOGHOOK);
 	mlx_handler(d, 0);
 	mlx_handler(d, 1);
 	return (0);

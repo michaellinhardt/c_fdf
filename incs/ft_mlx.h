@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 11:15:07 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 05:09:35 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@
 # define ASC_EXIT_0 "./ascii/exit0"
 # define ASC_EXIT_1 "./ascii/exit1"
 # define ASC_FDFINIT "./ascii/fdfinit"
+# define ASC_LOGHOOK "./ascii/loghook"
+# define ASC_USAGE "./ascii/usage"
+# define ASC_LOGO "./ascii/logo"
+
+# define LINE_GREY "\e[93m║\e[90m"
+# define LINE_GREEN "\e[93m║\e[92m"
+# define LINE_BLUE "\e[93m║\e[36m"
+# define LINE_GREEN2 "\e[93m║\e[32m"
+# define LINE_YEL "\e[93m║"
 
 # define W ft_putendl
 
@@ -53,5 +62,7 @@ int		pascii(char *path);
 int		pasciimsg(char *msg, int color);
 void	pasciiclose(void);
 void	pasciiopen(int i);
+
+void	l(int ico, char *name, char *info);
 
 #endif

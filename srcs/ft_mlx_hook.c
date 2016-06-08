@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 10:58:28 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 05:04:03 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		red_cross(void)
 
 int		keyr_hook(int key, t_data *d)
 {
-	ft_printf("key_release: %d\n", key);
+	l(2, "RELEASE", "Key is release");
+	// ft_printf("key_release: %d\n", key);
 	if (key == 53)
 		exit1(0, d, "by pressing echap");
 	else if (d->scene == INTRO_MENU)
@@ -39,14 +40,15 @@ int		keyr_hook(int key, t_data *d)
 
 int		keyp_hook(int key, t_data *d)
 {
-	ft_printf("key_press..: %d\n", key);
+	l(2, "PRESS", "Key is pressed");
+	// ft_printf("key_press..: %d\n", key);
 	return (0);
 	d->x += 0;
 }
 
 int		mousep_hook(int btn, int x, int y, t_data *d)
 {
-	ft_printf("MOUSEPress: X.: %d\t\tY.: %d\n", x, y);
+	// ft_printf("MOUSEPress: X.: %d\t\tY.: %d\n", x, y);
 	return (0);
 	d->x += 0;
 	btn += 0;
@@ -54,7 +56,7 @@ int		mousep_hook(int btn, int x, int y, t_data *d)
 
 int		mouser_hook(int btn, int x, int y, t_data *d)
 {
-	ft_printf("MOUSERelease: X.: %d\t\tY.: %d\n", x, y);
+	// ft_printf("MOUSERelease: X.: %d\t\tY.: %d\n", x, y);
 	return (0);
 	d->x += 0;
 	btn += 0;

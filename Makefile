@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/07 08:51:42 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/07 13:04:39 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ C_BLUE	= "\033[34;1m"
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C $(LIBS)
+#@make -C $(LIBS)
 	$(CC) $(OBJ) -o $@ $(FLAGS) $(INCS) $(LIBFT) $(LIBMLX)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] created"
 
@@ -62,7 +62,7 @@ test: $(NAME)
 	@./$(NAME)
 
 clean:
-	@make clean -C $(LIBS)
+#@make clean -C $(LIBS)
 	@/bin/rm -rf $(OBJ_DIR)
 	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] $(OBJ_DIR) folder deleted"
 
@@ -72,7 +72,7 @@ clean2:
 
 fclean: clean2
 	@/bin/rm -rf *.dSYM
-	@make fclean -C $(LIBS)
+#@make fclean -C $(LIBS)
 	@/bin/rm -f $(NAME)
 	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] bin deleted"
 
