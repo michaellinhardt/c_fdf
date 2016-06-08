@@ -6,26 +6,11 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 05:03:52 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 07:01:47 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
-
-void	l(int ico, char *name, char *info)
-{
-	wchar_t		uni;
-
-	(ico == 1) ? (uni = L'📗') : (wchar_t)NULL;
-	(ico == 2) ? (uni = L'🕹') : (wchar_t)NULL;
-	(ico == 3) ? (uni = L'📗') : (wchar_t)NULL;
-	(ico == 4) ? (uni = L'📗') : (wchar_t)NULL;
-	(ico == 5) ? (uni = L'📗') : (wchar_t)NULL;
-	(ico == 6) ? (uni = L'📗') : (wchar_t)NULL;
-	(ico == 7) ? (uni = L'➿') : (wchar_t)NULL;
-	ft_printf(" %C %s %20s  %s  %-47s %s\n", uni, LINE_BLUE, name
-	, LINE_GREEN2, info, LINE_YEL);
-}
 
 void	data_ascii(t_data *d, int argc, char **argv)
 {
@@ -65,6 +50,7 @@ void	data_init(t_data *d, int argc, char **argv)
 {
 	ft_bzero(d, sizeof(t_data));
 	d->scene = INTRO_LOAD;
+	d->scenelast = d->scene;
 	d->img.img = (void *)NULL;
 	d->img.str = (char *)NULL;
 	d->intro.img = (void *)NULL;

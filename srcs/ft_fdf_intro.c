@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/06 20:06:42 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 08:16:28 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,14 @@ void	intro_out(t_data *d, t_img *i, t_img *l, t_img *p)
 		fade = 255;
 		return ;
 	}
-	else if (!(p->img) && !(p->img = mlx_xpm_file_to_image(d->mlx, XPM_PRESSANY2
-							, &p->sl, &p->end)))
-		exit1(1, d, "Cant load pressanykey2.xpm in data.pressanykey!");
+	else if (!(p->img))
+		p->img = xtoi(p, XPM_PRESSANY2);
 	if (!(p->str))
 		p->str = mlx_get_data_addr(p->img, &p->bpp, &p->sl, &p->end);
 	intro_out_fade(i, fade);
-	mlx_put_image_to_window(d->mlx, d->win, l->img, 0, 0);
-	mlx_put_image_to_window(d->mlx, d->win, p->img, 500, 455);
-	mlx_put_image_to_window(d->mlx, d->win, i->img, 0, 0);
+	itow(l->img, 0, 0, "intro logo");
+	itow(p->img, 500, 455, "press any key red");
+	itow(i->img, 0, 0, "fade out");
 }
 
 void	intro_menu(t_data *d, t_img *i, t_img *l)
@@ -62,16 +61,13 @@ void	intro_menu(t_data *d, t_img *i, t_img *l)
 		dir = 6;
 	fade = (fade < 0) ? 0 : fade;
 	fade = (fade > 255) ? 255 : fade;
-	if (!(i->img) && !(i->img = mlx_xpm_file_to_image(d->mlx, XPM_PRESSANY
-							, &i->sl, &i->end)))
-		exit1(1, d, "Cant load pressanykey.xpm in data.pressanykey!");
-	if (!(i->str))
-		i->str = mlx_get_data_addr(i->img, &i->bpp, &i->sl, &i->end);
+	if (!(i->img))
+		i->img = xtoi(i, XPM_PRESSANY);
 	i->i = -4;
 	while ((i->i += 4) < (i->sl * 22))
 		i->str[i->i + 3] = fade;
-	mlx_put_image_to_window(d->mlx, d->win, l->img, 0, 0);
-	mlx_put_image_to_window(d->mlx, d->win, i->img, 500, 455);
+	itow(l->img, 0, 0, "press any key white");
+	itow(i->img, 500, 455, "press any key blink");
 }
 
 void	intro_load(t_data *d, t_img *i, t_img *l)
@@ -80,14 +76,11 @@ void	intro_load(t_data *d, t_img *i, t_img *l)
 	int			width;
 	int			height;
 
-	if (!(l->img) && !(l->img = mlx_xpm_file_to_image(d->mlx, XPM_INTRO
-		, &width, &height)))
-		exit1(1, d, "Cant load intro.xpm in data.intro!");
-	if (!(i->img) && !(i->img = mlx_new_image(d->mlx, WIN_X, WIN_Y)))
-		exit1(1, d, "Cant load image in data.img!");
-	if (!(i->str))
-		i->str = mlx_get_data_addr(i->img, &i->bpp, &i->sl, &i->end);
-	mlx_put_image_to_window(d->mlx, d->win, l->img, 0, 0);
+	if (!(l->img))
+		l->img = xtoi(l, XPM_INTRO);
+	if (!(i->img))
+		i->img = newi(i, WIN_X, WIN_Y, "d->img");
+	itow(l->img, 0, 0, "intro screen");
 	i->i = -4;
 	while ((i->i += 4) < (i->sl * WIN_Y))
 	{
@@ -98,5 +91,5 @@ void	intro_load(t_data *d, t_img *i, t_img *l)
 	}
 	fade += ((fade + INTRO_FADE_SPEED) < 255) ? INTRO_FADE_SPEED : (fade * -1);
 	(fade == 0) ? (d->scene = INTRO_MENU) : 1;
-	mlx_put_image_to_window(d->mlx, d->win, i->img, 0, 0);
+	itow(i->img, 0, 0, "fade in");
 }

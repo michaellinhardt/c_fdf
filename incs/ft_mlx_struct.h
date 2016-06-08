@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 08:31:07 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 07:01:30 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct		s_data
 	t_img			btnoff;
 	t_img			btnover;
 	enum scene		scene;
+	enum scene		scenelast;
 }					t_data;
 
 typedef struct		s_line

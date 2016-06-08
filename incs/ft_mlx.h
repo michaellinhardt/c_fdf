@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 05:09:35 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 08:17:05 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,15 @@
 # define LINE_GREEN2 "\e[93m║\e[32m"
 # define LINE_YEL "\e[93m║"
 
+# define LOG_ITOW 0
+# define LOG_XTOI 1
+# define LOG_NEWI 1
+
 # define W ft_putendl
 
+void	*newi(t_img *img, int x, int y, char *name);
+void	*xtoi(t_img *img, char *path);
+int		itow(void *img, int x, int y, char *name);
 void	mlx_handler(t_data *d, int step);
 
 int		loop_hook(t_data *d);
@@ -63,6 +70,8 @@ int		pasciimsg(char *msg, int color);
 void	pasciiclose(void);
 void	pasciiopen(int i);
 
-void	l(int ico, char *name, char *info);
+int		l(int ico, char *name, char *info);
+int		l2(int ico, char *name, char *info, int val);
+int		l3(int ico);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 02:48:26 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 08:02:43 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 {
 	(d->menu.lst) ? flmenu(d) : 0;
-	ft_printf("menu load\n");
 	if (!(dir = opendir(MAP_DIR)))
 		exit1(1, d, "Cant open maps dir.");
 	while ((f = readdir(dir)))
@@ -42,11 +41,8 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 
 void	menu_open(t_data *d, t_img *i, t_menu *m)
 {
-	if (!(i->img) && !(i->img = mlx_xpm_file_to_image(d->mlx, XPM_MENU
-		, &i->sl, &i->end)))
-		exit1(1, d, "Cant load menu.xpm in data.menu!");
-	if (!(i->str))
-		i->str = mlx_get_data_addr(i->img, &i->bpp, &i->sl, &i->end);
+	if (!(i->img))
+		i->img = xtoi(i, XPM_MENU);
 	i->i = -4;
 	while ((i->i += 4) < (i->sl * WIN_Y))
 	{
@@ -56,8 +52,8 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 			i->str[i->i + 3] = m->fade;
 	}
 	(m->fade > 0) ? (m->fade -= 15) : 0;
-	mlx_put_image_to_window(d->mlx, d->win, i->img, m->x, m->y);
-	(m->fade == 0 && menu_data(d, (t_lmenu *)NULL, (DIR *)NULL
-	 													,(struct dirent *)NULL))
+	itow(i->img, m->x, m->y, "menu xpm");
+	(m->fade == 0 && l(1, "MENU", "OPEN")
+	&& menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL))
 	 	? (d->loop = 0) : 1;
 }

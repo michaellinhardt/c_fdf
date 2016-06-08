@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/07 02:14:11 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/08 07:38:50 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	scene_main(t_data *d, t_menu *m)
 {
-	mlx_put_image_to_window(d->mlx, d->win, d->bkg.img, 0, 0);
+	itow(d->bkg.img, 0, 0, "background");
 	(m->open == 1) ? menu_open(d, &d->imenu, m) : 1;
 }
 
@@ -38,6 +38,8 @@ int		loop_hook(t_data *d)
 		return (0);
 	if (d->loopstop > 0 && --d->loopstop == 0)
 		d->loop = 0;
+	if (d->scenelast != d->scene && l3(1))
+		d->scenelast = d->scene;
 	scene_hook(d);
 	return (0);
 }
