@@ -6,13 +6,13 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 10:59:31 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 11:00:34 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 11:01:59 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int		mo(int x1, y1, x2, y2)
+int		mo(int x1, int y1, int x2, int y2)
 {
 	t_data *d;
 

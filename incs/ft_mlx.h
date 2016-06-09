@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 11:01:11 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 11:01:50 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ int		l2(int ico, char *name, char *info, int val);
 int		l3(int ico);
 int		l4(int btn, int x, int y, char *action);
 
-int		mo(int x1, y1, x2, y2);
+int		mo(int x1, int y1, int x2, int y2);
 
 #endif
