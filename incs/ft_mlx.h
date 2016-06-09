@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 11:01:50 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 13:54:08 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define XPM_PRESSANY2 "./xpm/pressanykey2.xpm"
 # define XPM_BKG "./xpm/background.xpm"
 # define XPM_MENU "./xpm/menu.xpm"
+# define XPM_ARROWU1 "./xpm/arrowu1.xpm"
+# define XPM_ARROWU2 "./xpm/arrowu2.xpm"
+# define XPM_ARROWD1 "./xpm/arrowd1.xpm"
+# define XPM_ARROWD2 "./xpm/arrowd2.xpm"
 
 # define ASC_FREEDATA "./ascii/freedata"
 # define ASC_EXIT_0 "./ascii/exit0"
@@ -50,6 +54,9 @@
 # define LOG_NEWI 1
 # define LOG_KEY 1
 # define LOG_MOUSE 1
+
+# define C ft_memcpy
+# define CC &(int [6])
 
 # define W ft_putendl
 
@@ -81,6 +88,7 @@ int		l2(int ico, char *name, char *info, int val);
 int		l3(int ico);
 int		l4(int btn, int x, int y, char *action);
 
-int		mo(int x1, int y1, int x2, int y2);
+int		*x(enum coord coord);
+int		mo(enum coord coord);
 
 #endif

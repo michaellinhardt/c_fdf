@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 10:03:49 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 13:38:28 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_data	*data(void)
 void	data_init(t_data *d, int argc, char **argv)
 {
 	ft_bzero(d, sizeof(t_data));
-	d->scene = INTRO_LOAD;
+	d->scene = MAIN_LOAD;
 	d->scenelast = d->scene;
 	d->img.img = (void *)NULL;
 	d->img.str = (char *)NULL;
@@ -76,6 +76,8 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->pressany.str = (char *)NULL;
 	d->imenu.img = (void *)NULL;
 	d->imenu.str = (char *)NULL;
+	d->pressany.img = (void *)NULL;
+	d->pressany.str = (char *)NULL;
 	d->menu.fade = 255;
 	d->menu.xpos = 471;
 	d->menu.ypos = 117;
