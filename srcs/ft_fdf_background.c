@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:27:48 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 08:16:45 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:00:12 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	background_load(t_data *d, t_img *b, t_img *i)
 	fade += ((fade + (INTRO_FADE_SPEED * 3)) < 255) ?
 						(INTRO_FADE_SPEED * 3) : (fade * -1);
 	(fade == 0) ? (d->scene = MAIN) : 1;
-	(fade == 0) ? (d->loop = 0) : 1;
+	(fade == 0) ? (loop(0)) : 1;
 	itow(i->img, 0, 0, "fade in");
 }

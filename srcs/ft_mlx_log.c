@@ -6,11 +6,26 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 07:44:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 08:22:35 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:02:39 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
+
+int		loop(int step)
+{
+	t_data *d;
+
+	d = data();
+	if (step != 2)
+		d->loop = step;
+	else if (d->loop == 1)
+		d->loop = 0;
+	else
+		d->loop = 1;
+	l2(7, "MLX LOOP HOOK", "STATUS CHANGE", d->loop);
+	return (1);
+}
 
 int		itow(void *img, int x, int y, char *name)
 {

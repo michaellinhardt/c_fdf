@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 09:45:58 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:02:07 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		keyr_hook(int key, t_data *d)
 		exit1(0, d, "by pressing echap");
 	else if (d->scene == INTRO_MENU)
 		d->scene = INTRO_OUT;
-	else if (d->scene == MAIN && key == 49 && (d->loop = 1))
+	else if (d->scene == MAIN && key == 49 && loop(1))
 	{
 		d->menu.open = (d->menu.open == 1 && (d->menu.fade = 255)) ? 0 : 1;
 		d->loopstop = (d->menu.open == 0 && l(1, "MENU", "CLOSE")) ? 1 : 0;

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 10:49:05 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:03:49 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_data	*data(void)
 void	data_init(t_data *d, int argc, char **argv)
 {
 	ft_bzero(d, sizeof(t_data));
-	d->scene = MAIN_LOAD;
+	d->scene = INTRO_LOAD;
 	d->scenelast = d->scene;
 	d->img.img = (void *)NULL;
 	d->img.str = (char *)NULL;

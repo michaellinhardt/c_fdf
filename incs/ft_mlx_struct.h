@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 10:46:39 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:02:07 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ enum scene {
 typedef struct		s_lmenu
 {
 	char			path[4096];
-	char			start;
 	int				id;
 	struct s_lmenu	*p;
 	struct s_lmenu	*n;
@@ -35,6 +34,7 @@ typedef struct		s_menu
 	int				open;
 	int				fade;
 	t_lmenu			*lst;
+	t_lmenu			*start;
 	int				size;
 	int				xpos;
 	int				ypos;

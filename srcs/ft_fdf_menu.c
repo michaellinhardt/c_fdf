@@ -6,11 +6,16 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 10:47:52 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:02:07 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
+
+int		menu_btn(t_data *d, t_lmenu *m)
+{
+	return (1);
+}
 
 int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 {
@@ -37,7 +42,7 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 	while (((new->id = d->i--) || 1) && new->n)
 		new = new->n;
 	d->menu.lst = new;
-	d->menu.lst->start = 1;
+	d->menu.start = new;
 	return (1);
 }
 
@@ -56,6 +61,7 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 	(m->fade > 0) ? (m->fade -= 15) : 0;
 	itow(i->img, m->xpos, m->ypos, "menu xpm");
 	(m->fade == 0 && l(1, "MENU", "OPEN") && l(1, "READDIR", MAP_DIR)
-	&& menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL))
-	 	? (d->loop = 0) : 1;
+	&& menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL)
+	&& menu_btn(d, (t_lmenu *)NULL))
+	 	? (loop(0)) : 1;
 }

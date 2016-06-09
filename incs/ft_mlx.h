@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 09:50:45 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 09:59:34 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 
 # define W ft_putendl
 
+int		loop(int step);
 void	*newi(t_img *img, int x, int y, char *name);
 void	*xtoi(t_img *img, char *path);
 int		itow(void *img, int x, int y, char *name);
