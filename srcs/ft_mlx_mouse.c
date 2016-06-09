@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 10:59:31 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 13:59:11 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 14:38:12 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		*coordret1(enum coord c)
 
 	if (last == c || (last = c) == INIT)
 		return (i);
-	(c == ARROWU1) ? C(i, CC{ 678, 171, 678, 171, 710, 200 }, 24) : 0;
+	(c == ARROWU1) ? C(i, CC{ 678, 181, 678, 181, 708, 208 }, 24) : 0;
 	return (i);
 }
 

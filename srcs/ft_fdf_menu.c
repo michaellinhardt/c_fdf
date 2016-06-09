@@ -6,19 +6,25 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 13:51:26 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:10:55 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
+void	debug_mo(enum coord coord)
+{
+	line(x(coord)[2], x(coord)[3], x(coord)[4], x(coord)[5]);
+}
+
 int		menu_refresh(t_data *d, t_img *im, t_menu *m, t_lmenu *l)
 {
 
 	itow(im->img, m->xpos, m->ypos, "menu xpm");
-	ft_printf("%d\n", mo(ARROWU1));
-	// itow(xtoi(d->arrowu1, XPM_ARROWU1), 213, 60, "Arrow up");
-	// (l->n && ) ? itow()
+	((l->n || 1) && !mo(ARROWU1)) ? itow(xtoi(&d->arrowu1, XPM_ARROWU1), x(ARROWU1)[0], x(ARROWU1)[1], "Arrow up") : 1;
+	((l->n || 1) && mo(ARROWU1)) ? itow(xtoi(&d->arrowu2, XPM_ARROWU2), x(ARROWU1)[0], x(ARROWU1)[1], "Arrow up mouse over") : 1;
+	// debug_mo(ARROWU1);
+	loop(0);
 	return (1);
 }
 
@@ -67,6 +73,6 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 	itow(i->img, m->xpos, m->ypos, "menu xpm");
 	(m->fade == 0 && l(1, "MENU", "OPEN") && l(1, "READDIR", MAP_DIR)
 	&& menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL)
-	&& menu_refresh(d, i, &d->menu, d->menu.start))
+	&& menu_refresh(d, i, &d->menu, d->menu.start) && (m->open = 2))
 	 	? (loop(0)) : 1;
 }

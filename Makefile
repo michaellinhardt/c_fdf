@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/09 11:00:52 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/09 15:01:59 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ LIST 	= ft_fdf \
 		ft_fdf_intro \
 		ft_fdf_background \
 		ft_fdf_menu \
+		ft_fdf_menu_mouseover \
 		ft_fdf_ascii \
 		ft_fdf_log \
 		ft_mlx_loop \

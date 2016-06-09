@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 13:38:28 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 14:47:54 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->menu.ypos = 117;
 	d->menu.lst = (t_lmenu *)NULL;
 	d->map = (argc == 2) ? ft_strdup(argv[1]) : (char *)NULL;
+	d->menu.open = (argv[1]) ? 0 : 1;
+	d->menu.mo = INIT;
 	d->loop = 1;
 }
 

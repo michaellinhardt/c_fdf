@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:14:09 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 09:01:34 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 14:06:01 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,26 @@ void	img_pixel(char *img, int i, int alpha, int color)
 	return ;
 }
 
-void	line(t_data *d, int x2, int y2)
+void	line(int x1, int y1, int x2, int y2)
 {
+	static t_data	*d = NULL;
 	t_line	l;
 
-	l.dx = abs(x2 - d->x);
-	l.sx = d->x < x2 ? 1 : -1;
-	l.dy = abs(y2 - d->y);
-	l.sy = d->y < y2 ? 1 : -1;
+	(!d) ? d = data() : (t_data *)NULL;
+	l.dx = abs(x2 - x1);
+	l.sx = x1 < x2 ? 1 : -1;
+	l.dy = abs(y2 - y1);
+	l.sy = y1 < y2 ? 1 : -1;
 	l.err = (l.dx > l.dy ? l.dx : -l.dy) / 2;
 	while (42)
 	{
-		mlx_pixel_put(d->mlx, d->win, d->x, d->y, 0x00FFFFFF);
-		if (d->x == x2 && d->y == y2)
+		mlx_pixel_put(d->mlx, d->win, x1, y1, 0x00FFFFFF);
+		if (x1 == x2 && y1 == y2)
 			break ;
 		l.e2 = l.err;
 		if (l.e2 > -l.dx && ((l.err -= l.dy) || 1))
-			d->x += l.sx;
+			x1 += l.sx;
 		if (l.e2 < l.dy && ((l.err += l.dx) || 1))
-			d->y += l.sy;
+			y1 += l.sy;
 	}
 }

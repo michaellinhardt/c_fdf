@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 13:54:08 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 14:41:09 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		keyp_hook(int key, t_data *d);
 int		mousep_hook(int btn, int x, int y, t_data *d);
 int		mouser_hook(int btn, int x, int y, t_data *d);
 
-void 	line(t_data *d, int x2, int y2);
+void	line(int x1, int y1, int x2, int y2);
 
 int		pascii(char *path);
 int		pasciimsg(char *msg, int color);

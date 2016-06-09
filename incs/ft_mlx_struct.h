@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 13:37:23 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 14:47:51 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct		s_menu
 	int				size;
 	int				xpos;
 	int				ypos;
+	enum coord		mo;
 }					t_menu;
 
 typedef struct		s_img

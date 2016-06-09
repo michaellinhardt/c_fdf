@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 10:20:38 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:02:21 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		mousem_hook(int x, int y, t_data *d)
 	d->mx = x;
 	d->my = y;
 
+	if (d->menu.open == 2)
+		menu_mouseover(d, &d->menu);
 	return (0);
 }
 
@@ -29,7 +31,7 @@ int		keyr_hook(int key, t_data *d)
 		d->scene = INTRO_OUT;
 	else if (d->scene == MAIN && key == 49 && loop(1))
 	{
-		d->menu.open = (d->menu.open == 1 && (d->menu.fade = 255)) ? 0 : 1;
+		d->menu.open = (d->menu.open != 0 && (d->menu.fade = 255)) ? 0 : 1;
 		d->loopstop = (d->menu.open == 0 && l(1, "MENU", "CLOSE")) ? 1 : 0;
 	}
 	return (0);

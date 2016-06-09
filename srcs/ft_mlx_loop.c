@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 10:25:28 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 14:58:56 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	scene_main(t_data *d, t_menu *m)
 {
 	itow(d->bkg.img, 0, 0, "background");
 	(m->open == 1) ? menu_open(d, &d->imenu, m) : 1;
+	(m->open == 2) ? menu_refresh(d, &d->imenu, &d->menu, d->menu.start) : 1;
 }
 
 void	scene_hook(t_data *d)
