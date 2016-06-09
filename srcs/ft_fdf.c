@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 15:52:46 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 17:40:18 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,18 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->pressany.str = (char *)NULL;
 	d->imenu.img = (void *)NULL;
 	d->imenu.str = (char *)NULL;
-	d->pressany.img = (void *)NULL;
-	d->pressany.str = (char *)NULL;
+	d->btnoff.img = (void *)NULL;
+	d->btnoff.str = (char *)NULL;
+	d->btnover.img = (void *)NULL;
+	d->btnover.str = (char *)NULL;
+	d->arrowu1.img = (void *)NULL;
+	d->arrowu1.str = (char *)NULL;
+	d->arrowu2.img = (void *)NULL;
+	d->arrowu2.str = (char *)NULL;
+	d->arrowd1.img = (void *)NULL;
+	d->arrowd1.str = (char *)NULL;
+	d->arrowd2.img = (void *)NULL;
+	d->arrowd2.str = (char *)NULL;
 	d->menu.fade = 255;
 	d->menu.xpos = 471;
 	d->menu.ypos = 117;
@@ -86,6 +96,7 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->menu.open = (argv[1]) ? 0 : 1;
 	d->menu.mo = INIT;
 	d->loop = 1;
+	C(d->menu.btnpos, x(MENU), 24);
 }
 
 int		main(int argc, char **argv)

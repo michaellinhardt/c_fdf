@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 15:01:36 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 17:51:00 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_data	*data(void);
 int		flmenu(t_data *d);
 void	fdatabox(t_data *d);
 
-void	menu_mouseover(t_data *d, t_menu *m);
+void	menu_mouserelease(t_data *d, t_menu *m, int x, int y);
+void	menu_mouseover(t_data *d, t_menu *m, t_lmenu *l);
 
 int		menu_refresh(t_data *d, t_img *im, t_menu *m, t_lmenu *l);
 void	menu_open(t_data *d, t_img *i, t_menu *m);

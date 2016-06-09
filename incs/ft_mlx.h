@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 15:45:56 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 18:18:22 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define XPM_ARROWU2 "./xpm/arrowu2.xpm"
 # define XPM_ARROWD1 "./xpm/arrowd1.xpm"
 # define XPM_ARROWD2 "./xpm/arrowd2.xpm"
+# define XPM_BTNOFF "./xpm/btnoff.xpm"
+# define XPM_BTNOVER "./xpm/btnover.xpm"
 
 # define ASC_FREEDATA "./ascii/freedata"
 # define ASC_EXIT_0 "./ascii/exit0"
@@ -50,9 +52,9 @@
 # define LINE_YEL "\e[93m║"
 
 # define LOG_ITOW 0
-# define LOG_XTOI 0
-# define LOG_NEWI 0
-# define LOG_KEY 0
+# define LOG_XTOI 1
+# define LOG_NEWI 1
+# define LOG_KEY 1
 # define LOG_MOUSE 1
 
 # define C ft_memcpy
@@ -89,6 +91,7 @@ int		l3(int ico);
 int		l4(int btn, int x, int y, char *action);
 
 int		*x(enum coord coord);
+int		mr(enum coord c, int x, int y);
 int		mo(enum coord coord);
 
 #endif

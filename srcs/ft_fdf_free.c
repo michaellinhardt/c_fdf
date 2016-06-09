@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/08 04:58:23 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 17:27:43 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,18 @@ void	fdestroyimg(t_data *d)
 	(d->bkg.img) ? mlx_destroy_image(d->mlx, d->bkg.img) : 0;
 	fascii(((d->imenu.img) ? 1 : 0), "t_img *", "d->imenu.img");
 	(d->imenu.img) ? mlx_destroy_image(d->mlx, d->imenu.img) : 0;
-	fascii(((d->btnact.img) ? 1 : 0), "t_img *", "d->btnact.img");
-	(d->btnact.img) ? mlx_destroy_image(d->mlx, d->btnact.img) : 0;
 	fascii(((d->btnoff.img) ? 1 : 0), "t_img *", "d->btnoff.img");
 	(d->btnoff.img) ? mlx_destroy_image(d->mlx, d->btnoff.img) : 0;
 	fascii(((d->btnover.img) ? 1 : 0), "t_img *", "d->btnover.img");
 	(d->btnover.img) ? mlx_destroy_image(d->mlx, d->btnover.img) : 0;
+	fascii(((d->arrowu1.img) ? 1 : 0), "t_img *", "d->arrowu1.img");
+	(d->arrowu1.img) ? mlx_destroy_image(d->mlx, d->arrowu1.img) : 0;
+	fascii(((d->arrowu2.img) ? 1 : 0), "t_img *", "d->arrowu2.img");
+	(d->arrowu2.img) ? mlx_destroy_image(d->mlx, d->arrowu2.img) : 0;
+	fascii(((d->arrowd1.img) ? 1 : 0), "t_img *", "d->arrowd1.img");
+	(d->arrowd1.img) ? mlx_destroy_image(d->mlx, d->arrowd1.img) : 0;
+	fascii(((d->arrowd2.img) ? 1 : 0), "t_img *", "d->arrowd2.img");
+	(d->arrowd2.img) ? mlx_destroy_image(d->mlx, d->arrowd2.img) : 0;
 }
 
 void	fdatabox(t_data *d)

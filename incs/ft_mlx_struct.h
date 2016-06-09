@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 15:35:08 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 17:15:37 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ enum scene {
 
 enum coord {
 	INIT,
+	MENU,
 	ARROWU,
 	ARROWD
 };
@@ -35,6 +36,7 @@ typedef struct		s_mo
 typedef struct		s_lmenu
 {
 	char			path[4096];
+	int				area[6];
 	int				id;
 	struct s_lmenu	*p;
 	struct s_lmenu	*n;
@@ -49,6 +51,7 @@ typedef struct		s_menu
 	int				size;
 	int				xpos;
 	int				ypos;
+	int				btnpos[6];
 	char			u;
 	char			d;
 	enum coord		mo;
@@ -82,7 +85,6 @@ typedef struct		s_data
 	int				my;
 	int				x;
 	int				y;
-	t_img			btnact;
 	t_img			btnoff;
 	t_img			btnover;
 	t_img			arrowu1;
