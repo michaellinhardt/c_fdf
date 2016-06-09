@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 10:55:42 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 11:04:31 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		menu_btn(t_data *d, t_lmenu *m)
 {
-	
+	ft_printf("%d,%d -> %d\n", d->mx, d->my, mo(477, 124, 725, 559));
 	return (1);
 }
 
