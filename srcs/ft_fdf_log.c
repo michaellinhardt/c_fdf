@@ -13,6 +13,7 @@ int		l(int ico, char *name, char *info)
 	(ico == 7) ? (uni = L'➿') : (wchar_t)NULL;
 	(ico == 8) ? (uni = L'❎') : (wchar_t)NULL;
 	(ico == 9) ? (uni = L'🆕') : (wchar_t)NULL;
+	(ico == 10) ? (uni = L'➿') : (wchar_t)NULL;
 	ft_printf(" %C %s %20s  %s  %-47s %s\n", uni, LINE_BLUE, name
 	, LINE_GREEN2, info, LINE_YEL);
 	ico = (ico == 7) ? (ft_printf("\e[93m") + ft_printf("🎼  ╠")

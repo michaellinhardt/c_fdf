@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:09:39 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 10:22:48 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:51:54 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	mlx_handler(t_data *d, int step)
 		mlx_hook(d->win, 17, (1L<<17), &red_cross, d);
 		mlx_loop_hook(d->mlx, loop_hook, d);
 		l3(0);
-		l(7, "LOOP START", "mlx_loop();");
+		l(10, "LOOP START", "mlx_loop();");
 		mlx_loop(d->mlx);
 	}
 }
