@@ -6,18 +6,17 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 10:02:07 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:20:38 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int		red_cross(void)
+int		mousem_hook(int x, int y, t_data *d)
 {
-	t_data *d;
+	d->mx = x;
+	d->my = y;
 
-	d = data();
-	exit1(0, d, "by clic on red cross");
 	return (0);
 }
 

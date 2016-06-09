@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 09:59:34 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/09 10:23:28 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ int		loop(int step);
 void	*newi(t_img *img, int x, int y, char *name);
 void	*xtoi(t_img *img, char *path);
 int		itow(void *img, int x, int y, char *name);
+
+int		red_cross(void);
 void	mlx_handler(t_data *d, int step);
 
 int		loop_hook(t_data *d);
 
-int		red_cross(void);
+int		mousem_hook(int x, int y, t_data *d);
 int		keyr_hook(int key, t_data *d);
 int		keyp_hook(int key, t_data *d);
 int		mousep_hook(int btn, int x, int y, t_data *d);
