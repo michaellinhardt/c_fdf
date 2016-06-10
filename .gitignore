@@ -29,7 +29,7 @@
 libft/libft.a
 fdf
 test_fdf
-./mapgen/
+mapgen/
 
 # Debug files
 *.dSYM/
