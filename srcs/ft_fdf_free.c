@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 17:27:43 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 02:56:41 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,21 @@ void	fdestroyimg(t_data *d)
 	(d->arrowu1.img) ? mlx_destroy_image(d->mlx, d->arrowu1.img) : 0;
 	fascii(((d->arrowu2.img) ? 1 : 0), "t_img *", "d->arrowu2.img");
 	(d->arrowu2.img) ? mlx_destroy_image(d->mlx, d->arrowu2.img) : 0;
+	fascii(((d->arrowu3.img) ? 1 : 0), "t_img *", "d->arrowu3.img");
+	(d->arrowu3.img) ? mlx_destroy_image(d->mlx, d->arrowu3.img) : 0;
 	fascii(((d->arrowd1.img) ? 1 : 0), "t_img *", "d->arrowd1.img");
 	(d->arrowd1.img) ? mlx_destroy_image(d->mlx, d->arrowd1.img) : 0;
 	fascii(((d->arrowd2.img) ? 1 : 0), "t_img *", "d->arrowd2.img");
 	(d->arrowd2.img) ? mlx_destroy_image(d->mlx, d->arrowd2.img) : 0;
+	fascii(((d->arrowd3.img) ? 1 : 0), "t_img *", "d->arrowd3.img");
+	(d->arrowd3.img) ? mlx_destroy_image(d->mlx, d->arrowd3.img) : 0;
 }
 
 void	fdatabox(t_data *d)
 {
 	pascii(ASC_FREEDATA);
-	fascii(((d->map) ? 1 : 0), "char *", "d->map");
-	ft_strdel(&d->map);
+	fascii(((d->path) ? 1 : 0), "char *", "d->path");
+	ft_strdel(&d->path);
 	fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
 	flmenu(d);
 	fascii(1, "t_gnl *", "gnl->fd");

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 18:18:22 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 03:16:38 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "ft_mlx_struct.h"
 
 # define WIN_TITLE "Fil De Fer - mlinhard@student.42.fr"
-# define SCENE_START MAIN_LOAD
+# define SCENE_START 3
 # define INTRO_FADE_SPEED 2
 # define WIN_X 1200
 # define WIN_Y 675
@@ -31,8 +31,10 @@
 # define XPM_MENU "./xpm/menu.xpm"
 # define XPM_ARROWU1 "./xpm/arrowu1.xpm"
 # define XPM_ARROWU2 "./xpm/arrowu2.xpm"
+# define XPM_ARROWU3 "./xpm/arrowu3.xpm"
 # define XPM_ARROWD1 "./xpm/arrowd1.xpm"
 # define XPM_ARROWD2 "./xpm/arrowd2.xpm"
+# define XPM_ARROWD3 "./xpm/arrowd3.xpm"
 # define XPM_BTNOFF "./xpm/btnoff.xpm"
 # define XPM_BTNOVER "./xpm/btnover.xpm"
 
@@ -52,10 +54,11 @@
 # define LINE_YEL "\e[93m║"
 
 # define LOG_ITOW 0
-# define LOG_XTOI 1
-# define LOG_NEWI 1
+# define LOG_XTOI 0
+# define LOG_NEWI 0
 # define LOG_KEY 1
-# define LOG_MOUSE 1
+# define LOG_MOUSE 0
+# define LOG_LOOP 0
 
 # define C ft_memcpy
 # define CC &(int [6])

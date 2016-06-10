@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 17:40:18 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 03:13:32 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@ void	data_ascii2(t_data *d)
 {
 	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
 	ft_putendl("═══════════════════╣");
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG NEW IMG"
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "LOG NEW IMG"
 	,LINE_GREEN2 , ((LOG_NEWI) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG IMG TO WIN"
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "LOG IMG TO WIN"
 	,LINE_GREEN2 , ((LOG_ITOW) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG XPM TO IMG"
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "LOG XPM TO IMG"
 	,LINE_GREEN2 , ((LOG_XTOI) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG MOUSE INPUT"
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "LOG MOUSE INPUT"
 	,LINE_GREEN2 , ((LOG_MOUSE) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "LOG KEY INPUT"
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "LOG KEY INPUT"
 	,LINE_GREEN2 , ((LOG_KEY) ? "true" : "false"), LINE_YEL);
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "LOG LOOP"
+	,LINE_GREEN2 , ((LOG_LOOP) ? "true" : "false"), LINE_YEL);
 }
 
 void	data_ascii(t_data *d, int argc, char **argv)
@@ -33,19 +35,19 @@ void	data_ascii(t_data *d, int argc, char **argv)
 	static char *strnum[] = { "INTRO_LOAD", "INTRO_MENU", "INTRO_OUT"
 	, "MAIN_LOAD", "MAIN" };
 
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "WIN_TITLE"
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "WIN_TITLE"
 	, LINE_GREEN2, WIN_TITLE, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "SCENE_START"
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "SCENE_START"
 	, LINE_GREEN2, strnum[SCENE_START], LINE_YEL);
 	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "INTRO_FADE_SPEED"
 	, LINE_GREEN2, INTRO_FADE_SPEED, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "ARGV[1]", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "ARGV[1]", LINE_GREEN2
 	, ((argv[1]) ? "true" : "false"), LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47s %s\n", LINE_MAG, "MAP_DIR", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %47s %s\n", LINE_MAG, "MAP_DIR", LINE_GREEN2
 	, MAP_DIR, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "WIN_X", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %47d %s\n", LINE_MAG, "WIN_X", LINE_GREEN2
 	, WIN_X, LINE_YEL);
-	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "WIN_Y", LINE_GREEN2
+	ft_printf("🎼  %s %20s  %s  %47d %s\n", LINE_MAG, "WIN_Y", LINE_GREEN2
 	, WIN_Y, LINE_YEL);
 	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
 	ft_putendl("═══════════════════╣");
@@ -66,7 +68,7 @@ t_data	*data(void)
 void	data_init(t_data *d, int argc, char **argv)
 {
 	ft_bzero(d, sizeof(t_data));
-	d->scene = MAIN_LOAD;
+	d->scene = SCENE_START;
 	d->scenelast = d->scene;
 	d->img.img = (void *)NULL;
 	d->img.str = (char *)NULL;
@@ -84,15 +86,20 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->arrowu1.str = (char *)NULL;
 	d->arrowu2.img = (void *)NULL;
 	d->arrowu2.str = (char *)NULL;
+	d->arrowu3.img = (void *)NULL;
+	d->arrowu3.str = (char *)NULL;
 	d->arrowd1.img = (void *)NULL;
 	d->arrowd1.str = (char *)NULL;
 	d->arrowd2.img = (void *)NULL;
 	d->arrowd2.str = (char *)NULL;
+	d->arrowd3.img = (void *)NULL;
+	d->arrowd3.str = (char *)NULL;
 	d->menu.fade = 255;
 	d->menu.xpos = 471;
 	d->menu.ypos = 117;
 	d->menu.lst = (t_lmenu *)NULL;
-	d->map = (argc == 2) ? ft_strdup(argv[1]) : (char *)NULL;
+	d->map = (t_map *)NULL;
+	d->path = (argc == 2) ? ft_strdup(argv[1]) : (char *)NULL;
 	d->menu.open = (argv[1]) ? 0 : 1;
 	d->menu.mo = INIT;
 	d->loop = 1;

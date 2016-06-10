@@ -6,9 +6,13 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 17:15:37 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 03:16:12 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// SYSTEME DE NOTIFICATION TRANSPARENTE ?
+// gnl is reading, map select, music change (avec titre)
+// ANIMATION BTN DISPARAISSE
 
 #ifndef FT_FDF_STRUCT_H
 # define FT_FDF_STRUCT_H
@@ -28,6 +32,21 @@ enum coord {
 	ARROWD
 };
 
+
+//mapadd(x,y,z)
+//mapread (return int[3] ou null quand lecture fini),
+// la lecture se fais dans le sens logique (de bas en haut)
+typedef struct		s_map
+{
+	int				area[4096][4096];
+	int				xstart;
+	int				xmax;
+	int				ystart;
+	int				ymax;
+	struct s_map	*right;
+	struct s_map	*down;
+}					t_map;
+
 typedef struct		s_mo
 {
 	int				area[4];
@@ -46,6 +65,7 @@ typedef struct		s_menu
 {
 	int				open;
 	int				fade;
+	int				calcpos;
 	t_lmenu			*lst;
 	t_lmenu			*start;
 	int				size;
@@ -71,7 +91,8 @@ typedef struct		s_data
 {
 	void			*mlx;
 	void			*win;
-	char			*map;
+	char			*path;
+	t_map			*map;
 	char			loop;
 	char			loopstop;
 	t_img			img;
@@ -89,8 +110,10 @@ typedef struct		s_data
 	t_img			btnover;
 	t_img			arrowu1;
 	t_img			arrowu2;
+	t_img			arrowu3;
 	t_img			arrowd1;
 	t_img			arrowd2;
+	t_img			arrowd3;
 	enum scene		scene;
 	enum scene		scenelast;
 }					t_data;

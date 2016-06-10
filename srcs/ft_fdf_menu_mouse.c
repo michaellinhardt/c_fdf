@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 15:01:51 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 18:21:21 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 03:19:35 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,45 @@
 
 void	menu_mouserelease(t_data *d, t_menu *m, int x, int y)
 {
-	(m->u && mr(ARROWU, x, y) && (m->start = m->start->n)) ? loop(1) : 1;
-	(m->d && mr(ARROWD, x, y) && (m->start = m->start->p)) ? loop(1) : 1;
-}
+	t_lmenu		*l;
 
-void	menu_mouseover(t_data *d, t_menu *m, t_lmenu *l)
-{
-	(m->u && mo(ARROWU) && m->mo != ARROWU && (m->mo = ARROWU)) ? loop(1) : 0;
-	(m->u && !mo(ARROWU) && m->mo == ARROWU && !(m->mo = INIT)) ? loop(1) : 0;
-	(m->d && mo(ARROWD) && m->mo != ARROWD && (m->mo = ARROWD)) ? loop(1) : 0;
-	(m->d && !mo(ARROWD) && m->mo == ARROWD && !(m->mo = INIT)) ? loop(1) : 0;
+	l = m->start;
+	(m->u == 1 && mr(ARROWU, x, y) && (m->start = m->start->n)
+	&& (m->calcpos = 1)) ? loop(1) : 1;
+	(m->d == 1 && mr(ARROWD, x, y) && (m->start = m->start->p)
+	&& (m->calcpos = 1)) ? loop(1) : 1;
 	while (l && l->id <= (m->start->id + 9))
 	{
 		if (d->mx >= l->area[2] && d->mx <= l->area[4]
 		&& d->my >= l->area[3] && d->my <= l->area[5])
+		{
+			(d->path) ? l2(1, l->path, "cant load now", l->id) : 0;
+			(!d->path) ? l2(1, l->path, "is loading", l->id) : 0;
+			m->open = 3;
 			loop(1);
+			break ;
+		}
 		l = l->p;
 	}
+}
+
+void	menu_mouseover(t_data *d, t_menu *m, t_lmenu *l)
+{
+	while (l && l->id <= (m->start->id + 9))
+	{
+		if (d->mx >= l->area[2] && d->mx <= l->area[4]
+		&& d->my >= l->area[3] && d->my <= l->area[5])
+		{
+			m->mo = MENU;
+			loop(1);
+			return ;
+		}
+		l = l->p;
+	}
+	if (((m->u && mo(ARROWU) && m->mo != ARROWU && (m->mo = ARROWU))
+	|| (m->u && !mo(ARROWU) && m->mo == ARROWU && !(m->mo = INIT))
+	|| (m->d && mo(ARROWD) && m->mo != ARROWD && (m->mo = ARROWD))
+	|| (m->d && !mo(ARROWD) && m->mo == ARROWD && !(m->mo = INIT))) && loop(1))
+		return ;
+	(m->mo == MENU && ((m->mo = INIT) || 1)) ? loop(1) : 0;
 }

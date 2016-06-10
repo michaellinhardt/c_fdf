@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 07:44:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 14:32:19 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 01:13:13 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		loop(int step)
 		d->loop = 0;
 	else
 		d->loop = 1;
-	l2(7, "MLX LOOP HOOK", "STATUS CHANGE", d->loop);
+	if (LOG_LOOP == 1)
+		l2(7, "MLX LOOP HOOK", "STATUS CHANGE", d->loop);
 	return (1);
 }
 
