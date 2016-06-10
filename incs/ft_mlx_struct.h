@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 04:22:57 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 08:18:42 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ typedef struct		s_data
 	void			*win;
 	char			*path;
 	t_map			*map;
+	char			imsg;
+	char			*msg;
 	char			loop;
 	char			loopstop;
 	t_img			img;

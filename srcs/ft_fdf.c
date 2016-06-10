@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 03:13:32 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 08:18:59 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->menu.open = (argv[1]) ? 0 : 1;
 	d->menu.mo = INIT;
 	d->loop = 1;
+	d->msg = (char *)NULL;
 	C(d->menu.btnpos, x(MENU), 24);
 }
 

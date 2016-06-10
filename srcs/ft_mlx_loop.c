@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 03:29:01 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 08:32:36 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,14 @@ void	scene_hook(t_data *d)
 int		loop_hook(t_data *d)
 {
 	if (USLEEP_BOOL && d->loop == 0 && !usleep(USLEEP_TIME))
+	{
+		(--d->imsg > 0 && itow(d->bkg.img, 0, 0
+		, "background")) ? mlx_string_put(d->mlx, d->win
+		, 306, 615, 0xFFFFFF, d->msg) : 1;
 		return (0);
+	}
+	(--d->imsg > 0) ? mlx_string_put(d->mlx, d->win
+	, 306, 615, 0xFFFFFF, d->msg) : 1;
 	if (d->loopstop > 0 && --d->loopstop == 0)
 		loop(0);
 	if (d->scenelast != d->scene && l3(1))

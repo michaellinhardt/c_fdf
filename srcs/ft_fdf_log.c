@@ -3,7 +3,9 @@
 int		l(int ico, char *name, char *info)
 {
 	wchar_t		uni;
+	t_data		*d;
 
+	d = data();
 	(ico == 1) ? (uni = L'📗') : (wchar_t)NULL;
 	(ico == 2) ? (uni = L'🕹') : (wchar_t)NULL;
 	(ico == 3) ? (uni = L'🖥') : (wchar_t)NULL;
@@ -21,13 +23,18 @@ int		l(int ico, char *name, char *info)
 	+ ft_printf("\e[93m")+ ft_printf("╬") + ft_printf("\e[90m")
 	+ ft_printf("══════════════════════════════════════════════════")
 	+ ft_printf("\e[93m")+ ft_printf("╣\n")) : 1;
+	ft_strdel(&d->msg);
+	ft_printf("%!%-20s %-47s", &d->msg, name, info);
+	d->imsg = 50;
 	return (1);
 }
 
 int		l2(int ico, char *name, char *info, int val)
 {
 	wchar_t		uni;
+	t_data		*d;
 
+	d = data();
 	if (ico == 2 && !LOG_KEY)
 		return (1);
 	(ico == 1) ? (uni = L'📗') : (wchar_t)NULL;
@@ -39,6 +46,9 @@ int		l2(int ico, char *name, char *info, int val)
 	(ico == 7) ? (uni = L'➿') : (wchar_t)NULL;
 	ft_printf(" %C %s %20s  %s  %-4d%-43s %s\n", uni, LINE_BLUE, name
 	, LINE_GREEN2, val, info, LINE_YEL);
+	ft_strdel(&d->msg);
+	ft_printf("%!%-20s %-4d %-43s", &d->msg, name, val, info);
+	d->imsg = 50;
 	return (1);
 }
 
@@ -63,6 +73,10 @@ int		l3(int ico)
 		ft_printf(" %C %s %20s  %s  %23s %-23s %s\n", uni, LINE_BLUE
 		, "SCENE CHANGE"
 	, LINE_GREEN2, strnum[d->scenelast], strnum[d->scene], LINE_YEL);
+	ft_strdel(&d->msg);
+	ft_printf("%!%-20s %23s %-23s", &d->msg, "SCENE CHANGE"
+	, strnum[d->scenelast], strnum[d->scene]);
+	d->imsg = 50;
 	return (1);
 }
 
