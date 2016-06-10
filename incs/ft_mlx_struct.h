@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 03:16:12 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 04:22:57 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,12 @@ typedef struct		s_menu
 	int				calcpos;
 	t_lmenu			*lst;
 	t_lmenu			*start;
+	t_lmenu			*over;
 	int				size;
 	int				xpos;
 	int				ypos;
+	int				yclose;
+	int				close;
 	int				btnpos[6];
 	char			u;
 	char			d;

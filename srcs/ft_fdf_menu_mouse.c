@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 15:01:51 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 03:19:35 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 04:26:11 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	menu_mouserelease(t_data *d, t_menu *m, int x, int y)
 		{
 			(d->path) ? l2(1, l->path, "cant load now", l->id) : 0;
 			(!d->path) ? l2(1, l->path, "is loading", l->id) : 0;
+			m->over = l;
+			m->yclose = l->area[1];
 			m->open = 3;
 			loop(1);
 			break ;

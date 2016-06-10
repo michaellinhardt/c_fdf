@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 03:26:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/10 04:26:42 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	debug_mo(enum coord coord)
 	line(x(coord)[2], x(coord)[3], x(coord)[4], x(coord)[5]);
 }
 
-void	menu_btndisplay(t_data *d, t_lmenu *l, char tmp[15])
+void	menu_btndisplay(t_data *d, t_lmenu *l, char tmp[15], int mode)
 {
-	if (d->mx >= l->area[2] && d->mx <= l->area[4]
-	&& d->my >= l->area[3] && d->my <= l->area[5])
+	if ((mode == 1 && d->mx >= l->area[2] && d->mx <= l->area[4]
+	&& d->my >= l->area[3] && d->my <= l->area[5]) || (mode == 0
+	&& l->id == d->menu.over->id))
 		itow(xtoi(&d->btnover, XPM_BTNOVER)
 		, l->area[0], l->area[1], "Btn over");
 	else
@@ -49,30 +50,54 @@ void	menu_btnpos(t_data *d, t_menu *m, t_lmenu *lst, char tmp[15])
 			lst->area[4] = m->btnpos[4];
 			lst->area[5] = m->btnpos[5] + (38 * (lst->id - m->start->id));
 		}
-		menu_btndisplay(d, lst, tmp);
+		menu_btndisplay(d, lst, tmp, 1);
 		lst = lst->p;
 	}
 	m->calcpos = 0;
 }
 
-int		menu_close(t_data *d, t_img *im, t_menu *m, t_lmenu *l)
+int		menu_close_anim(t_data *d, t_menu *m, t_lmenu *lst)
 {
-	// static char		tmp[15] = { 'a' };
-	//
-	// if (tmp[0] == 'a' && ft_bzero(tmp, 15) && (tmp[13] = '.'))
-	// {
-	// 	tmp[12] = '.';
-	// 	tmp[11] = '.';
-	// }
-	// itow(im->img, m->xpos, m->ypos, "menu xpm");
-	// m->u = 0;
-	// m->d = 0;
-	// (l->n && (m->u = 1) && !mo(ARROWU)) ? itow(xtoi(&d->arrowu1, XPM_ARROWU1), x(ARROWU)[0], x(ARROWU)[1], "Arrow up") : 1;
-	// (l->n && (m->u = 1) && mo(ARROWU)) ? itow(xtoi(&d->arrowu2, XPM_ARROWU2), x(ARROWU)[0], x(ARROWU)[1], "Arrow up mouse over") : 1;
-	// ((m->start->id + 10) <= m->size && (m->d = 1) && !mo(ARROWD)) ? itow(xtoi(&d->arrowd1, XPM_ARROWD1), x(ARROWD)[0], x(ARROWD)[1], "Arrow down") : 1;
-	// ((m->start->id + 10) <= m->size && (m->d = 1)  && mo(ARROWD)) ? itow(xtoi(&d->arrowd2, XPM_ARROWD2), x(ARROWD)[0], x(ARROWD)[1], "Arrow down") : 1;
-	// menu_btnpos(d, m, l, tmp);
-	// loop(0);
+	int		direction;
+
+	if (lst->area[1] != m->yclose)
+	{
+
+		if (lst->area[1] > m->yclose &&  ((lst->area[1] -= 8) || 1) &&
+			lst->area[1] < m->yclose)
+			lst->area[1] = m->yclose;
+		else if (lst->area[1] < m->yclose &&  ((lst->area[1] += 8) || 1) &&
+			lst->area[1] > m->yclose)
+			lst->area[1] = m->yclose;
+		return (1);
+	}
+	return (0);
+}
+
+int		menu_close(t_data *d, t_img *im, t_menu *m, t_lmenu *lst)
+{
+	static char		tmp[15] = { 'a' };
+
+	if (tmp[0] == 'a' && ft_bzero(tmp, 15) && (tmp[13] = '.'))
+	{
+		tmp[12] = '.';
+		tmp[11] = '.';
+	}
+	itow(im->img, m->xpos, m->ypos, "menu xpm");
+	itow(xtoi(&d->arrowu3, XPM_ARROWU3), x(ARROWU)[0], x(ARROWU)[1]
+	, "Arrow up off");
+	itow(xtoi(&d->arrowd3, XPM_ARROWD3), x(ARROWD)[0], x(ARROWD)[1]
+	, "Arrow down off");
+	m->close = 0;
+	while (lst && lst->id <= (m->start->id + 9))
+	{
+		m->close += menu_close_anim(d, m, lst);
+		menu_btndisplay(d, lst, tmp, 0);
+		lst = lst->p;
+	}
+	menu_btndisplay(d, m->over, tmp, 0);
+	if (m->close == 0 && (m->fade = 255))
+		m->open = 0;
 	return (1);
 }
 
