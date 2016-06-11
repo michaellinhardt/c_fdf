@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/11 05:45:56 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 07:10:24 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	scene_hook(t_data *d)
 int		loop_hook(t_data *d)
 {
 	if (d->map.status != 0)
-		parse(d);
+		parse(d, &d->map);
 	if (USLEEP_BOOL && d->loop == 0 && !usleep(USLEEP_TIME))
 		return (0);
 	if (d->loopstop > 0 && --d->loopstop == 0)

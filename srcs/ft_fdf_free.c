@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/11 00:36:03 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 06:59:19 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,5 @@ void	fdatabox(t_data *d)
 	ft_strdel(&d->map.path);
 	fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
 	flmenu(d);
-	fascii(1, "t_gnl *", "gnl->fd");
-	get_next_line(-10, NULL);
 	fdestroyimg(d);
 }

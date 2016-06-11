@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/11 00:39:14 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 09:56:57 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ enum coord {
 typedef struct		s_map
 {
 	char			*path;
+	char			read[BUFF_SIZE + 1];
 	int				**map;
+	int				i;
 	int				xm;
 	int				ym;
+	int				fd;
 	int				status;
 }					t_map;
 
