@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 02:56:41 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 00:36:03 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void	fdestroyimg(t_data *d)
 void	fdatabox(t_data *d)
 {
 	pascii(ASC_FREEDATA);
-	fascii(((d->path) ? 1 : 0), "char *", "d->path");
-	ft_strdel(&d->path);
+	fascii(((d->map.path) ? 1 : 0), "char *", "d->map.path");
+	ft_strdel(&d->map.path);
 	fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
 	flmenu(d);
 	fascii(1, "t_gnl *", "gnl->fd");

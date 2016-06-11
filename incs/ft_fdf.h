@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 02:14:21 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 02:27:19 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "ft_mlx.h"
 
 t_data	*data(void);
+
+void	parse(t_data *d);
 
 int		flmenu(t_data *d);
 void	fdatabox(t_data *d);

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 15:01:51 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 04:26:11 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 05:48:35 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	menu_mouserelease(t_data *d, t_menu *m, int x, int y)
 {
 	t_lmenu		*l;
 
-	l = m->start;
-	(m->u == 1 && mr(ARROWU, x, y) && (m->start = m->start->n)
+	((l = m->start) && m->u == 1 && mr(ARROWU, x, y) && (m->start = m->start->n)
 	&& (m->calcpos = 1)) ? loop(1) : 1;
 	(m->d == 1 && mr(ARROWD, x, y) && (m->start = m->start->p)
 	&& (m->calcpos = 1)) ? loop(1) : 1;
@@ -26,12 +25,15 @@ void	menu_mouserelease(t_data *d, t_menu *m, int x, int y)
 		if (d->mx >= l->area[2] && d->mx <= l->area[4]
 		&& d->my >= l->area[3] && d->my <= l->area[5])
 		{
-			(d->path) ? l2(1, l->path, "cant load now", l->id) : 0;
-			(!d->path) ? l2(1, l->path, "is loading", l->id) : 0;
-			m->over = l;
-			m->yclose = l->area[1];
-			m->open = 3;
-			loop(1);
+			if (d->map.status > 0)
+				l2(1, l->path, "cant load now", l->id);
+			else if (l2(1, l->path, "is loading", l->id) && (m->over = l))
+			{
+				((m->open = 3) && ((m->yclose = l->area[1]) || 1)) ?
+				ft_strdel(&d->map.path) : 1;
+				ft_printf("%!./maps/%s", &d->map.path, l->path);
+				(d->map.status = 1) ? loop(1) : 0;
+			}
 			break ;
 		}
 		l = l->p;

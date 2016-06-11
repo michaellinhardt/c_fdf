@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 08:18:59 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 00:38:14 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,11 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->menu.xpos = 471;
 	d->menu.ypos = 117;
 	d->menu.lst = (t_lmenu *)NULL;
-	d->map = (t_map *)NULL;
-	d->path = (argc == 2) ? ft_strdup(argv[1]) : (char *)NULL;
+	d->map.path = (argc == 2) ? ft_strdup(argv[1]) : (char *)NULL;
+	d->map.status = (d->map.path) ? 1 : 0;
 	d->menu.open = (argv[1]) ? 0 : 1;
 	d->menu.mo = INIT;
 	d->loop = 1;
-	d->msg = (char *)NULL;
 	C(d->menu.btnpos, x(MENU), 24);
 }
 
@@ -114,7 +113,7 @@ int		main(int argc, char **argv)
 	d = data();
 	data_init(d, argc, argv);
 	pascii(ASC_LOGO);
-	(!d->map) ? pascii(ASC_USAGE) : 1;
+	(!d->map.path) ? pascii(ASC_USAGE) : 1;
 	pascii(ASC_FDFINIT);
 	data_ascii(d, argc, argv);
 	pascii(ASC_LOGHOOK);

@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/02 22:07:57 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/05 23:58:23 by mlinhard         ###   ########.fr       */
+/*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
+/*   Updated: 2016/06/11 05:45:31 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void	pFile(t_data *d)
+void	parse(t_data *d)
 {
+	ft_printf("parse\n");
 	d->img.sl += 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 08:18:42 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 00:39:14 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,13 @@ enum coord {
 	ARROWD
 };
 
-
-//mapadd(x,y,z)
-//mapread (return int[3] ou null quand lecture fini),
-// la lecture se fais dans le sens logique (de bas en haut)
 typedef struct		s_map
 {
-	int				area[4096][4096];
-	int				xstart;
-	int				xmax;
-	int				ystart;
-	int				ymax;
-	struct s_map	*right;
-	struct s_map	*down;
+	char			*path;
+	int				**map;
+	int				xm;
+	int				ym;
+	int				status;
 }					t_map;
 
 typedef struct		s_mo
@@ -94,10 +88,7 @@ typedef struct		s_data
 {
 	void			*mlx;
 	void			*win;
-	char			*path;
-	t_map			*map;
-	char			imsg;
-	char			*msg;
+	t_map			map;
 	char			loop;
 	char			loopstop;
 	t_img			img;

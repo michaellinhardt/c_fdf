@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 08:12:17 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/11 05:41:05 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,6 @@ int		menu_refresh(t_data *d, t_img *im, t_menu *m, t_lmenu *l)
 
 int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 {
-	ft_printf("menu_data\n");
 	(!(d->i = 0) && d->menu.lst) ? flmenu(d) : 0;
 	if (!(dir = opendir(MAP_DIR)))
 		exit1(1, d, "Cant open maps dir.");
