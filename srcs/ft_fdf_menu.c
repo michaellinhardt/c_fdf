@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/11 05:41:05 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/26 00:03:51 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,8 @@ void	menu_btnpos(t_data *d, t_menu *m, t_lmenu *lst, char tmp[15])
 	m->calcpos = 0;
 }
 
-int		menu_close_anim(t_data *d, t_menu *m, t_lmenu *lst)
+int		menu_close_anim(t_menu *m, t_lmenu *lst)
 {
-	int		direction;
-
 	if (lst->area[1] != m->yclose)
 	{
 
@@ -91,7 +89,7 @@ int		menu_close(t_data *d, t_img *im, t_menu *m, t_lmenu *lst)
 	m->close = 0;
 	while (lst && lst->id <= (m->start->id + 9))
 	{
-		m->close += menu_close_anim(d, m, lst);
+		m->close += menu_close_anim(m, lst);
 		menu_btndisplay(d, lst, tmp, 0);
 		lst = lst->p;
 	}

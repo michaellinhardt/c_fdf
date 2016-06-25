@@ -6,13 +6,13 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/12 06:10:11 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/26 00:01:29 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void	data_ascii2(t_data *d)
+void	data_ascii2(void)
 {
 	ft_putstr("🎼  ╠═══════════════════════╬═══════════════════════════════");
 	ft_putendl("═══════════════════╣");
@@ -30,7 +30,7 @@ void	data_ascii2(t_data *d)
 	,LINE_GREEN2 , ((LOG_LOOP) ? "true" : "false"), LINE_YEL);
 }
 
-void	data_ascii(t_data *d, int argc, char **argv)
+void	data_ascii(char **argv)
 {
 	static char *strnum[] = { "INTRO_LOAD", "INTRO_MENU", "INTRO_OUT"
 	, "MAIN_LOAD", "MAIN" };
@@ -55,7 +55,7 @@ void	data_ascii(t_data *d, int argc, char **argv)
 	, LINE_GREEN2, USLEEP_BOOL, LINE_YEL);
 	ft_printf("🎼  %s %20s  %s  %-47d %s\n", LINE_MAG, "USLEEP_TIME"
 	, LINE_GREEN2, USLEEP_TIME, LINE_YEL);
-	data_ascii2(d);
+	data_ascii2();
 }
 
 t_data	*data(void)
@@ -115,7 +115,7 @@ int		main(int argc, char **argv)
 	pascii(ASC_LOGO);
 	(!d->map.path) ? pascii(ASC_USAGE) : 1;
 	pascii(ASC_FDFINIT);
-	data_ascii(d, argc, argv);
+	data_ascii(argv);
 	pascii(ASC_LOGHOOK);
 	mlx_handler(d, 0);
 	mlx_handler(d, 1);

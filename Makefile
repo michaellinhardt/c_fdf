@@ -6,12 +6,12 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/11 05:39:35 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/25 23:32:41 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#FLAGS	= -Wall -Wextra -Werror
-FLAGS	=
+FLAGS	= -Wall -Wextra -Werror
+# FLAGS	=
 CC		= gcc $(FLAGS)
 INCS 	= -I./incs -I./libft/includes
 LIBS	= ./libft
@@ -28,6 +28,7 @@ LIST 	= ft_fdf \
 		ft_fdf_error \
 		ft_fdf_free \
 		ft_fdf_parse \
+		ft_fdf_parse_helper \
 		ft_fdf_intro \
 		ft_fdf_background \
 		ft_fdf_menu \

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/11 09:56:57 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/26 00:59:40 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 
 #ifndef FT_FDF_STRUCT_H
 # define FT_FDF_STRUCT_H
+
+enum pseq {
+	START_Z,
+	READ_Z,
+	READ_COLOR,
+	READ_SPACE,
+};
 
 enum scene {
 	INTRO_LOAD,
@@ -38,10 +45,12 @@ typedef struct		s_map
 	char			read[BUFF_SIZE + 1];
 	int				**map;
 	int				i;
+	int				x;
 	int				xm;
 	int				ym;
 	int				fd;
-	int				status;
+	enum pseq		seq;
+	int				status; // 1 = lire fichier
 }					t_map;
 
 typedef struct		s_mo

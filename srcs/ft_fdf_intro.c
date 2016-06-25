@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 15:28:16 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 22:04:32 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/26 00:02:43 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	intro_out(t_data *d, t_img *i, t_img *l, t_img *p)
 	itow(i->img, 0, 0, "fade out");
 }
 
-void	intro_menu(t_data *d, t_img *i, t_img *l)
+void	intro_menu(t_img *i, t_img *l)
 {
 	static int	fade = 255;
 	static int	dir = 6;
@@ -71,8 +71,6 @@ void	intro_menu(t_data *d, t_img *i, t_img *l)
 void	intro_load(t_data *d, t_img *i, t_img *l)
 {
 	static int	fade = 0;
-	int			width;
-	int			height;
 
 	if (!(l->img))
 		l->img = xtoi(l, XPM_INTRO);
