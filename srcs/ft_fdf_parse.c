@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/26 01:21:44 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/28 06:16:48 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		pclear(int err, t_data *d, t_map *m, char *msg)
 	ft_strdel(&m->path);
 	(m->fd > 0) ? close(m->fd) : 0;
 	m->fd = 0;
+	m->x = 0;
 	m->status = 0;
 	m->seq = START_Z;
 	(err == 1 && d->menu.open == 0) ? (d->menu.open = 1) : 0;
@@ -26,17 +27,19 @@ int		pclear(int err, t_data *d, t_map *m, char *msg)
 
 int		pformat(t_data *d, t_map *m)
 {
-	if (m->fd == 0)
-		m->fd = open(m->path, O_RDONLY);
+	m->fd = open(m->path, O_RDONLY);
+	m->x = 0;
+	m->xm = 0;
+	m->ym = 0;
 	if (m->fd < 0 || BUFF_SIZE < 1 || read(m->fd, m->read, 0) < 0)
 		return(pclear(1, d, m, "cant read the map"));
-	if ((read(m->fd, m->read, BUFF_SIZE)) > 0)
+	while ((read(m->fd, m->read, BUFF_SIZE)) > 0)
 	{
 		if (!pvalidchar(m, &m->seq, m->read, 0))
 			return (pclear(1, d, m, "map format error"));
 	}
-	else
-		pclear(0, d, m, "read file complet");
+	pclear(0, d, m, "read file complet");
+	ft_printf("map: %d * %d\n", m->xm, m->ym);
 	return (0);
 }
 

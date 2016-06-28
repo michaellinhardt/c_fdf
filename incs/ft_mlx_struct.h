@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/26 00:59:40 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/26 04:27:11 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@
 enum pseq {
 	START_Z,
 	READ_Z,
-	READ_COLOR,
+	READ_COLOR_0,
+	READ_COLOR_X,
+	READ_COLOR_1,
+	READ_COLOR_2,
+	READ_COLOR_3,
+	READ_COLOR_4,
+	READ_COLOR_5,
+	READ_COLOR_6,
 	READ_SPACE,
 };
 
