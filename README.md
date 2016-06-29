@@ -4,7 +4,7 @@
 - see docs/fdf.pdf for more
 - Date: June 2016
 
-![alt tag](https://github.com/nesthub/c_lemin/raw/master/docs/lemin.png)
+![alt tag](https://github.com/nesthub/c_fdf/raw/master/docs/fdf.png)
 
 ## About
 Using the school lib "MiniLibXDrawing" to draw wireframe with map input
