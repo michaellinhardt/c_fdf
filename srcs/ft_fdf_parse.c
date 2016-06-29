@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/28 06:16:48 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/29 04:09:38 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ int		pformat(t_data *d, t_map *m)
 			return (pclear(1, d, m, "map format error"));
 	}
 	pclear(0, d, m, "read file complet");
-	ft_printf("map: %d * %d\n", m->xm, m->ym);
+	exit (0);
 	return (0);
 }
 
 void	parse(t_data *d, t_map *m)
 {
+	d->map.i += 0;
+	m->i += 0;
 	(m->status == 1) ? pformat(d, m) : 0;
 }
