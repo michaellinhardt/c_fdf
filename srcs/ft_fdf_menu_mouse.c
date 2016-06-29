@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 15:01:51 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/11 07:06:37 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/29 07:46:22 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	menu_mouserelease(t_data *d, t_menu *m, int x, int y)
 		&& d->my >= l->area[3] && d->my <= l->area[5])
 		{
 			if (d->map.status > 0)
-				l2(1, l->path, "cant load now", l->id);
-			else if (l2(1, l->path, "is loading", l->id) && (m->over = l))
+				l2(1, l->path, "already reading a map", l->id);
+			else if ((m->over = l))
 			{
 				((m->open = 3) && ((m->yclose = l->area[1]) || 1)) ?
 				ft_strdel(&d->map.path) : 1;

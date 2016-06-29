@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/06/25 23:32:41 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/06/29 07:43:35 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIST 	= ft_fdf \
 		ft_fdf_error \
 		ft_fdf_free \
 		ft_fdf_parse \
-		ft_fdf_parse_helper \
+		ft_fdf_parse_format \
 		ft_fdf_intro \
 		ft_fdf_background \
 		ft_fdf_menu \
@@ -64,7 +64,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.$(LANGAGE)
 
 test: $(NAME)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] start"
-	@./$(NAME)
+	@./$(NAME) maps/42.fdf
 
 clean:
 #@make clean -C $(LIBS)

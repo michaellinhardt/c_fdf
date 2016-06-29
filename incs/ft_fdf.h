@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/29 04:09:04 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/29 07:43:04 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_data	*data(void);
 
 void	parse(t_data *d, t_map *map);
 
-int		pvalidchar(t_map *m, enum pseq *seq, char str[BUFF_SIZE], int i);
+int		pformatcheck(t_map *m, enum pseq *seq, char str[BUFF_SIZE], int i);
 
 int		flmenu(t_data *d);
 void	fdatabox(t_data *d);
