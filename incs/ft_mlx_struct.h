@@ -6,13 +6,13 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/29 07:58:59 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/06/29 08:40:29 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// SYSTEME DE NOTIFICATION TRANSPARENTE ?
 // gnl is reading, map select, music change (avec titre)
-// ANIMATION BTN DISPARAISSE
+// LOG EN BAS DE LECRAN SUR LETAT DE LA MAP
+// IPS EN HAUT DE LECRAN
 
 #ifndef FT_FDF_STRUCT_H
 # define FT_FDF_STRUCT_H
