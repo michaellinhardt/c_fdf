@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/29 10:02:19 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/02 03:13:48 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,29 @@
 
 int		pclear(int err, t_data *d, t_map *m, char *msg)
 {
-	char	*s;
-
-	s = m->path + ft_strlen(MAP_DIR) - 2;
-	l(1, s, msg);
+	l(1, (m->path + ft_strlen(MAP_DIR) - 2), msg);
 	ft_strdel(&m->path);
 	(m->fd > 0) ? close(m->fd) : 0;
 	m->fd = 0;
 	m->x = 0;
 	m->status = (err == 1) ? 0 : -1;
+	(err == 1) ? (fmap(d, -1)) : 0;
 	m->seq = START_Z;
 	(err == 1 && d->menu.open == 0) ? (d->menu.open = 1) : 0;
 	return (1);
 }
 
-void	preadandbuild(t_map *m, char c, long int verif, char *zptr)
+void	preadandbuild(t_map *m, char c, long int verif)
 {
 	verif += 0;
+	c = 'a';
 
 	m->i = -1;
 	while (m->read[++m->i]
-	|| ((read(m->fd, m->read, BUFF_SIZE)) > 0 && !(m->i = 0)
-	&& (zptr = m->read)))
+	|| ((read(m->fd, m->read, BUFF_SIZE)) > 0 && !(m->i = 0)))
 	{
-		ft_printf("%c\n", *zptr);
-		if (((c = m->read[m->i]) == ' ' || c == '\n') && m->seq == READ_Z
-		&& (m->seq = START_Z))
-		{
-			while ((int)*zptr != (int)m->read[m->i])
-			{
-				ft_putstr(*zptr);
-				*zptr++;
-			}
-			// m->map[m->y][m->x] = ft_atoi(*zptr + (*m->read[m->i] - *zptr));
-			(c == '\n') ? m->i-- : 0;
-			continue ;
-		}
-		if (c == ' ' && !(m->seq = START_Z))
-			continue ;
-		if (c == '\n' && !(m->seq = START_Z) && ++m->y)
-			continue ;
-		if ((c == '-' || ft_isdigit(c))
-			&& m->seq == START_Z && (m->seq = READ_Z))
-			*zptr = m->read[m->i + (0 * ++m->x)];
-			// *zptr = *(m->read[m->i + (0 * ++m->x)]);
-		else if (m->seq == READ_Z && c == ',' && (m->seq = READ_COLOR_0))
-			continue ;
 
 	}
-	exit (0);
 }
 
 int		pbuildarray(t_data *d, t_map *m)
@@ -73,11 +47,16 @@ int		pbuildarray(t_data *d, t_map *m)
 	while (++m->y < m->ym)
 		if (!(m->map[m->y] = (int *)malloc(sizeof(int) * m->xm)))
 			exit1(1, d, "Cant malloc.");
+	m->y = -1;
+	if (!(m->col = (int **)malloc(sizeof(int *) * m->ym)))
+		exit1(1, d, "Cant malloc.");
+	while (++m->y < m->ym)
+		if (!(m->col[m->y] = (int *)malloc(sizeof(int) * m->xm)))
+			exit1(1, d, "Cant malloc.");
 	close(m->fd);
 	m->fd = open(m->path, O_RDONLY);
 	m->x = -1;
-	m->y = 0;
-	preadandbuild(m, (char)NULL, 0, (char *)NULL);
+	preadandbuild(m, (char)NULL, (m->y = 0));
 	return (0);
 }
 

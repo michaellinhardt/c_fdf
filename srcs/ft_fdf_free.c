@@ -6,13 +6,13 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/11 06:59:19 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/02 03:11:49 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void	fascii(int ico, char *type, char *data)
+int		fascii(int ico, char *type, char *data)
 {
 	wchar_t		uni;
 	char		msg[4096];
@@ -24,6 +24,7 @@ void	fascii(int ico, char *type, char *data)
 	ft_memcpy(bar, ((ico == 1) ? LINE_GREEN : LINE_GREY), 13);
 	ft_printf(" %C %s %12s %s %-23s %s %-28s %s\e[93m\n", uni, bar, type, bar, data
 																, bar, msg, bar);
+	return (1);
 }
 
 int		flmenu(t_data *d)
@@ -31,6 +32,7 @@ int		flmenu(t_data *d)
 	t_lmenu	*lst;
 	t_lmenu	*del;
 
+	fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
 	if (!d->menu.lst)
 		return (1);
 	lst = d->menu.lst;
@@ -74,12 +76,23 @@ void	fdestroyimg(t_data *d)
 	(d->arrowd3.img) ? mlx_destroy_image(d->mlx, d->arrowd3.img) : 0;
 }
 
+int		fmap(t_data *d, int i)
+{
+	if (fascii(((d->map.map) ? 1 : 0), "int **", "d->map.map") && d->map.map)
+		while (++i < d->map.ym)
+			ft_memdel((void **)&d->map.map[i]);
+	i = -1;
+	if (fascii(((d->map.col) ? 1 : 0), "int **", "d->map.col") && d->map.col)
+		while (++i < d->map.ym)
+			ft_memdel((void **)&d->map.col[i]);
+	fascii(((d->map.path) ? 1 : 0), "char *", "d->map.path");
+	ft_strdel(&d->map.path);
+}
+
 void	fdatabox(t_data *d)
 {
 	pascii(ASC_FREEDATA);
-	fascii(((d->map.path) ? 1 : 0), "char *", "d->map.path");
-	ft_strdel(&d->map.path);
-	fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
 	flmenu(d);
+	fmap(d, -1);
 	fdestroyimg(d);
 }

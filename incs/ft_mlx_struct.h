@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/29 08:40:29 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/02 03:10:59 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,16 @@ typedef struct		s_map
 	char			*path;
 	char			read[BUFF_SIZE + 1];
 	int				**map;
+	int				**col;
 	int				i;
+	int				j;
 	int				x;
 	int				y;
 	int				xm;
 	int				ym;
 	int				fd;
 	enum pseq		seq;
-	int				status; // 1 = lire fichier
+	int				status; // 1 = parse erreur , 2 = build array
 }					t_map;
 
 typedef struct		s_mo
