@@ -1,101 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fdf_parse_format.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/07/05 22:38:39 by mlinhard          #+#    #+#             */
+/*   Updated: 2016/07/06 04:52:08 by mlinhard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_fdf.h"
 
-int		pformatstart(t_map *m, enum pseq *seq, char c)
+int		pseq(t_map *m, char *li, int *i)
 {
-	if (*seq == START_Z && c == ' ' && (*seq = READ_SPACE))
-		return (1);
-	if (*seq == READ_SPACE)
+	while (li[*i] && li[*i] != ' ' && li[*i] != ',' && ++m->j)
 	{
-		if (c == ' ')
-			return (1);
-		else if (c == '\n' && (*seq = READ_Z))
-			return (0);
-		else if (c != '-' && !ft_isdigit(c))
-			return (-999 * l(1, "MAP ERROR", "invalid char found"));
-		else
-			*seq = START_Z;
+		if (li[*i] == '-' && m->j == 1 && (*i)++)
+			continue ;
+		if (!ft_isdigit(li[*i]))
+			return (0 * l(1, "PARSING", "Z invalid char"));
+		if (m->j > 11 || (m->j == 11 && li[*i - m->j] != '-'))
+			return (0 * l(1, "PARSING", "Z overflow int size"));
+		*i += 1;
 	}
-	if (*seq == START_Z)
+	// ft_printf("%d,%d : %s", m->x, m->ym, ft_strsub(li, m->i - m->j, m->j));
+	m->j = -1;
+	while (li[*i] && li[*i] != ' ' && (++m->j || 1))
 	{
-		if ((c == '-' || ft_isdigit(c)) && (*seq = READ_Z) && ++m->x)
-			return (1);
-		else
-			return (-999 * l(1, "MAP ERROR", "Z invalid first char"));
+		if (m->j == 0 && (li[*i] != ',' || !li[*i + 1] || !li[*i + 2]
+		|| li[*i + 1] != '0' || (li[*i + 2] != 'x' && li[*i + 2] != 'X')))
+			return (0 * l(1, "PARSING", "color dont start with 0x or 0X"));
+		else if (m->j == 0 && (*i += 3))
+			continue ;
+		if (m->j > 6 || (!ft_isdigit(li[*i])
+		&& ((li[*i] < 'a' || li[*i] > 'f') && (li[*i] < 'A' || li[*i] > 'F'))))
+			return (0 * l(1, "PARSING", "color is not hexa"));
+		*i += 1;
 	}
-	return (-1);
+	// if (m->j != -1)
+	// 	ft_printf(" col: %s", ft_strsub(li, m->i - m->j, m->j));
+	// ft_printf(" (%c)\n", li[*i]);
+	return (1);
 }
 
-int		pformatz(t_map *m, enum pseq *seq, char c)
+int		pformatcheck(t_map *m, char *line)
 {
-	if (*seq >= READ_Z && *seq <= READ_Z_11)
+	m->xm = 0;
+	m->ym = 0;
+	while (ft_strdel(&line) && (get_next_line(m->fd, &line)) > 0 && (m->x = -1))
 	{
-		if (ft_isdigit(c) && *seq == READ_Z_11 && m->read[m->i - 10] != '-')
-			return (-999 * l(1, "MAP ERROR", "Z overflow int type"));
-		if ((ft_isdigit(c)
-			&& (*seq = (*seq == READ_Z_11) ? READ_SPACE : *seq + 1))
-			|| (c == ',' && (*seq = READ_COLOR_0))
-			|| (c == ' ' && (*seq = READ_SPACE)))
-			return (1);
-		else if (c == '\n' && !(*seq = START_Z))
-		{
-				m->ym++;
-				if (m->xm == 0 && (m->xm = m->x))
-					m->x = 0;
-				else if (m->x != m->xm)
-					return (-999 * l(1, "MAP ERROR", "X size is invalid"));
-				else
-					m->x = 0;
-				return (1);
-		}
-		else
-			return (-999 * l(1, "MAP ERROR", "Z invalid char found"));
+		m->i = -1;
+		// ft_printf("\n");
+		while (line[++m->i])
+			if (line[m->i] != ' ' && (++m->x || 1) && !(m->j = 0)
+			&& (!pseq(m, line, &m->i)))
+				return (0);
+			else if (!line[m->i])
+				break ;
+		(!m->xm) ? (m->xm = m->x) : 0;
+		if (m->x != m->xm || m->xm < 2)
+			return (0 * l(1, "PARSING", "X total is wrong"));
+		m->ym++;
 	}
-	return (-1);
-}
-
-int		pformatcolor(enum pseq *seq, char c, char cc)
-{
-	if (*seq == READ_COLOR_0 && c != '0')
-		return (-999 * l(1, "MAP ERROR", "color first char is not '0'"));
-	else if (*seq == READ_COLOR_0 && (*seq += 1))
-		return (1);
-	if (*seq == READ_COLOR_X && c != 'x' && c != 'X')
-		return (-999 * l(1, "MAP ERROR", "color second char is not 'x'"));
-	else if (*seq == READ_COLOR_X && (*seq += 1))
-		return (1);
-	if (*seq == READ_COLOR_6
-		&& cc && cc != ' ' && cc != '\n')
-		return (-999 * l(1, "MAP ERROR", "color end with bad char"));
-	if (*seq >= READ_COLOR_1 && *seq <= READ_COLOR_6 && !ft_isdigit(c)
-	&& (c < 'a' || c > 'f') && (c < 'A' || c > 'F'))
-		return (-999 * l(1, "MAP ERROR", "color invalid char found"));
-	else if (*seq >= READ_COLOR_1 && *seq <= READ_COLOR_6 && (*seq += 1))
-		return (1);
-	return (-1);
-}
-
-int		pformatcheck(t_map *m, enum pseq *seq, char str[BUFF_SIZE], int i)
-{
-	int		ret;
-
-	while (str[i] || ((read(m->fd, m->read, BUFF_SIZE)) > 0 && !(i = 0)))
-	{
-		(i > 0) ? (str[i - 1] = '\0') : 0;
-		if (!str[i] || (*seq == START_Z && str[i] == '\n' && !str[i + 1]))
-			return (1);
-		if ((ret = pformatstart(m, seq, str[i])) == -999)
-			return (0);
-		else if (ret > -1 && (i += ret))
-			continue ;
-		if ((ret = pformatz(m, seq, str[i])) == -999)
-			return (0);
-		else if (ret > -1 && (i += ret))
-			continue ;
-		if ((ret = pformatcolor(seq, str[i]
-			, ((str[i + 1]) ? str[i + 1] : (char)NULL))) == -999)
-			return (0);
-		else if (ret > -1 && (i += ret))
-			continue ;
-	}
+	if (m->ym < 2)
+		return (0 * l(1, "PARSING", "Y total is wrong"));
 	return (1);
 }

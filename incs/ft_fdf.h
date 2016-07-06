@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/02 03:11:46 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/06 04:21:23 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_FDF_H
 # include <fcntl.h>
 # include <dirent.h>
+# include <limits.h>
 # include "mlx.h"
 # include "libft.h"
 # include "ft_mlx.h"
@@ -22,9 +23,11 @@ t_data	*data(void);
 
 void	parse(t_data *d, t_map *map);
 
-int		pformatcheck(t_map *m, enum pseq *seq, char str[BUFF_SIZE], int i);
+int		pformatcheck(t_map *m, char *line);
+int		pbuildarray(t_map *m, char *line);
+int		pclear(int err, t_data *d, t_map *m, char *msg);
 
-int		fmap(t_data *d, int i);
+int		fmap(t_data *d, int i, int log);
 int		flmenu(t_data *d);
 void	fdatabox(t_data *d);
 

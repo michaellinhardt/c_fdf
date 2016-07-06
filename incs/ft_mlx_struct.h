@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/02 03:10:59 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/06 05:38:26 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct		s_map
 	char			*path;
 	char			read[BUFF_SIZE + 1];
 	int				**map;
-	int				**col;
+	char			**col;
 	int				i;
 	int				j;
 	int				x;

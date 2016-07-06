@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/02 03:11:49 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/04 19:23:02 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,34 @@ void	fdestroyimg(t_data *d)
 	(d->arrowd3.img) ? mlx_destroy_image(d->mlx, d->arrowd3.img) : 0;
 }
 
-int		fmap(t_data *d, int i)
+int		fmap(t_data *d, int i, int log)
 {
-	if (fascii(((d->map.map) ? 1 : 0), "int **", "d->map.map") && d->map.map)
+	if (log == 1)
+	{
+		fascii(((d->map.map) ? 1 : 0), "int **", "d->map.map");
+		fascii(((d->map.col) ? 1 : 0), "int **", "d->map.col");
+		fascii(((d->map.path) ? 1 : 0), "char *", "d->map.path");
+	}
+	if (d->map.map)
 		while (++i < d->map.ym)
-			ft_memdel((void **)&d->map.map[i]);
+		ft_memdel((void **)&d->map.map[i]);
+	if (d->map.map)
+		ft_memdel((void **)&d->map.map);
 	i = -1;
-	if (fascii(((d->map.col) ? 1 : 0), "int **", "d->map.col") && d->map.col)
+	if (d->map.col)
 		while (++i < d->map.ym)
 			ft_memdel((void **)&d->map.col[i]);
-	fascii(((d->map.path) ? 1 : 0), "char *", "d->map.path");
+	if (d->map.col)
+		ft_memdel((void **)&d->map.col);
 	ft_strdel(&d->map.path);
+	return (1);
 }
 
 void	fdatabox(t_data *d)
 {
 	pascii(ASC_FREEDATA);
 	flmenu(d);
-	fmap(d, -1);
+	fmap(d, -1, 1);
+	get_next_line(-10, NULL);
 	fdestroyimg(d);
 }
