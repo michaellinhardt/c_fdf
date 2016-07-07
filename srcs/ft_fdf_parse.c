@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/06 06:06:24 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/07 19:52:39 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		pclear(int err, t_data *d, t_map *m, char *msg)
 	m->x = 0;
 	m->status = (err == 1) ? 0 : -1;
 	(err == 1) ? (fmap(d, -1, 0)) : 0;
-	m->seq = START_Z;
 	(err == 1 && d->menu.open == 0) ? (d->menu.open = 1) : 0;
 	return (1);
 }
@@ -32,7 +31,7 @@ int		pbuild(t_data *d, t_map *m)
 
 	close(m->fd);
 	m->fd = open(m->path, O_RDONLY);
-	s = m->path + ft_strlen(MAP_DIR) - 2;
+	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
 	l(1, s, "build int array");
 	if (m->fd < 0 || BUFF_SIZE < 1 || read(m->fd, m->read, 0) < 0)
 		return(pclear(1, d, m, "! cant read the map"));
@@ -50,7 +49,7 @@ int		pformat(t_data *d, t_map *m)
 	if (!ft_strstr(m->path, ".fdf"))
 		return(pclear(1, d, m, "! invalid map name"));
 	m->fd = open(m->path, O_RDONLY);
-	s = m->path + ft_strlen(MAP_DIR) - 2;
+	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
 	l(1, s, "format verification");
 	if (m->fd < 0 || BUFF_SIZE < 1 || read(m->fd, m->read, 0) < 0)
 		return(pclear(1, d, m, "! cant read the map"));

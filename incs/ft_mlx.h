@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/27 17:59:16 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/07 19:52:25 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 # define LOG_NEWI 0
 # define LOG_KEY 0
 # define LOG_MOUSE 0
-# define LOG_LOOP 1
+# define LOG_LOOP 0
 
 # define C ft_memcpy
 # define CC &(int [6])

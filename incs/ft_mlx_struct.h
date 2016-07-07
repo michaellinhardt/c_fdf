@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/06 05:38:26 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/07 21:17:08 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,6 @@
 
 #ifndef FT_FDF_STRUCT_H
 # define FT_FDF_STRUCT_H
-
-enum pseq {
-	START_Z,
-	READ_Z,
-	READ_Z_3,
-	READ_Z_4,
-	READ_Z_5,
-	READ_Z_6,
-	READ_Z_7,
-	READ_Z_8,
-	READ_Z_9,
-	READ_Z_10,
-	READ_Z_11,
-	READ_COLOR_0,
-	READ_COLOR_X,
-	READ_COLOR_1,
-	READ_COLOR_2,
-	READ_COLOR_3,
-	READ_COLOR_4,
-	READ_COLOR_5,
-	READ_COLOR_6,
-	READ_SPACE,
-};
 
 enum scene {
 	INTRO_LOAD,
@@ -60,7 +37,7 @@ typedef struct		s_map
 	char			*path;
 	char			read[BUFF_SIZE + 1];
 	int				**map;
-	char			**col;
+	unsigned char	**col;
 	int				i;
 	int				j;
 	int				x;
@@ -68,7 +45,6 @@ typedef struct		s_map
 	int				xm;
 	int				ym;
 	int				fd;
-	enum pseq		seq;
 	int				status; // 1 = parse erreur , 2 = build array
 }					t_map;
 
