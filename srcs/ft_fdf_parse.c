@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 03:24:52 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 06:57:45 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@ int		pclear(int err, t_data *d, t_map *m, char *msg)
 	return (1);
 }
 
+void	psize(t_data *d, t_map *m)
+{
+	char	*s;
+	d->i += 0;
+
+	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
+	l(1, s, "calc bloc size");
+	m->size = (m->xm >= m->ym) ? m->xm : m->ym;
+	m->size = (((DRAW_X2 - DRAW_X1) <= (DRAW_Y2 - DRAW_Y1)) ?
+	(DRAW_X2 - DRAW_X1) : (DRAW_Y2 - DRAW_Y1)) / m->size ;
+}
+
 int		pbuild(t_data *d, t_map *m)
 {
 	char	*s;
@@ -39,6 +51,7 @@ int		pbuild(t_data *d, t_map *m)
 		return (pclear(1, d, m, "! build int array error"));
 	close(m->fd);
 	m->status = -1;
+	psize(d, m);
 	loop(1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/05 22:38:39 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 01:49:51 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 08:00:20 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		pformatcheck(t_map *m, char *line)
 {
 	m->xm = 0;
 	m->ym = 0;
-	while (ft_strdel(&line) && (get_next_line(m->fd, &line)) > 0 && (m->x = -1))
+	while (ft_strdel(&line) && (get_next_line(m->fd, &line)) > 0 && !(m->x = 0))
 	{
 		m->i = -1;
 		while (line[++m->i])
@@ -58,7 +58,7 @@ int		pformatcheck(t_map *m, char *line)
 			return (0 * l(1, "PARSING", "X total is wrong"));
 		m->ym++;
 	}
-	if (m->ym < 2)
+	if (m->ym < 2 && ft_printf("y -> %d\n", m->ym))
 		return (0 * l(1, "PARSING", "Y total is wrong"));
 	return (1);
 }

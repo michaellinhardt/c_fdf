@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 03:32:42 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 05:43:34 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 
 # define LOG_ITOW 0
 # define LOG_XTOI 0
-# define LOG_NEWI 1
+# define LOG_NEWI 0
 # define LOG_KEY 0
 # define LOG_MOUSE 0
 # define LOG_LOOP 1

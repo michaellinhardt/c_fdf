@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 03:09:26 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 06:46:53 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_map
 	int				y;
 	int				xm;
 	int				ym;
+	int				size;
 	int				fd;
 	int				status; // 1 = parse erreur , 2 = build array // 0 = aucune map // -1 ready to draw
 }					t_map;

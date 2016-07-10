@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 05:08:40 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 05:38:04 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	menu_btndisplay(t_data *d, t_lmenu *l, char tmp[15], int mode)
 
 void	menu_btnpos(t_data *d, t_menu *m, t_lmenu *lst, char tmp[15])
 {
-	if (m->calcpos == 1)
-		l(1, "MENU BTN", "calculating position");
 	while (lst && lst->id <= (m->start->id + 9))
 	{
 		if (m->calcpos == 1)
