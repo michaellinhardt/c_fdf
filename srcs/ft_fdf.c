@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 00:38:18 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 04:48:21 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->intro.str = (char *)NULL;
 	d->pressany.img = (void *)NULL;
 	d->pressany.str = (char *)NULL;
+	d->fdf.img = (void *)NULL;
+	d->fdf.str = (char *)NULL;
 	d->imenu.img = (void *)NULL;
 	d->imenu.str = (char *)NULL;
 	d->btnoff.img = (void *)NULL;

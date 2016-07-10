@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/26 00:03:51 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 05:08:40 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,13 +122,12 @@ int		menu_refresh(t_data *d, t_img *im, t_menu *m, t_lmenu *l)
 	((m->start->id + 10) <= m->size && (m->d = 1)  && mo(ARROWD)) ? itow(xtoi(
 	&d->arrowd2, XPM_ARROWD2), x(ARROWD)[0], x(ARROWD)[1], "Arrow down") : 1;
 	menu_btnpos(d, m, l, tmp);
-	loop(0);
 	return (1);
 }
 
 int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 {
-	(!(d->i = 0) && d->menu.lst) ? flmenu(d) : 0;
+	(!(d->i = 0) && d->menu.lst) ? flmenu(d, 0) : 0;
 	if (!(dir = opendir(MAP_DIR)))
 		exit1(1, d, "Cant open maps dir.");
 	while ((f = readdir(dir)))
@@ -146,7 +145,8 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 			((d->menu.lst->p = new)) ? d->menu.lst = new : (t_lmenu *)NULL;
 	}
 	closedir(dir);
-	new = d->menu.lst;
+	if (!(new = d->menu.lst))
+		return (d->menu.open = 0 * l(1, "MENU", "maps dir is empty"));
 	d->menu.size = d->i;
 	while (((new->id = d->i--) || 1) && new->n)
 		new = new->n;
@@ -157,6 +157,8 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 
 void	menu_open(t_data *d, t_img *i, t_menu *m)
 {
+	if (!menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL))
+		return ;
 	i->img = xtoi(i, XPM_MENU);
 	i->i = -4;
 	while ((i->i += 4) < (i->sl * WIN_Y))
@@ -170,7 +172,7 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 	itow(i->img, m->xpos, m->ypos, "menu xpm");
 	if (m->fade == 0 && l(1, "MENU", "OPEN") && l(1, "READDIR", MAP_DIR)
 	&& (m->calcpos = 1)
-	&& menu_data(d, (t_lmenu *)NULL, (DIR *)NULL, (struct dirent *)NULL)
 	&& menu_refresh(d, &d->imenu, &d->menu, d->menu.start))
 		m->open = 2;
+	d->loopstop = 15;
 }

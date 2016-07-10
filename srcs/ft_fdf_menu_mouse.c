@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 15:01:51 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/29 07:46:22 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 05:05:10 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	menu_mouserelease(t_data *d, t_menu *m, int x, int y)
 			else if ((m->over = l))
 			{
 				((m->open = 3) && ((m->yclose = l->area[1]) || 1)) ?
-				ft_strdel(&d->map.path) : 1;
+				fmap(d, -1, 0) : 1;
+				d->loopstop = 0;
 				ft_printf("%!./maps/%s", &d->map.path, l->path);
 				(d->map.status = 1) ? loop(1) : 0;
 			}
@@ -49,6 +50,7 @@ void	menu_mouseover(t_data *d, t_menu *m, t_lmenu *l)
 		{
 			m->mo = MENU;
 			loop(1);
+			d->loopstop = 15;
 			return ;
 		}
 		l = l->p;
@@ -58,5 +60,6 @@ void	menu_mouseover(t_data *d, t_menu *m, t_lmenu *l)
 	|| (m->d && mo(ARROWD) && m->mo != ARROWD && (m->mo = ARROWD))
 	|| (m->d && !mo(ARROWD) && m->mo == ARROWD && !(m->mo = INIT))) && loop(1))
 		return ;
-	(m->mo == MENU && ((m->mo = INIT) || 1)) ? loop(1) : 0;
+	if (m->mo == MENU && ((m->mo = INIT) || 1))
+		d->loopstop = loop(1) + 15;
 }

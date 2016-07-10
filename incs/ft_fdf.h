@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/06 04:21:23 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 05:06:22 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		pbuildarray(t_map *m, char *line);
 int		pclear(int err, t_data *d, t_map *m, char *msg);
 
 int		fmap(t_data *d, int i, int log);
-int		flmenu(t_data *d);
+int		flmenu(t_data *d, int log);
 void	fdatabox(t_data *d);
 
 void	menu_mouserelease(t_data *d, t_menu *m, int x, int y);

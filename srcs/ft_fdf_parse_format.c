@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/05 22:38:39 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/06 04:52:08 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 01:49:51 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		pseq(t_map *m, char *li, int *i)
 			return (0 * l(1, "PARSING", "Z overflow int size"));
 		*i += 1;
 	}
-	// ft_printf("%d,%d : %s", m->x, m->ym, ft_strsub(li, m->i - m->j, m->j));
 	m->j = -1;
 	while (li[*i] && li[*i] != ' ' && (++m->j || 1))
 	{
@@ -38,9 +37,6 @@ int		pseq(t_map *m, char *li, int *i)
 			return (0 * l(1, "PARSING", "color is not hexa"));
 		*i += 1;
 	}
-	// if (m->j != -1)
-	// 	ft_printf(" col: %s", ft_strsub(li, m->i - m->j, m->j));
-	// ft_printf(" (%c)\n", li[*i]);
 	return (1);
 }
 
@@ -51,7 +47,6 @@ int		pformatcheck(t_map *m, char *line)
 	while (ft_strdel(&line) && (get_next_line(m->fd, &line)) > 0 && (m->x = -1))
 	{
 		m->i = -1;
-		// ft_printf("\n");
 		while (line[++m->i])
 			if (line[m->i] != ' ' && (++m->x || 1) && !(m->j = 0)
 			&& (!pseq(m, line, &m->i)))

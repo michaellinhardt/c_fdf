@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 07:44:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 01:13:13 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 03:29:56 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int		loop(int step)
 
 	d = data();
 	if (step != 2)
+	{
+		if (d->loop == step)
+			return (1);
 		d->loop = step;
+	}
 	else if (d->loop == 1)
 		d->loop = 0;
 	else

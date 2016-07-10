@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/07 23:22:29 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 03:09:26 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_map
 	int				xm;
 	int				ym;
 	int				fd;
-	int				status; // 1 = parse erreur , 2 = build array
+	int				status; // 1 = parse erreur , 2 = build array // 0 = aucune map // -1 ready to draw
 }					t_map;
 
 typedef struct		s_mo
@@ -103,6 +103,7 @@ typedef struct		s_data
 	t_img			pressany;
 	t_img			bkg;
 	t_img			imenu;
+	t_img			fdf;
 	t_menu			menu;
 	int				i;
 	int				mx;

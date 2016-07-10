@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/07 23:23:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 03:24:52 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int		pbuild(t_data *d, t_map *m)
 		return(pclear(1, d, m, "! cant read the map"));
 	if (!pbuildarray(m, (char *)NULL))
 		return (pclear(1, d, m, "! build int array error"));
-	m->status = 3;
+	close(m->fd);
+	m->status = -1;
+	loop(1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/07 22:52:13 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/10 05:07:59 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ int		fascii(int ico, char *type, char *data)
 	return (1);
 }
 
-int		flmenu(t_data *d)
+int		flmenu(t_data *d, int log)
 {
 	t_lmenu	*lst;
 	t_lmenu	*del;
 
-	fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
+	if (log == 1)
+		fascii(((d->menu.lst) ? 1 : 0), "t_lmenu *", "d->menu.lst");
 	if (!d->menu.lst)
 		return (1);
 	lst = d->menu.lst;
@@ -74,6 +75,8 @@ void	fdestroyimg(t_data *d)
 	(d->arrowd2.img) ? mlx_destroy_image(d->mlx, d->arrowd2.img) : 0;
 	fascii(((d->arrowd3.img) ? 1 : 0), "t_img *", "d->arrowd3.img");
 	(d->arrowd3.img) ? mlx_destroy_image(d->mlx, d->arrowd3.img) : 0;
+	fascii(((d->fdf.img) ? 1 : 0), "t_img *", "d->fdf.img");
+	(d->fdf.img) ? mlx_destroy_image(d->mlx, d->fdf.img) : 0;
 }
 
 int		fmap(t_data *d, int i, int log)
@@ -86,7 +89,7 @@ int		fmap(t_data *d, int i, int log)
 	}
 	if (d->map.map)
 		while (++i < d->map.ym)
-		ft_memdel((void **)&d->map.map[i]);
+			ft_memdel((void **)&d->map.map[i]);
 	if (d->map.map)
 		ft_memdel((void **)&d->map.map);
 	i = -1;
@@ -102,7 +105,7 @@ int		fmap(t_data *d, int i, int log)
 void	fdatabox(t_data *d)
 {
 	pascii(ASC_FREEDATA);
-	flmenu(d);
+	flmenu(d, 1);
 	fmap(d, -1, 1);
 	get_next_line(-10, NULL);
 	fdestroyimg(d);
