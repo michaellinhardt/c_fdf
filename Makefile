@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/07/10 03:04:55 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/07/11 08:29:45 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.$(LANGAGE)
 
 test: $(NAME)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] start"
-	@./$(NAME) maps/42.fdf
+	@./$(NAME)
 
 clean:
 #@make clean -C $(LIBS)

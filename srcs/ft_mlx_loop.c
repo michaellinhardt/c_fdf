@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 05:39:13 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 07:04:38 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	scene_main(t_data *d, t_menu *m)
 	(m->open == 2) ? menu_refresh(d, &d->imenu, &d->menu, d->menu.start) : 1;
 	(m->open == 1) ? menu_open(d, &d->imenu, m) : 1;
 	(d->map.status == -1 && m->open == 0) ? draw(d, &d->map, &d->fdf) : 0;
+	if (!m->open)
+		itow(d->border.img, 0, 0, "border");
 }
 
 void	scene_hook(t_data *d)

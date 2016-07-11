@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 06:57:45 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 18:55:15 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,47 @@ int		pclear(int err, t_data *d, t_map *m, char *msg)
 	return (1);
 }
 
-void	psize(t_data *d, t_map *m)
+// int		sizex;
+// int		sizey;
+// int		winx;
+// int		winy;
+//
+// winx = (DRAW_X2 - DRAW_X1 - BORDERX);
+// winy = (DRAW_Y2 - DRAW_Y1 - BORDERY);
+// sizex = winx / m->xm;
+// sizey = winy / m->ym;
+// // ft_printf("xm: %d\nym: %d\n", m->xm, m->ym);
+// // ft_printf("winx: %d\nwint: %d\nsizex: %d\nsizey: %d\n", winx, winy, sizex, sizey);
+// if (sizex * m->ym > winy)
+// 	m->size = sizey;
+// else if (sizey * m->xm > winx)
+// 	m->size = sizex;
+// else
+// 	m->size = (sizex >= sizey) ? sizex : sizey;
+// if (!m->size)
+// 	m->size = 3;
+
+void	pinit(t_map *m, int areax, int areay, char *s)
 {
-	char	*s;
-	d->i += 0;
+	int		sizex;
+	int		sizey;
 
 	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
 	l(1, s, "calc bloc size");
-	m->size = (m->xm >= m->ym) ? m->xm : m->ym;
-	m->size = (((DRAW_X2 - DRAW_X1) <= (DRAW_Y2 - DRAW_Y1)) ?
-	(DRAW_X2 - DRAW_X1) : (DRAW_Y2 - DRAW_Y1)) / m->size ;
+	areax = WIN_X - BORDERX * 2;
+	areay = WIN_Y - BORDERY * 2;
+	sizex = areax / m->xm;
+	sizey = areay / (m->ym + 1);
+	if (sizex * m->ym > areay)
+		m->size = sizey;
+	else if (sizey * m->xm > areax)
+		m->size = sizex;
+	else
+		m->size = (sizex >= sizey) ? sizex : sizey;
+	if (!m->size)
+		m->size = 3;
+	m->posx = BORDERX + ((areax - m->size * m->xm) / 2);
+	m->posy = BORDERY + ((areay - m->size * (m->ym - 1)) / 2);
 }
 
 int		pbuild(t_data *d, t_map *m)
@@ -51,7 +82,7 @@ int		pbuild(t_data *d, t_map *m)
 		return (pclear(1, d, m, "! build int array error"));
 	close(m->fd);
 	m->status = -1;
-	psize(d, m);
+	pinit(m, 0, 0, (char *)NULL);
 	loop(1);
 	return (0);
 }

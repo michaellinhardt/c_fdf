@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:49:54 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 04:48:21 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 18:52:48 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	data_init(t_data *d, int argc, char **argv)
 	d->arrowd2.str = (char *)NULL;
 	d->arrowd3.img = (void *)NULL;
 	d->arrowd3.str = (char *)NULL;
+	d->border.img = (void *)NULL;
+	d->border.str = (char *)NULL;
 	d->menu.fade = 255;
 	d->menu.xpos = 471;
 	d->menu.ypos = 117;

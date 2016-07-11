@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:14:09 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 07:38:18 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 03:36:33 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	line(int x1, int y1, int x2, int y2)
 	l.dy = abs(y2 - y1);
 	l.sy = y1 < y2 ? 1 : -1;
 	l.err = (l.dx > l.dy ? l.dx : -l.dy) / 2;
-	ft_printf("draw: %d, %d -> %d, %d\n", x1, y1, x2, y2);
 	while (42)
 	{
 		if (x1 <= WIN_X && y1 <= WIN_Y)

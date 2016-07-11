@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 05:43:34 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 14:03:20 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@
 # define INTRO_FADE_SPEED 2
 # define WIN_X 1200
 # define WIN_Y 675
+# define BORDERX 100
+# define BORDERY 100
+
+
+
 # define DRAW_X1 100
 # define DRAW_Y1 90
 # define DRAW_X2 1100
 # define DRAW_Y2 590
+# define BORDX 50
+# define BORDY 50
 
 
 # define USLEEP_TIME 20000
@@ -33,6 +40,7 @@
 # define XPM_PRESSANY "./xpm/pressanykey.xpm"
 # define XPM_PRESSANY2 "./xpm/pressanykey2.xpm"
 # define XPM_BKG "./xpm/background.xpm"
+# define XPM_BORDER "./xpm/border.xpm"
 # define XPM_MENU "./xpm/menu.xpm"
 # define XPM_ARROWU1 "./xpm/arrowu1.xpm"
 # define XPM_ARROWU2 "./xpm/arrowu2.xpm"
@@ -62,7 +70,7 @@
 # define LOG_XTOI 0
 # define LOG_NEWI 0
 # define LOG_KEY 0
-# define LOG_MOUSE 0
+# define LOG_MOUSE 1
 # define LOG_LOOP 1
 
 # define C ft_memcpy

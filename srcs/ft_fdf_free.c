@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:11:32 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 05:07:59 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 06:52:53 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	fdestroyimg(t_data *d)
 	(d->arrowd3.img) ? mlx_destroy_image(d->mlx, d->arrowd3.img) : 0;
 	fascii(((d->fdf.img) ? 1 : 0), "t_img *", "d->fdf.img");
 	(d->fdf.img) ? mlx_destroy_image(d->mlx, d->fdf.img) : 0;
+	fascii(((d->border.img) ? 1 : 0), "t_img *", "d->border.img");
+	(d->border.img) ? mlx_destroy_image(d->mlx, d->border.img) : 0;
 }
 
 int		fmap(t_data *d, int i, int log)

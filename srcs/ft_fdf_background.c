@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:27:48 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 03:27:09 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 06:55:34 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	background_load(t_data *d, t_img *b, t_img *i)
 	static int	fade = 0;
 
 	(!(b->img)) ? (b->img = xtoi(b, XPM_BKG)) : (t_img *)NULL;
+	(!(d->border.img)) ? (d->border.img = xtoi(&d->border, XPM_BORDER))
+	: (t_img *)NULL;
 	if (!(i->img))
 		i->img = newi(i, WIN_X, WIN_Y, "d->img");
 	itow(b->img, 0, 0, "background");
+	itow(d->border.img, 0, 0, "border");
 	i->i = -4;
 	while ((i->i += 4) < (i->sl * WIN_Y))
 	{
