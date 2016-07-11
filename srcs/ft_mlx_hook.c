@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/10 03:55:59 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 21:17:03 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,28 @@ int		keyr_hook(int key, t_data *d)
 		d->menu.open = (d->menu.open != 0 && (d->menu.fade = 255)) ? 0 : 1;
 		d->loopstop = (d->menu.open == 0 && l(1, "MENU", "CLOSE")) ? 1 : 0;
 	}
+	else if (d->menu.open == 0)
+	{
+		(key == 123) ? d->input.left = 0 * loop(1): 0;
+		(key == 124) ? d->input.right = 0 * loop(1): 0;
+		(key == 125) ? d->input.down = 0 * loop(1): 0;
+		(key == 126) ? d->input.up = 0 * loop(1): 0;
+	}
 	return (0);
 }
 
 int		keyp_hook(int key, t_data *d)
 {
+	d->i += 0;
 	l2(2, "PRESS", "-> (int) key", key);
+	if (d->menu.open == 0)
+	{
+		(key == 123) ? d->input.left = loop(1): 0;
+		(key == 124) ? d->input.right = loop(1): 0;
+		(key == 125) ? d->input.down = loop(1): 0;
+		(key == 126) ? d->input.up = loop(1): 0;
+	}
 	return (0);
-	d->x += 0;
 }
 
 int		mousep_hook(int btn, int x, int y, t_data *d)

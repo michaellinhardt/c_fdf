@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/11 06:45:35 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 21:09:26 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct		s_map
 	int				xm;
 	int				ym;
 	int				size;
+	int				maxy;
 	int				posx;
 	int				posy;
 	int				fd;
@@ -94,11 +95,20 @@ typedef struct		s_img
 	int				i;
 }					t_img;
 
+typedef struct		s_input
+{
+	int				left;
+	int				right;
+	int				up;
+	int				down;
+}					t_input;
+
 typedef struct		s_data
 {
 	void			*mlx;
 	void			*win;
 	t_map			map;
+	t_input			input;
 	char			loop;
 	char			loopstop;
 	t_img			img;

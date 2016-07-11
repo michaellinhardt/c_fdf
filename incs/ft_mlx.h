@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/11 14:03:20 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/11 21:21:15 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,7 @@
 # define BORDERX 100
 # define BORDERY 100
 
-
-
-# define DRAW_X1 100
-# define DRAW_Y1 90
-# define DRAW_X2 1100
-# define DRAW_Y2 590
-# define BORDX 50
-# define BORDY 50
+# define MOVE_SPEED 3
 
 
 # define USLEEP_TIME 20000
@@ -69,8 +62,8 @@
 # define LOG_ITOW 0
 # define LOG_XTOI 0
 # define LOG_NEWI 0
-# define LOG_KEY 0
-# define LOG_MOUSE 1
+# define LOG_KEY 1
+# define LOG_MOUSE 0
 # define LOG_LOOP 1
 
 # define C ft_memcpy
