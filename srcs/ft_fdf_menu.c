@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/11 04:09:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/13 02:40:47 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 		return ;
 	i->img = xtoi(i, XPM_MENU);
 	i->i = -4;
-	while ((i->i += 4) < (i->sl * WIN_Y))
+	while ((i->i += 4) < (i->sl * 454))
 	{
 		if (i->str[i->i] == 0 && i->str[i->i + 1] == 0 && i->str[i->i + 2] == 0)
 			i->str[i->i + 3] = 255;

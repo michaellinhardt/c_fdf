@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/02 04:16:52 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 08:01:54 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/14 10:18:44 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int		pseqrec(t_map *m, char *li, int *i, intmax_t verif)
  	if (verif > INT_MAX || verif < INT_MIN)
 		return (0 * l(1, "BUILD ARRAY", "Z overflow int size"));
 	m->map[m->y][m->x] = (int)verif;
+	if (verif > abss(m->zm))
+		m->zm = verif;
 	if (li[*i] && li[*i] == ',' && (m->j = -999))
 		*i += 9;
 	z[6] = '\0';
@@ -70,6 +72,7 @@ int		pbuildarray(t_map *m, char *line)
 {
 	pmallocarray(m);
 	m->y = 0;
+	m->zm = 0;
 	while (ft_strdel(&line) && (get_next_line(m->fd, &line)) > 0 && (m->x = -1))
 	{
 		m->i = -1;

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 07:44:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/11 21:27:32 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/14 01:59:30 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		loop(int step)
 
 	d = data();
 	if (d->loop == 1 && d->map.status == -1 && d->menu.open == 0
-	&& (d->input.left || d->input.right || d->input.up || d->input.down))
+	&& (d->input.left || d->input.right || d->input.up || d->input.down
+	|| d->loopstop))
 		return (1);
 	if (step != 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/11 21:21:15 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/14 10:27:41 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define BORDERY 100
 
 # define MOVE_SPEED 3
-
+# define ZOOM_SPEED 2
 
 # define USLEEP_TIME 20000
 # define USLEEP_BOOL 1
@@ -62,7 +62,7 @@
 # define LOG_ITOW 0
 # define LOG_XTOI 0
 # define LOG_NEWI 0
-# define LOG_KEY 1
+# define LOG_KEY 0
 # define LOG_MOUSE 0
 # define LOG_LOOP 1
 
@@ -89,6 +89,7 @@ int		mouser_hook(int btn, int x, int y, t_data *d);
 
 void	draw(t_data *d, t_map *m, t_img *i);
 
+int		abss(int i);
 void	line(int x1, int y1, int x2, int y2);
 
 int		pascii(char *path);
@@ -104,5 +105,10 @@ int		l4(int btn, int x, int y, char *action);
 int		*x(enum coord coord);
 int		mr(enum coord c, int x, int y);
 int		mo(enum coord coord);
+
+int		zoomin(t_data *d, t_map *m, int x, int y);
+int		zoomout(t_data *d, t_map *m, int x, int y);
+int		zoomzin(t_data *d, t_map *m);
+int		zoomzout(t_data *d, t_map *m);
 
 #endif

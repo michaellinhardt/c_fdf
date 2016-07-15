@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/07/11 08:29:45 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/07/13 02:57:22 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ LIST 	= ft_fdf \
 		ft_mlx_draw \
 		ft_mlx_handler \
 		ft_mlx_mouse \
+		ft_mlx_zoom \
 		ft_mlx_log \
 
 SRC := $(addprefix $(SRC_DIR)/, $(addsuffix .$(LANGAGE), $(LIST)))

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/11 18:55:15 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/15 03:35:33 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,6 @@ int		pclear(int err, t_data *d, t_map *m, char *msg)
 	(err == 1 && d->menu.open == 0) ? (d->menu.open = 1) : 0;
 	return (1);
 }
-
-// int		sizex;
-// int		sizey;
-// int		winx;
-// int		winy;
-//
-// winx = (DRAW_X2 - DRAW_X1 - BORDERX);
-// winy = (DRAW_Y2 - DRAW_Y1 - BORDERY);
-// sizex = winx / m->xm;
-// sizey = winy / m->ym;
-// // ft_printf("xm: %d\nym: %d\n", m->xm, m->ym);
-// // ft_printf("winx: %d\nwint: %d\nsizex: %d\nsizey: %d\n", winx, winy, sizex, sizey);
-// if (sizex * m->ym > winy)
-// 	m->size = sizey;
-// else if (sizey * m->xm > winx)
-// 	m->size = sizex;
-// else
-// 	m->size = (sizex >= sizey) ? sizex : sizey;
-// if (!m->size)
-// 	m->size = 3;
 
 void	pinit(t_map *m, int areax, int areay, char *s)
 {
@@ -66,6 +46,9 @@ void	pinit(t_map *m, int areax, int areay, char *s)
 		m->size = 3;
 	m->posx = BORDERX + ((areax - m->size * m->xm) / 2);
 	m->posy = BORDERY + ((areay - m->size * (m->ym - 1)) / 2);
+	(m->zm == 0) ? (m->zm = 1) : 0;
+	m->heigh = ((double)m->size / (double)m->zm);
+	m->heigh2 = m->heigh;
 }
 
 int		pbuild(t_data *d, t_map *m)
