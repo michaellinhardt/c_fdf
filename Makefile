@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/07/13 02:57:22 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/07/24 17:19:45 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ LIST 	= ft_fdf \
 		ft_mlx_hook \
 		ft_mlx_line \
 		ft_mlx_draw \
+		ft_mlx_mat \
 		ft_mlx_handler \
 		ft_mlx_mouse \
 		ft_mlx_zoom \
@@ -67,7 +68,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.$(LANGAGE)
 
 test: $(NAME)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] start"
-	@./$(NAME)
+	@./$(NAME) ./maps/elem2.fdf
 
 clean:
 #@make clean -C $(LIBS)

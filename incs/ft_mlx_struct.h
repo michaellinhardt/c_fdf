@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/15 05:47:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/25 18:10:02 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,24 @@ enum coord {
 	ARROWD
 };
 
+typedef struct		s_mat
+{
+	char			lock;
+	int				x1;
+	int				y1;
+	int				z1;
+	int				x2;
+	int				y2;
+	int				z2;
+}					t_mat;
+
 typedef struct		s_map
 {
 	char			*path;
 	char			read[BUFF_SIZE + 1];
 	int				**map;
 	unsigned char	**col;
+	t_mat			mat;
 	int				i;
 	int				j;
 	int				x;

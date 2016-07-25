@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/14 10:27:41 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/24 17:20:11 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int		keyr_hook(int key, t_data *d);
 int		keyp_hook(int key, t_data *d);
 int		mousep_hook(int btn, int x, int y, t_data *d);
 int		mouser_hook(int btn, int x, int y, t_data *d);
+
+void	addmatrice(t_map *m);
 
 void	draw(t_data *d, t_map *m, t_img *i);
 

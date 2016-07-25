@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/15 03:35:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/07/24 16:55:22 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	pinit(t_map *m, int areax, int areay, char *s)
 	(m->zm == 0) ? (m->zm = 1) : 0;
 	m->heigh = ((double)m->size / (double)m->zm);
 	m->heigh2 = m->heigh;
+	m->rx = -0.2;
+	m->ry = 0;
 }
 
 int		pbuild(t_data *d, t_map *m)
