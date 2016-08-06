@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 19:24:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/15 05:48:10 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/08/04 18:19:16 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ void	scene_main(t_data *d, t_menu *m, t_input *i)
 	(m->open == 1) ? menu_open(d, &d->imenu, m) : 1;
 	if (d->map.status == -1 && m->open == 0)
 	{
-		(i->left) ? (d->map.posx -= MOVE_SPEED) : 0;
-		(i->right) ? (d->map.posx += MOVE_SPEED) : 0;
-		(i->up) ? (d->map.posy -= MOVE_SPEED) : 0;
-		(i->down) ? (d->map.posy += MOVE_SPEED) : 0;
+		i->left += 0;
+		(i->left) ? (d->map.rz += 0.1) : 0;
+		(i->right) ? (d->map.rz -= 0.1) : 0;
+		// (i->left) ? (d->map.posx -= MOVE_SPEED) : 0;
+		// (i->right) ? (d->map.posx += MOVE_SPEED) : 0;
+		// (i->up) ? (d->map.posy -= MOVE_SPEED) : 0;
+		// (i->down) ? (d->map.posy += MOVE_SPEED) : 0;
 		draw(d, &d->map, &d->fdf);
 	}
 	if (!m->open)

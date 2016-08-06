@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/05 22:38:39 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 08:00:20 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/08/04 18:03:18 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		pformatcheck(t_map *m, char *line)
 			return (0 * l(1, "PARSING", "X total is wrong"));
 		m->ym++;
 	}
-	if (m->ym < 2 && ft_printf("y -> %d\n", m->ym))
+	if (m->ym < 2)
 		return (0 * l(1, "PARSING", "Y total is wrong"));
 	return (1);
 }

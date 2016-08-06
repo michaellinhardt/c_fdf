@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/25 19:59:53 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/08/04 18:04:16 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,5 @@ int		mouser_hook(int btn, int x, int y, t_data *d)
 		else if (btn == 2)
 			d->input.mright = 0;
 	}
-	ft_printf("%f\n", d->map.rx);
 	return (0);
 }
