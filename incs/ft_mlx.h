@@ -104,9 +104,9 @@ int		l2(int ico, char *name, char *info, int val);
 int		l3(int ico);
 int		l4(int btn, int x, int y, char *action);
 
-int		*x(enum coord coord);
-int		mr(enum coord c, int x, int y);
-int		mo(enum coord coord);
+int		*x(enum e_coord coord);
+int		mr(enum e_coord c, int x, int y);
+int		mo(enum e_coord coord);
 
 int		zoomin(t_data *d, t_map *m, int x, int y);
 int		zoomout(t_data *d, t_map *m, int x, int y);

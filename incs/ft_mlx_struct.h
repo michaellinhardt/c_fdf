@@ -6,18 +6,14 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/11/20 21:17:53 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 22:21:43 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// gnl is reading, map select, music change (avec titre)
-// LOG EN BAS DE LECRAN SUR LETAT DE LA MAP
-// IPS EN HAUT DE LECRAN
+#ifndef FT_MLX_STRUCT_H
+# define FT_MLX_STRUCT_H
 
-#ifndef FT_FDF_STRUCT_H
-# define FT_FDF_STRUCT_H
-
-enum scene {
+enum	e_scene {
 	INTRO_LOAD,
 	INTRO_MENU,
 	INTRO_OUT,
@@ -25,7 +21,7 @@ enum scene {
 	MAIN
 };
 
-enum coord {
+enum	e_coord {
 	INIT,
 	MENU,
 	ARROWU,
@@ -68,7 +64,7 @@ typedef struct		s_map
 	int				posx;
 	int				posy;
 	int				fd;
-	int				status; // 1 = parse erreur , 2 = build array // 0 = aucune map // -1 ready to draw
+	int				status;
 }					t_map;
 
 typedef struct		s_mo
@@ -101,7 +97,7 @@ typedef struct		s_menu
 	int				btnpos[6];
 	char			u;
 	char			d;
-	enum coord		mo;
+	enum e_coord	mo;
 }					t_menu;
 
 typedef struct		s_img
@@ -159,8 +155,8 @@ typedef struct		s_data
 	t_img			arrowd2;
 	t_img			arrowd3;
 	t_lmenu			*l;
-	enum scene		scene;
-	enum scene		scenelast;
+	enum e_scene	scene;
+	enum e_scene	scenelast;
 }					t_data;
 
 typedef struct		s_line

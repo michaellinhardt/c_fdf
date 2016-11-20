@@ -6,16 +6,16 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 10:59:31 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/11/20 22:00:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 22:20:28 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-int		*coordret1(enum coord c)
+int		*coordret1(enum e_coord c)
 {
 	static int			i[6];
-	static enum coord	last = INIT;
+	static enum e_coord	last = INIT;
 
 	if (last == c || (last = c) == INIT)
 		return (i);
@@ -25,17 +25,17 @@ int		*coordret1(enum coord c)
 	return (i);
 }
 
-int		*x(enum coord coord)
+int		*x(enum e_coord coord)
 {
 	if (coord >= MENU && coord <= ARROWD)
 		return (coordret1(coord));
 	return ((int *)NULL);
 }
 
-int		mo(enum coord c)
+int		mo(enum e_coord c)
 {
 	static int			i[6];
-	static enum coord	last = INIT;
+	static enum e_coord	last = INIT;
 	t_data				*d;
 
 	if (last != c && ((last = c) || 1))
@@ -46,10 +46,10 @@ int		mo(enum coord c)
 	return (0);
 }
 
-int		mr(enum coord c, int x1, int y1)
+int		mr(enum e_coord c, int x1, int y1)
 {
 	static int			i[6];
-	static enum coord	last = INIT;
+	static enum e_coord	last = INIT;
 	t_data				*d;
 
 	if (last != c && ((last = c) || 1))

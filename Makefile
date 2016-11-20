@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/11/20 22:04:49 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/11/20 22:30:09 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ C_BLUE	= "\033[34;1m"
 all: $(NAME)
 
 $(NAME): $(OBJ)
-#@make -C $(LIBS)
+	@make -C $(LIBS)
+	@make -C ./minilibx
 	$(CC) $(OBJ) -o $@ $(FLAGS) $(INCS) $(LIBFT) $(LIBMLX)
 	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] created"
 
@@ -69,31 +70,18 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.$(LANGAGE)
 	@mkdir -p $(dir $@)
 	$(CC) $(INCS) -o $@ -c $<
 
-test: $(NAME)
-	@echo "✅  ["$(C_GOOD) $(NAME) $(C_END)"] start"
-	@./$(NAME) ./maps/elem2.fdf
-
 clean:
-#@make clean -C $(LIBS)
+	@make clean -C $(LIBS)
+	@make clean -C ./minilibx
 	@/bin/rm -rf $(OBJ_DIR)
 	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] $(OBJ_DIR) folder deleted"
 
-clean2:
-	@/bin/rm -rf $(OBJ_DIR)
-	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] $(OBJ_DIR) folder deleted"
-
-fclean: clean2
+fclean: clean
 	@/bin/rm -rf *.dSYM
-#@make fclean -C $(LIBS)
+	@make fclean -C $(LIBS)
 	@/bin/rm -f $(NAME)
 	@echo "⚰  ["$(C_GREY) $(NAME) $(C_END)"] bin deleted"
 
-#leaks: $(NAME) -leaks
-leaks: $(NAME) test
-
--leaks:
-	@-valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(NAME)
-
 re: fclean libft $(NAME)
 
-.PHONY: all clean clean2 fclean re libft test leaks
+.PHONY: all clean clean2 fclean re libft
