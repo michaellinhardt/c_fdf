@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 15:01:51 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 05:37:03 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 21:19:58 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 void	menu_mouserelease(t_data *d, t_menu *m, int x, int y)
 {
-	t_lmenu		*l;
-
-	((l = m->start) && m->u == 1 && mr(ARROWU, x, y) && (m->start = m->start->n)
-	&& (m->calcpos = 1)) ? (d->loopstop = loop(1) + 60) : 1;
+	((d->l = m->start) && m->u == 1 && mr(ARROWU, x, y)
+	&& (m->start = m->start->n)
+	&& (m->calcpos = 1)) ?
+	(d->loopstop = loop(1) + 60) : 1;
 	(m->d == 1 && mr(ARROWD, x, y) && (m->start = m->start->p)
-	&& (m->calcpos = 1)) ? (d->loopstop = loop(1) + 60) : 1;
-	while (l && l->id <= (m->start->id + 9))
+	&& (m->calcpos = 1)) ?
+	(d->loopstop = loop(1) + 60) : 1;
+	while (d->l && d->l->id <= (m->start->id + 9))
 	{
-		if (d->mx >= l->area[2] && d->mx <= l->area[4]
-		&& d->my >= l->area[3] && d->my <= l->area[5])
+		if (d->mx >= d->l->area[2] && d->mx <= d->l->area[4]
+		&& d->my >= d->l->area[3] && d->my <= d->l->area[5])
 		{
-			if (d->map.status > 0)
-				l2(1, l->path, "already reading a map", l->id);
-			else if ((m->over = l))
+			if (d->map.status < 1 && (m->over = d->l))
 			{
-				((m->open = 3) && ((m->yclose = l->area[1]) || 1)) ?
+				((m->open = 3)
+				&& ((m->yclose = d->l->area[1]) || 1)) ?
 				fmap(d, -1, 0) : 1;
 				d->loopstop = 0;
-				ft_printf("%!./maps/%s", &d->map.path, l->path);
+				ft_printf("%!./maps/%s", &d->map.path, d->l->path);
 				(d->map.status = 1) ? loop(1) : 0;
 			}
 			break ;
 		}
-		l = l->p;
+		d->l = d->l->p;
 	}
 }
 

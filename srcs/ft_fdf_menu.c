@@ -6,69 +6,11 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 19:43:55 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/13 02:40:47 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 22:16:14 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
-
-void	debug_mo(enum coord coord)
-{
-	line(x(coord)[2], x(coord)[3], x(coord)[4], x(coord)[5]);
-}
-
-void	menu_btndisplay(t_data *d, t_lmenu *l, char tmp[15], int mode)
-{
-	if ((mode == 1 && d->mx >= l->area[2] && d->mx <= l->area[4]
-	&& d->my >= l->area[3] && d->my <= l->area[5]) || (mode == 0
-	&& l->id == d->menu.over->id))
-		itow(xtoi(&d->btnover, XPM_BTNOVER)
-		, l->area[0], l->area[1], "Btn over");
-	else
-		itow(xtoi(&d->btnoff, XPM_BTNOFF)
-		, l->area[0], l->area[1], "Btn off");
-	if (ft_strlen(l->path) <= 14)
-		mlx_string_put(d->mlx, d->win, l->area[0] + 10
-		, l->area[1] + 7, 0xFFFFFF, l->path);
-	else if (ft_memcpy(tmp, l->path, 11))
-		mlx_string_put(d->mlx, d->win, l->area[0] + 10
-	, l->area[1] + 7, 0xFFFFFF, tmp);
-}
-
-void	menu_btnpos(t_data *d, t_menu *m, t_lmenu *lst, char tmp[15])
-{
-	while (lst && lst->id <= (m->start->id + 9))
-	{
-		if (m->calcpos == 1)
-		{
-			lst->area[0] = m->btnpos[0];
-			lst->area[1] = m->btnpos[1] + (38 * (lst->id - m->start->id));
-			lst->area[2] = lst->area[0];
-			lst->area[3] = lst->area[1];
-			lst->area[4] = m->btnpos[4];
-			lst->area[5] = m->btnpos[5] + (38 * (lst->id - m->start->id));
-		}
-		menu_btndisplay(d, lst, tmp, 1);
-		lst = lst->p;
-	}
-	m->calcpos = 0;
-}
-
-int		menu_close_anim(t_menu *m, t_lmenu *lst)
-{
-	if (lst->area[1] != m->yclose)
-	{
-
-		if (lst->area[1] > m->yclose &&  ((lst->area[1] -= 8) || 1) &&
-			lst->area[1] < m->yclose)
-			lst->area[1] = m->yclose;
-		else if (lst->area[1] < m->yclose &&  ((lst->area[1] += 8) || 1) &&
-			lst->area[1] > m->yclose)
-			lst->area[1] = m->yclose;
-		return (1);
-	}
-	return (0);
-}
 
 int		menu_close(t_data *d, t_img *im, t_menu *m, t_lmenu *lst)
 {
@@ -117,9 +59,16 @@ int		menu_refresh(t_data *d, t_img *im, t_menu *m, t_lmenu *l)
 	, x(ARROWU)[0], x(ARROWU)[1], "Arrow up mouse over") : 1;
 	((m->start->id + 10) <= m->size && (m->d = 1) && !mo(ARROWD)) ? itow(xtoi(
 	&d->arrowd1, XPM_ARROWD1), x(ARROWD)[0], x(ARROWD)[1], "Arrow down") : 1;
-	((m->start->id + 10) <= m->size && (m->d = 1)  && mo(ARROWD)) ? itow(xtoi(
+	((m->start->id + 10) <= m->size && (m->d = 1) && mo(ARROWD)) ? itow(xtoi(
 	&d->arrowd2, XPM_ARROWD2), x(ARROWD)[0], x(ARROWD)[1], "Arrow down") : 1;
 	menu_btnpos(d, m, l, tmp);
+	return (1);
+}
+
+int		truc_nul(t_data *d, t_lmenu *new)
+{
+	d->menu.lst = new;
+	d->menu.start = new;
 	return (1);
 }
 
@@ -137,10 +86,11 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 			exit1(1, d, "Cant malloc t_lmenu struct.");
 		ft_memcpy(new->path, f->d_name, f->d_namlen);
 		if (!d->menu.lst && (d->menu.lst = new))
-			(!(new->p = (t_lmenu *)NULL)) ?
-				new->n = (t_lmenu *)NULL : (t_lmenu *)NULL;
+			(!(new->p = (t_lmenu *)NULL))
+				? new->n = (t_lmenu *)NULL : (t_lmenu *)NULL;
 		else if ((new->n = d->menu.lst))
-			((d->menu.lst->p = new)) ? d->menu.lst = new : (t_lmenu *)NULL;
+			((d->menu.lst->p = new))
+			? d->menu.lst = new : (t_lmenu *)NULL;
 	}
 	closedir(dir);
 	if (!(new = d->menu.lst))
@@ -148,9 +98,7 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 	d->menu.size = d->i;
 	while (((new->id = d->i--) || 1) && new->n)
 		new = new->n;
-	d->menu.lst = new;
-	d->menu.start = new;
-	return (1);
+	return (truc_nul(d, new));
 }
 
 void	menu_open(t_data *d, t_img *i, t_menu *m)

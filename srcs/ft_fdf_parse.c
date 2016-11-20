@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/11/20 19:33:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 21:53:45 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		pbuild(t_data *d, t_map *m)
 	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
 	l1(1, s, "build int array");
 	if (m->fd < 0 || BUFF_SIZE < 1 || read(m->fd, m->read, 0) < 0)
-		return(pclear(1, d, m, "! cant read the map"));
+		return (pclear(1, d, m, "! cant read the map"));
 	if (!pbuildarray(m, (char *)NULL))
 		return (pclear(1, d, m, "! build int array error"));
 	close(m->fd);
@@ -77,12 +77,12 @@ int		pformat(t_data *d, t_map *m)
 	char	*s;
 
 	if (!ft_strstr(m->path, ".fdf"))
-		return(pclear(1, d, m, "! invalid map name"));
+		return (pclear(1, d, m, "! invalid map name"));
 	m->fd = open(m->path, O_RDONLY);
 	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
 	l1(1, s, "format verification");
 	if (m->fd < 0 || BUFF_SIZE < 1 || read(m->fd, m->read, 0) < 0)
-		return(pclear(1, d, m, "! cant read the map"));
+		return (pclear(1, d, m, "! cant read the map"));
 	if (!pformatcheck(m, (char *)NULL))
 		return (pclear(1, d, m, "! map format error"));
 	m->status = 2;

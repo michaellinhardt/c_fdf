@@ -6,13 +6,13 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/02 04:16:52 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/14 10:18:44 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 21:55:30 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fdf.h"
 
-void	pcol1(t_map *m, int slot, char a, char b)
+void	pco1(t_map *m, int slot, char a, char b)
 {
 	int		vala;
 	int		valb;
@@ -54,7 +54,7 @@ int		pseqrec(t_map *m, char *li, int *i, intmax_t verif)
 	ft_memcpy(z, &(li[m->i - m->j]), m->j);
 	z[m->j] = '\0';
 	verif = ft_atoimax(z);
- 	if (verif > INT_MAX || verif < INT_MIN)
+	if (verif > INT_MAX || verif < INT_MIN)
 		return (0 * l1(1, "BUILD ARRAY", "Z overflow int size"));
 	m->map[m->y][m->x] = (int)verif;
 	if (verif > abss(m->zm))
@@ -62,9 +62,9 @@ int		pseqrec(t_map *m, char *li, int *i, intmax_t verif)
 	if (li[*i] && li[*i] == ',' && (m->j = -999))
 		*i += 9;
 	z[6] = '\0';
-	(m->j < 0) ? pcol1(m, 0, li[m->i - 6], li[m->i - 5]) : pcol1(m, 0, '0', '0');
-	(m->j < 0) ? pcol1(m, 1, li[m->i - 4], li[m->i - 3]) : pcol1(m, 1, '0', '0');
-	(m->j < 0) ? pcol1(m, 2, li[m->i - 2], li[m->i - 1]) : pcol1(m, 2, '0', '0');
+	(m->j < 0) ? pco1(m, 0, li[m->i - 6], li[m->i - 5]) : pco1(m, 0, '0', '0');
+	(m->j < 0) ? pco1(m, 1, li[m->i - 4], li[m->i - 3]) : pco1(m, 1, '0', '0');
+	(m->j < 0) ? pco1(m, 2, li[m->i - 2], li[m->i - 1]) : pco1(m, 2, '0', '0');
 	return (1);
 }
 

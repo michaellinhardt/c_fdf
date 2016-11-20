@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 10:59:31 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/06/09 18:23:12 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 22:00:33 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		*coordret1(enum coord c)
 
 	if (last == c || (last = c) == INIT)
 		return (i);
-	(c == MENU) ? C(i, CC{ 522, 175, 522, 175, 671, 204 }, 24) : 0;
-	(c == ARROWU) ? C(i, CC{ 686, 181, 686, 181, 715, 208 }, 24) : 0;
-	(c == ARROWD) ? C(i, CC{ 686, 520, 686, 520, 715, 548 }, 24) : 0;
+	(c == MENU) ? C(i, &(int[6]){ 522, 175, 522, 175, 671, 204 }, 24) : 0;
+	(c == ARROWU) ? C(i, &(int[6]){ 686, 181, 686, 181, 715, 208 }, 24) : 0;
+	(c == ARROWD) ? C(i, &(int[6]){ 686, 520, 686, 520, 715, 548 }, 24) : 0;
 	return (i);
 }
 
@@ -36,7 +36,7 @@ int		mo(enum coord c)
 {
 	static int			i[6];
 	static enum coord	last = INIT;
-	t_data *d;
+	t_data				*d;
 
 	if (last != c && ((last = c) || 1))
 		C(i, x(c), 24);
@@ -50,7 +50,7 @@ int		mr(enum coord c, int x1, int y1)
 {
 	static int			i[6];
 	static enum coord	last = INIT;
-	t_data *d;
+	t_data				*d;
 
 	if (last != c && ((last = c) || 1))
 		C(i, x(c), 24);

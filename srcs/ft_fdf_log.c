@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fdf_log.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/20 20:24:41 by mlinhard          #+#    #+#             */
+/*   Updated: 2016/11/20 20:26:43 by mlinhard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_fdf.h"
 
 int		l1(int ico, char *name, char *info)
@@ -20,9 +32,9 @@ int		l1(int ico, char *name, char *info)
 	, LINE_GREEN2, info, LINE_YEL);
 	ico = (ico == 7) ? (ft_printf("\e[93m") + ft_printf("🎼  ╠")
 	+ ft_printf("\e[90m") + ft_printf("═══════════════════════")
-	+ ft_printf("\e[93m")+ ft_printf("╬") + ft_printf("\e[90m")
+	+ ft_printf("\e[93m") + ft_printf("╬") + ft_printf("\e[90m")
 	+ ft_printf("══════════════════════════════════════════════════")
-	+ ft_printf("\e[93m")+ ft_printf("╣\n")) : 1;
+	+ ft_printf("\e[93m") + ft_printf("╣\n")) : 1;
 	return (1);
 }
 
@@ -57,9 +69,9 @@ int		l3(int ico)
 	uni = L'🎦';
 	ico = (ico == 1) ? (ft_printf("\e[93m") + ft_printf("🎼  ╠")
 	+ ft_printf("\e[90m") + ft_printf("═══════════════════════")
-	+ ft_printf("\e[93m")+ ft_printf("╬") + ft_printf("\e[90m")
+	+ ft_printf("\e[93m") + ft_printf("╬") + ft_printf("\e[90m")
 	+ ft_printf("══════════════════════════════════════════════════")
-	+ ft_printf("\e[93m")+ ft_printf("╣\n")) * 0 + 1 : ico;
+	+ ft_printf("\e[93m") + ft_printf("╣\n")) * 0 + 1 : ico;
 	if (ico == 0)
 		ft_printf(" %C %s %20s  %s  %-47s %s\n", uni, LINE_BLUE, "SCENE INIT"
 	, LINE_GREEN2, strnum[d->scene], LINE_YEL);

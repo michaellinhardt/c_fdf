@@ -6,7 +6,7 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/11/20 19:45:05 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/11/20 22:04:49 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,14 @@ OBJ_DIR = objs
 LIST 	= ft_fdf \
 		ft_fdf_error \
 		ft_fdf_free \
+		ft_fdf_free_img \
 		ft_fdf_parse \
 		ft_fdf_parse_format \
 		ft_fdf_parse_build \
 		ft_fdf_intro \
 		ft_fdf_background \
 		ft_fdf_menu \
+		ft_fdf_menu2 \
 		ft_fdf_menu_mouse \
 		ft_fdf_ascii \
 		ft_fdf_data_init \

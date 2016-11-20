@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/11/20 19:25:57 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 21:17:53 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ typedef struct		s_data
 	t_img			arrowd1;
 	t_img			arrowd2;
 	t_img			arrowd3;
+	t_lmenu			*l;
 	enum scene		scene;
 	enum scene		scenelast;
 }					t_data;
