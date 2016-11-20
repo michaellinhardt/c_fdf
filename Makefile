@@ -6,14 +6,14 @@
 #    By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/27 18:21:52 by mlinhard          #+#    #+#              #
-#    Updated: 2016/11/20 22:30:09 by mlinhard         ###   ########.fr        #
+#    Updated: 2016/11/20 22:32:08 by mlinhard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS	= -Wall -Wextra -Werror
 # FLAGS	=
 CC		= gcc $(FLAGS)
-INCS 	= -I./incs -I./libft/includes
+INCS 	= -I./incs -I./libft/includes -I./minilibx
 LIBS	= ./libft
 LIBFT 	= -L$(LIBS) -lft
 LIBMLX	= -L./minilibx -lmlx -framework OpenGL -framework AppKit
