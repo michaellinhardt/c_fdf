@@ -42,7 +42,7 @@ int		itow(void *img, int x, int y, char *name)
 
 	d = data();
 	if (LOG_ITOW == 1)
-		l(3, "IMG TO WINDOW", name);
+		l1(3, "IMG TO WINDOW", name);
 	return (mlx_put_image_to_window(d->mlx, d->win, img, x, y));
 }
 
@@ -52,12 +52,12 @@ void	*xtoi(t_img *img, char *path)
 
 	d = data();
 	if (!(img->img) && LOG_XTOI == 1)
-		l(8, "GET XPM TO IMG", path);
+		l1(8, "GET XPM TO IMG", path);
 	if (!(img->img)
 	&& !(img->img = mlx_xpm_file_to_image(d->mlx, path, &img->sl, &img->end)))
 		exit1(1, d, "Cant load xpm file");
 	if (!(img->img) && LOG_XTOI == 1)
-		l(8, "GET XPM DATA", path);
+		l1(8, "GET XPM DATA", path);
 	if (!(img->str))
 		img->str = mlx_get_data_addr(img->img, &img->bpp, &img->sl, &img->end);
 	return (img->img);
@@ -69,11 +69,11 @@ void	*newi(t_img *img, int x, int y, char *name)
 
 	d = data();
 	if (!(img->img) && LOG_NEWI == 1)
-		l(9, "GET NEW IMG", name);
+		l1(9, "GET NEW IMG", name);
 	if (!(img->img) && !(img->img = mlx_new_image(d->mlx, x, y)))
 		exit1(1, d, "Cant get new img");
 	if (!(img->str) && LOG_NEWI == 1)
-		l(9, "GET IMG DATA", name);
+		l1(9, "GET IMG DATA", name);
 	if (!(img->str))
 		img->str = mlx_get_data_addr(img->img, &img->bpp, &img->sl, &img->end);
 	return (img->img);

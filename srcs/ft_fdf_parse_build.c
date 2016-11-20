@@ -12,7 +12,7 @@
 
 #include "ft_fdf.h"
 
-void	pcol(t_map *m, int slot, char a, char b)
+void	pcol1(t_map *m, int slot, char a, char b)
 {
 	int		vala;
 	int		valb;
@@ -55,16 +55,16 @@ int		pseqrec(t_map *m, char *li, int *i, intmax_t verif)
 	z[m->j] = '\0';
 	verif = ft_atoimax(z);
  	if (verif > INT_MAX || verif < INT_MIN)
-		return (0 * l(1, "BUILD ARRAY", "Z overflow int size"));
+		return (0 * l1(1, "BUILD ARRAY", "Z overflow int size"));
 	m->map[m->y][m->x] = (int)verif;
 	if (verif > abss(m->zm))
 		m->zm = verif;
 	if (li[*i] && li[*i] == ',' && (m->j = -999))
 		*i += 9;
 	z[6] = '\0';
-	(m->j < 0) ? pcol(m, 0, li[m->i - 6], li[m->i - 5]) : pcol(m, 0, '0', '0');
-	(m->j < 0) ? pcol(m, 1, li[m->i - 4], li[m->i - 3]) : pcol(m, 1, '0', '0');
-	(m->j < 0) ? pcol(m, 2, li[m->i - 2], li[m->i - 1]) : pcol(m, 2, '0', '0');
+	(m->j < 0) ? pcol1(m, 0, li[m->i - 6], li[m->i - 5]) : pcol1(m, 0, '0', '0');
+	(m->j < 0) ? pcol1(m, 1, li[m->i - 4], li[m->i - 3]) : pcol1(m, 1, '0', '0');
+	(m->j < 0) ? pcol1(m, 2, li[m->i - 2], li[m->i - 1]) : pcol1(m, 2, '0', '0');
 	return (1);
 }
 

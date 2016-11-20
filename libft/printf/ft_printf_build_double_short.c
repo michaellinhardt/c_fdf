@@ -38,7 +38,7 @@ static char			*pf_build_float_g_normal2(t_printf *pf, long double ld)
 	return (ft_ldtoa(ld, pf->arg.preci));
 }
 
-static int			pf_build_float_g_normal(t_printf *pf, long double ld)
+static int			pf_build_float_g_normal1(t_printf *pf, long double ld)
 {
 	int		i;
 
@@ -124,7 +124,7 @@ int					pf_build_float_g(t_printf *pf)
 	while ((int)tmp != 0 && ++divi)
 		tmp /= 10;
 	pf->arg.preci -= divi;
-	if ((pf->arg.preci >= 0) && pf_build_float_g_normal(pf, ld))
+	if ((pf->arg.preci >= 0) && pf_build_float_g_normal1(pf, ld))
 		return (0);
 	pf->arg.preci += divi;
 	ld = pf_build_float_g_exp(pf, ld);

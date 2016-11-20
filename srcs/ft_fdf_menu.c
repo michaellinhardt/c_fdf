@@ -144,7 +144,7 @@ int		menu_data(t_data *d, t_lmenu *new, DIR *dir, struct dirent *f)
 	}
 	closedir(dir);
 	if (!(new = d->menu.lst))
-		return (d->menu.open = 0 * l(1, "MENU", "maps dir is empty"));
+		return (d->menu.open = 0 * l1(1, "MENU", "maps dir is empty"));
 	d->menu.size = d->i;
 	while (((new->id = d->i--) || 1) && new->n)
 		new = new->n;
@@ -168,7 +168,7 @@ void	menu_open(t_data *d, t_img *i, t_menu *m)
 	}
 	(m->fade > 0) ? (m->fade -= 15) : 0;
 	itow(i->img, m->xpos, m->ypos, "menu xpm");
-	if (m->fade == 0 && l(1, "MENU", "OPEN") && l(1, "READDIR", MAP_DIR)
+	if (m->fade == 0 && l1(1, "MENU", "OPEN") && l1(1, "READDIR", MAP_DIR)
 	&& (m->calcpos = 1)
 	&& menu_refresh(d, &d->imenu, &d->menu, d->menu.start))
 		m->open = 2;

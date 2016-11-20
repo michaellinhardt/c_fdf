@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 02:26:18 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/08/04 18:05:23 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 19:33:33 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		pclear(int err, t_data *d, t_map *m, char *msg)
 {
-	l(1, (m->path + ft_strlen(MAP_DIR) - 2), msg);
+	l1(1, (m->path + ft_strlen(MAP_DIR) - 2), msg);
 	ft_strdel(&m->path);
 	(m->fd > 0) ? close(m->fd) : 0;
 	m->fd = 0;
@@ -31,7 +31,7 @@ void	pinit(t_map *m, int areax, int areay, char *s)
 	int		sizey;
 
 	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
-	l(1, s, "calc bloc size");
+	l1(1, s, "calc bloc size");
 	areax = WIN_X - BORDERX * 2;
 	areay = WIN_Y - BORDERY * 2;
 	sizex = areax / m->xm;
@@ -49,7 +49,7 @@ void	pinit(t_map *m, int areax, int areay, char *s)
 	(m->zm == 0) ? (m->zm = 1) : 0;
 	m->heigh = ((double)m->size / (double)m->zm);
 	m->heigh2 = m->heigh;
-	m->rx = -0.2;
+	m->rx = -0.3;
 	m->ry = -0.2;
 }
 
@@ -60,7 +60,7 @@ int		pbuild(t_data *d, t_map *m)
 	close(m->fd);
 	m->fd = open(m->path, O_RDONLY);
 	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
-	l(1, s, "build int array");
+	l1(1, s, "build int array");
 	if (m->fd < 0 || BUFF_SIZE < 1 || read(m->fd, m->read, 0) < 0)
 		return(pclear(1, d, m, "! cant read the map"));
 	if (!pbuildarray(m, (char *)NULL))
@@ -80,7 +80,7 @@ int		pformat(t_data *d, t_map *m)
 		return(pclear(1, d, m, "! invalid map name"));
 	m->fd = open(m->path, O_RDONLY);
 	s = m->path + ft_strlen(MAP_DIR) - ((m->path[0] == '.') ? 0 : 2);
-	l(1, s, "format verification");
+	l1(1, s, "format verification");
 	if (m->fd < 0 || BUFF_SIZE < 1 || read(m->fd, m->read, 0) < 0)
 		return(pclear(1, d, m, "! cant read the map"));
 	if (!pformatcheck(m, (char *)NULL))

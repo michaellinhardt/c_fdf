@@ -1,6 +1,6 @@
 #include "ft_fdf.h"
 
-int		l(int ico, char *name, char *info)
+int		l1(int ico, char *name, char *info)
 {
 	wchar_t		uni;
 	t_data		*d;

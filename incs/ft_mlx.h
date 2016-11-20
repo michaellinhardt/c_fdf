@@ -99,7 +99,7 @@ int		pasciimsg(char *msg, int color);
 void	pasciiclose(void);
 void	pasciiopen(int i);
 
-int		l(int ico, char *name, char *info);
+int		l1(int ico, char *name, char *info);
 int		l2(int ico, char *name, char *info, int val);
 int		l3(int ico);
 int		l4(int btn, int x, int y, char *action);

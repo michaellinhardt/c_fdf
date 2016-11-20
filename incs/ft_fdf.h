@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 01:50:14 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/10 05:06:22 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 19:45:30 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ void	intro_load(t_data *d, t_img *l, t_img *i);
 
 int		exit1(int err, t_data *d, char *msg);
 int		exit2(int err, t_data *d, char *del, char *msg);
+
+void	data_init(t_data *d, int argc, char **argv);
 
 #endif

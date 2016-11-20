@@ -26,7 +26,7 @@ static size_t	ft_itoa_base_len(intmax_t n, size_t lb)
 	return (l);
 }
 
-static void		ft_itoa_base_fill(intmax_t bn, char *s
+static void		ft_itoa_base_fill1(intmax_t bn, char *s
 				, const char *b, size_t lb)
 {
 	if (bn == 0)
@@ -52,6 +52,6 @@ char			*ft_imaxtoa_base(intmax_t n, const char *b)
 		return (NULL);
 	if (bn < 0 && (*s = '-'))
 		bn = -(bn);
-	ft_itoa_base_fill(bn, s + l - 1, b, lb);
+	ft_itoa_base_fill1(bn, s + l - 1, b, lb);
 	return (s);
 }

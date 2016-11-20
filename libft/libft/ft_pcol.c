@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_pcol(char *s)
+char	*ft_pcol1(char *s)
 {
 	if (ft_strcmp(s, "RE") == 0)
 		return ("\033[0;31m");

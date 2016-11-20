@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/08/04 18:04:16 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 19:30:42 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,14 @@ int		keyr_hook(int key, t_data *d)
 	else if (d->scene == MAIN && key == 49 && loop(1))
 	{
 		d->menu.open = (d->menu.open != 0 && (d->menu.fade = 255)) ? 0 : 1;
-		d->loopstop = (d->menu.open == 0 && l(1, "MENU", "CLOSE")) ? 1 : 0;
+		d->loopstop = (d->menu.open == 0 && l1(1, "MENU", "CLOSE")) ? 1 : 0;
 	}
 	else if (d->menu.open == 0)
 	{
+		(key == 116 && d->input.shift == 0) ? zoomin(d, &d->map, d->input.x, d->input.y) : 1;
+		(key == 121 && d->input.shift == 0) ? zoomout(d, &d->map, d->input.x, d->input.y) : 1;
+		(key == 116 && d->input.shift == 1) ? zoomzin(d, &d->map) : 1;
+		(key == 121 && d->input.shift == 1) ? zoomzout(d, &d->map) : 1;
 		(key == 123) ? d->input.left = 0 * loop(1) : 0;
 		(key == 124) ? d->input.right = 0 * loop(1) : 0;
 		(key == 125) ? d->input.down = 0 * loop(1) : 0;
@@ -63,6 +67,7 @@ int		keyr_hook(int key, t_data *d)
 
 int		keyp_hook(int key, t_data *d)
 {
+	// 116 up, 121 down
 	d->i += 0;
 	l2(2, "PRESS", "-> (int) key", key);
 	if (d->menu.open == 0)

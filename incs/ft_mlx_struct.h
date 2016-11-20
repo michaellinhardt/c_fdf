@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/04 05:28:15 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/07/25 18:10:02 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/20 19:25:57 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ typedef struct		s_img
 
 typedef struct		s_input
 {
+	int				pageup;
+	int				pagedw;
 	int				left;
 	int				mleft;
 	int				right;

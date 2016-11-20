@@ -33,7 +33,7 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putchar(char c);
 int					ft_putstr(char const *s);
 void				ft_putnbr(int n);
-int					ft_putendl(char const *s);
+int					ft_putendl1(char const *s);
 
 size_t				ft_strlen(const char *s);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -57,7 +57,7 @@ char				*ft_imaxtoa_base(intmax_t n, const char *b);
 char				*ft_uimaxtoa_base(uintmax_t n, const char *b);
 int					ft_pow(int x, unsigned int y);
 
-char				*ft_pcol(char *s);
+char				*ft_pcol1(char *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 char				*ft_strtoupper(char *str);

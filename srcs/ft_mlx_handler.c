@@ -27,8 +27,8 @@ void	mlx_handler(t_data *d, int step)
 	{
 		d->mlx = mlx_init();
 		d->win = mlx_new_window(d->mlx, WIN_X, WIN_Y, WIN_TITLE);
-		l(1, "d->mlx", "mlx_init();");
-		l(1, "d->win", "mlx_new_window();");
+		l1(1, "d->mlx", "mlx_init();");
+		l1(1, "d->win", "mlx_new_window();");
 	}
 	if (step == 1)
 	{
@@ -40,7 +40,7 @@ void	mlx_handler(t_data *d, int step)
 		mlx_hook(d->win, 17, (1L<<17), &red_cross, d);
 		mlx_loop_hook(d->mlx, loop_hook, d);
 		l3(0);
-		l(10, "LOOP START", "mlx_loop();");
+		l1(10, "LOOP START", "mlx_loop();");
 		mlx_loop(d->mlx);
 	}
 }
