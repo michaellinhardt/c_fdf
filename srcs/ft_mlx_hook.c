@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:12:19 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/11/20 22:03:33 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/21 00:29:20 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int		keyr_hook(int key, t_data *d)
 	else if (d->menu.open == 0)
 	{
 		(key == 116 && d->input.shift == 0) ? zoomin(d, &d->map
-			, d->input.x, d->input.y) : 1;
+			, d->mx, d->my) : 1;
 		(key == 121 && d->input.shift == 0) ? zoomout(d, &d->map
-			, d->input.x, d->input.y) : 1;
+			, d->mx, d->my) : 1;
 		(key == 116 && d->input.shift == 1) ? zoomzin(d, &d->map) : 1;
 		(key == 121 && d->input.shift == 1) ? zoomzout(d, &d->map) : 1;
 		(key == 123) ? d->input.left = 0 * loop(1) : 0;

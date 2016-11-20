@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 11:15:30 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/08/01 12:51:59 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/21 00:41:41 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "ft_mlx_struct.h"
 
 # define WIN_TITLE "Fil De Fer - mlinhard@student.42.fr"
-# define SCENE_START 3
+# define SCENE_START 0
 # define INTRO_FADE_SPEED 2
 # define WIN_X 1200
 # define WIN_Y 675
@@ -60,15 +60,13 @@
 # define LINE_YEL "\e[93m║"
 
 # define LOG_ITOW 0
-# define LOG_XTOI 0
-# define LOG_NEWI 0
+# define LOG_XTOI 1
+# define LOG_NEWI 1
 # define LOG_KEY 0
 # define LOG_MOUSE 0
-# define LOG_LOOP 0
+# define LOG_LOOP 1
 
 # define C ft_memcpy
-# define CC &(int [6])
-
 # define W ft_putendl
 
 int		loop(int step);

@@ -6,7 +6,7 @@
 /*   By: mlinhard <mlinhard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/20 20:25:13 by mlinhard          #+#    #+#             */
-/*   Updated: 2016/11/20 20:25:14 by mlinhard         ###   ########.fr       */
+/*   Updated: 2016/11/21 00:38:42 by mlinhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	data_init(t_data *d, int argc, char **argv)
 {
 	ft_bzero(d, sizeof(t_data));
 	data_init2(d);
-	d->scene = MAIN_LOAD;
+	d->scene = SCENE_START;
 	d->scenelast = d->scene;
 	d->menu.fade = 255;
 	d->menu.xpos = 471;
